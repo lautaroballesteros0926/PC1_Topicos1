@@ -178,5 +178,3 @@ Con estos 8 casos reales: (1) un contrato de salida explícito en el prompt fue 
 5. JSON Schema, *Draft 2020-12*. https://json-schema.org/draft/2020-12 — especificación del contrato; validación con la librería `jsonschema` (`Draft202012Validator`).
 6. Yahoo Finance, precios históricos obtenidos con `yfinance` (https://github.com/ranaroussi/yfinance). — procedencia de los datos.
 7. Material del curso CC0F4 (Semanas 1-3): `Cuaderno2-CC-0F4.ipynb` y `Cuaderno3-CC-0F4.ipynb`, repositorio `kapumota/CC-0F4`. — convenciones de schema, prompt en secciones y evaluación (accuracy, macro-F1, auditoría de errores).
-
-*Nota: las referencias se listan tal como las recuerdo; conviene verificar título y numeración arXiv en las herramientas de literatura del curso (Elicit, Consensus, Connected Papers) antes de exponer.*
