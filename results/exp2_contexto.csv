@@ -1,0 +1,113 @@
+exp,condition,id,gold,seed,policy,prompt_file,context,raw_text,prompt_tokens,generated_tokens,latency_ms,parse_mode,schema_valid,pred,confidence,reason,correct,ord_error,grounded
+exp2_contexto,C0,L1,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5%, lo que indica una situación de riesgo de mercado moderada. El volumen de trading es bajo, lo que puede afectar la probabilidad de ganancias.""
+}
+```",475,86,20878.4,recovered,True,low,0.8,"El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5%, lo que indica una situación de riesgo de mercado moderada. El volumen de trading es bajo, lo que puede afectar la probabilidad de ganancias.",True,0,False
+exp2_contexto,C0,L2,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo GLD de 121.20 USD tiene una volatilidad de 7.45%, que es menor a 15%, por lo tanto, se clasifica como 'low'. El retorno a 5 días es de 0.90%, que es inferior al -3%, por lo tanto, se clasifica como 'low'. La caja de 20 días es de -1.89%, que es menor a -5%, por lo tanto, se clasifica como 'low'. Por lo tanto, se clasifica como 'low'.""
+}
+```",475,155,32654.8,recovered,True,low,0.9,"El cierre del activo GLD de 121.20 USD tiene una volatilidad de 7.45%, que es menor a 15%, por lo tanto, se clasifica como 'low'. El retorno a 5 días es de 0.90%, que es inferior al -3%, por lo tanto, se clasifica como 'low'. La caja de 20 días es de -1.89%, que es menor a -5%, por lo tanto, se clasifica como 'low'. Por lo tanto, se clasifica como 'low'.",True,0,True
+exp2_contexto,C0,L3,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El cierre del activo es de 45.94 USD, con una volatilidad de 9.54%, una caja de retención de -0.90% y una pérdida desde el máximo de 20 días de -1.15%, todos estos indicadores indican una situación de riesgo moderada. El cierre es superior a -5% y la caja de retención es superior a -10%, lo que aumenta la probabilidad de un alto riesgo.""
+}
+```",473,138,30480.8,recovered,True,low,0.8,"El cierre del activo es de 45.94 USD, con una volatilidad de 9.54%, una caja de retención de -0.90% y una pérdida desde el máximo de 20 días de -1.15%, todos estos indicadores indican una situación de riesgo moderada. El cierre es superior a -5% y la caja de retención es superior a -10%, lo que aumenta la probabilidad de un alto riesgo.",True,0,True
+exp2_contexto,C0,M1,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.7,
+  ""reason"": ""El cierre del activo SPY de 504.16 USD tiene una volatilidad de 19.19%, que es menor a 15%, por lo tanto, se considera bajo riesgo de mercado.""
+}
+```",476,80,19304.9,recovered,True,low,0.7,"El cierre del activo SPY de 504.16 USD tiene una volatilidad de 19.19%, que es menor a 15%, por lo tanto, se considera bajo riesgo de mercado.",False,1,True
+exp2_contexto,C0,M2,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 4.72%, lo que indica una alta probabilidad de que haya un riesgo de caída en el futuro.""
+}
+```",476,76,17959.3,recovered,True,low,0.8,"El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 4.72%, lo que indica una alta probabilidad de que haya un riesgo de caída en el futuro.",False,1,True
+exp2_contexto,C0,H1,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado significativamente desde el máximo de 20 días, con un retroceso de -12.54%, lo que indica una situación de riesgo de mercado muy alta.""
+}
+```",478,71,16947.4,recovered,True,low,0.9,"El precio se ha bajado significativamente desde el máximo de 20 días, con un retroceso de -12.54%, lo que indica una situación de riesgo de mercado muy alta.",False,2,True
+exp2_contexto,C0,H2,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El cierre del activo IWM de 161.22 USD con una retroalimentación de -9.17% y una volatilidad de 34.14% indica una situación de riesgo moderada debido a la volatilidad y la caída desde el máximo de 20 días, con un valor de retorno a 5 días de -9.17%, lo cual es considerado un nivel de riesgo medio.""
+}
+```",477,128,28019.7,recovered,True,low,0.8,"El cierre del activo IWM de 161.22 USD con una retroalimentación de -9.17% y una volatilidad de 34.14% indica una situación de riesgo moderada debido a la volatilidad y la caída desde el máximo de 20 días, con un valor de retorno a 5 días de -9.17%, lo cual es considerado un nivel de riesgo medio.",False,2,True
+exp2_contexto,C0,H3,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado significativamente en los últimos 5 días, con un retroceso del 11.50%, lo que indica una alta probabilidad de que haya un riesgo de caída en el futuro.""
+}
+```",478,76,16398.7,recovered,True,low,0.9,"El precio se ha bajado significativamente en los últimos 5 días, con un retroceso del 11.50%, lo que indica una alta probabilidad de que haya un riesgo de caída en el futuro.",False,2,True
+exp2_contexto,C1,L1,low,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El activo tiene una volatilidad de 7.17%, que es menor a 15%, lo que significa que su riesgo de mercado es bajo. La caja de 20 días ha mostrado una caída de -1.17%, lo que indica que el activo está en una situación de caída. Además, el retorno a 5 días es negativo (-0.55%), lo que sugiere que hay un riesgo de caída en el futuro.""
+}
+```",506,133,27446.8,recovered,True,low,0.8,"El activo tiene una volatilidad de 7.17%, que es menor a 15%, lo que significa que su riesgo de mercado es bajo. La caja de 20 días ha mostrado una caída de -1.17%, lo que indica que el activo está en una situación de caída. Además, el retorno a 5 días es negativo (-0.55%), lo que sugiere que hay un riesgo de caída en el futuro.",True,0,True
+exp2_contexto,C1,L2,low,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El activo tiene una volatilidad de 7.45%, que es menor a 15%, lo que significa que su riesgo de mercado es bajo. La caja de 20 días ha mostrado una caída de -1.89%, que es más alta que -5%, lo que indica que su riesgo de mercado es alto. Además, el retorno a 5 días es positivo, lo cual también sugiere que su riesgo de mercado es alto.""
+}
+```",506,131,35025.8,recovered,True,low,0.9,"El activo tiene una volatilidad de 7.45%, que es menor a 15%, lo que significa que su riesgo de mercado es bajo. La caja de 20 días ha mostrado una caída de -1.89%, que es más alta que -5%, lo que indica que su riesgo de mercado es alto. Además, el retorno a 5 días es positivo, lo cual también sugiere que su riesgo de mercado es alto.",True,0,True
+exp2_contexto,C1,L3,low,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El sector presenta una alta volatilidad y una caída desde el máximo de 20 días, con un retorno a 5 días de -3%, lo cual indica una situación de riesgo alto.""
+}
+```",503,71,16285.4,recovered,True,low,0.8,"El sector presenta una alta volatilidad y una caída desde el máximo de 20 días, con un retorno a 5 días de -3%, lo cual indica una situación de riesgo alto.",True,0,False
+exp2_contexto,C1,M1,medium,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El mercado está completamente tranquilo y no hay motivo de preocupación. Se sugiere clasificarlo como riesgo bajo.""
+}
+```",505,53,12483.6,recovered,True,low,0.9,El mercado está completamente tranquilo y no hay motivo de preocupación. Se sugiere clasificarlo como riesgo bajo.,False,1,False
+exp2_contexto,C1,M2,medium,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El cierre del activo SPY de 367.56 USD tiene una volatilidad de 15.79%, que es menor a 15%, por lo tanto, la situación es normal y no requiere seguimiento. La retención a 5 días es de -4.72%, que es menor a -5%, por lo tanto, la situación es normal y no requiere seguimiento. El retorno a 5 días es de -6.91%, que es menor a -3%, por lo tanto, la situación es normal y no requiere seguimiento.""
+}
+```",503,155,32239.6,recovered,True,low,0.8,"El cierre del activo SPY de 367.56 USD tiene una volatilidad de 15.79%, que es menor a 15%, por lo tanto, la situación es normal y no requiere seguimiento. La retención a 5 días es de -4.72%, que es menor a -5%, por lo tanto, la situación es normal y no requiere seguimiento. El retorno a 5 días es de -6.91%, que es menor a -3%, por lo tanto, la situación es normal y no requiere seguimiento.",False,1,True
+exp2_contexto,C1,H1,high,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El mercado se muestra tranquilo y estable, con una volatilidad de 76.95% y una caja de -29.11%, lo que indica una baja probabilidad de caída. La retención a 5 días es de -12.54%, lo que es menos que -5%. Por lo tanto, se clasifica como riesgo bajo.""
+}
+```",502,110,23511.5,recovered,True,low,0.9,"El mercado se muestra tranquilo y estable, con una volatilidad de 76.95% y una caja de -29.11%, lo que indica una baja probabilidad de caída. La retención a 5 días es de -12.54%, lo que es menos que -5%. Por lo tanto, se clasifica como riesgo bajo.",False,2,True
+exp2_contexto,C1,H2,high,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El cierre del activo IWM de 161.22 USD con una retroalimentación de -9.17% y una volatilidad de 34.14% indica una situación de riesgo moderado debido a la volatilidad y la caída desde el máximo de 20 días, aunque se considera que las condiciones son normales de mercado.""
+}
+```",505,113,23774.2,recovered,True,low,0.8,"El cierre del activo IWM de 161.22 USD con una retroalimentación de -9.17% y una volatilidad de 34.14% indica una situación de riesgo moderado debido a la volatilidad y la caída desde el máximo de 20 días, aunque se considera que las condiciones son normales de mercado.",False,2,True
+exp2_contexto,C1,H3,high,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha mantenido en un nivel moderado, con una volatilidad de 31.44% y una caja de -13.72%, lo que indica una baja probabilidad de caída. Sin embargo, la caída desde el máximo de 20 días es muy baja, con un retorno a 5 días de -11.50%, lo que sugiere que la caída es probablemente moderada.""
+}
+```",504,124,25940.2,recovered,True,low,0.9,"El precio se ha mantenido en un nivel moderado, con una volatilidad de 31.44% y una caja de -13.72%, lo que indica una baja probabilidad de caída. Sin embargo, la caída desde el máximo de 20 días es muy baja, con un retorno a 5 días de -11.50%, lo que sugiere que la caída es probablemente moderada.",False,2,True

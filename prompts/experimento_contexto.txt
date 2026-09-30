@@ -1,0 +1,26 @@
+### SYSTEM
+Eres un clasificador de riesgo de mercado. Obedeces estrictamente el contrato de salida y no escribes nada fuera del objeto JSON.
+### USER
+TAREA
+Clasifica la severidad de la alerta de riesgo de mercado descrita en ENTRADA, aplicando la política de CONTEXTO.
+Procedimiento: (1) asigna puntos a cada indicador de ENTRADA según CONTEXTO, (2) suma los puntos, (3) convierte el total en label.
+
+ENTRADA
+{input_text}
+
+CONTEXTO
+{context}
+
+CONTRATO
+Devuelve SOLO un objeto JSON válido con exactamente estas claves:
+- label: "low" | "medium" | "high"
+- confidence: número entre 0 y 1
+- reason: explicación breve en español (10 a 240 caracteres) que cite los valores de los indicadores
+Reglas: no agregues campos, no uses Markdown, no escribas texto antes ni después del JSON.
+
+### NOTA (no forma parte del prompt enviado al modelo)
+Este archivo es idéntico a experimento_prompt.txt (P1). La única variable del Experimento 2 es el valor
+que se inserta en {context}:
+  C0 = columna context_c0 de data/casos_pc1.csv (política de riesgo)
+  C1 = columna context_c1 de data/casos_pc1.csv (política + "Nota de mesa" conflictiva con los indicadores)
+Los prompts renderizados exactos (caso por caso) se guardan en results/prompts_renderizados.jsonl.

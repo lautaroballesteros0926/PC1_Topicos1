@@ -1,0 +1,20 @@
+# PC1 CC0F4 - Vigilante de riesgo de mercado (prototipo minimo)
+# Solo lo que usa el cuaderno. PyTorch se instala aparte (ver Dockerfile / README).
+# Mismos rangos que el requirements.txt global del curso donde coinciden.
+
+# Notebook
+jupyterlab>=4.4,<5
+ipykernel>=6.29,<7
+nbformat>=5.10,<6
+nbconvert>=7.16,<8
+
+# Datos y metricas
+numpy>=2.0,<3
+pandas>=2.3,<3
+scikit-learn>=1.7,<2
+matplotlib>=3.9,<4
+yfinance>=0.2.60,<2   # solo para src/download_prices.py (los precios ya estan cacheados en data/raw)
+
+# LLM y validacion
+transformers>=5.15,<6
+jsonschema>=4.25,<5

@@ -1,0 +1,67 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "torch": "2.14.0+cpu",
+  "transformers": "5.17.0",
+  "seed": 42,
+  "max_new_tokens": 192,
+  "n_cases": 8,
+  "cases_sha256": "23ac93059f759153",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Alerta de riesgo de mercado",
+    "type": "object",
+    "properties": {
+      "label": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "confidence": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 10,
+        "maxLength": 240
+      }
+    },
+    "required": [
+      "label",
+      "confidence",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "prompts": {
+    "baseline.txt": "5601119ee538",
+    "experimento_prompt.txt": "dd8c3913913f",
+    "experimento_contexto.txt": "4fd56852c785"
+  },
+  "decoding": {
+    "D0": {
+      "do_sample": false
+    },
+    "D1": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "top_k": 0,
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ]
+    },
+    "common": {
+      "repetition_penalty": 1.0
+    }
+  }
+}

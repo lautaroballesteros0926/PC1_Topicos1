@@ -1,0 +1,20 @@
+# Jupyter Lab para la PC1 CC0F4 (uso local: sin token, no exponer a la red).
+#   docker compose up          -> http://localhost:8888/lab
+#   docker compose down        -> detiene y elimina el contenedor (el volumen del modelo se conserva)
+services:
+  pc1:
+    build: .
+    image: cc0f4-pc1
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/workspace/pc1
+      - pc1_hf:/home/user/.cache/huggingface
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+      --ServerApp.root_dir=/workspace/pc1
+      --IdentityProvider.token=''
+
+volumes:
+  pc1_hf:
+    name: pc1_hf   # cache del modelo Qwen; se reutiliza si ya existe

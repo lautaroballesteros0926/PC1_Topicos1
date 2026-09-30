@@ -1,0 +1,244 @@
+exp,condition,id,gold,seed,policy,prompt_file,context,raw_text,prompt_tokens,generated_tokens,latency_ms,parse_mode,schema_valid,pred,confidence,reason,correct,ord_error,grounded,same_as_greedy
+exp3_decoding,D0,L1,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 209.63 USD a 209.18 USD en 5 días, con un retorno a 5 días de -0.55%, que es muy bajo. Además, la volatilidad 20d anualizada es de 7.17%, lo",475,96,21170.8,failed,False,,,,False,,,
+exp3_decoding,D0,L2,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo GLD de 121.20 USD con un retorno a 5 días de 0.90% y una volatilidad 20d anualizada de 7.45% y una caja de -1.89% indica una situación de riesgo moderada.",475,96,22699.5,failed,False,,,,False,,,
+exp3_decoding,D0,L3,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El valor del activo es de 45.94 USD, con un retorno a 5 dias de -0.90%, una volatilidad de 9.54%, y una caja de -1.15% desde el maximo de 20d. Los indicadores de volatilidad y",473,96,22498.9,failed,False,,,,False,,,
+exp3_decoding,D0,M1,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5.03% y una volatilidad del 19.19%. Esta situación se considera severa debido a la caída desde el máximo de 20 días, con un retroceso del -8.",476,96,23426.2,failed,False,,,,False,,,
+exp3_decoding,D0,M2,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 367.56 USD a 323.84 USD en 5 días, con un retorno a 5 días de -4.72%, que es muy bajo. El volatilidad 20d anualizada es de 15.79%, lo que",476,96,25231.9,failed,False,,,,False,,,
+exp3_decoding,D0,H1,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio de SPY ha bajado de 218.09 USD a 215.45 USD en 5 días, con un retorno a 5 días de -12.54%, que es muy bajo. Además, la volatilidad 20d anualizada es de 76.",478,96,21694.0,failed,False,,,,False,,,
+exp3_decoding,D0,H2,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo IWM de 161.22 USD con un retorno a 5 días de -9.17% y una volatilidad 20d anualizada de 34.14% y una caja de -10.61% indica una situación de riesgo de",477,96,20422.1,failed,False,,,,False,,,
+exp3_decoding,D0,H3,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 11.50% y una volatilidad del 31.44%, lo que indica una alta riesgosa situación. El precio se ha mantenido en un nivel más bajo que el máximo de 20",478,96,20437.8,failed,False,,,,False,,,
+exp3_decoding,D1,L1,low,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La volatilidad del 20d anualizada (7.17%) es muy baja y la retroalimentación a 5 dias (-0.55%) está muy baja. Sin embargo, la creciente retroalimentación (1.17%) indica una alta riesgo de mercado. Considerando estos fact",475,96,24775.7,failed,False,,,,False,,,True
+exp3_decoding,D1,L1,low,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La acción SPY registró un cierre del 209.63 USD, con un retorno de 5 días de -0.55%, que se mantiene en una baja de -1.17%, con una volatilidad de 7.17% y una coda desde el máximo de 2",475,96,21677.5,failed,False,,,,False,,,True
+exp3_decoding,D1,L1,low,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Volatilidad 20d anualizada es menor a 15%, cayendo desde el maximo de 20d, indicando riesgo moderado. Cierre en 209.63 USD con un retorno a 5 dias de -0.55%, que se considera bien planeado pero",475,96,22340.0,failed,False,,,,False,,,True
+exp3_decoding,D1,L1,low,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El indicador de volatilidad (20d anualizada) es de 7.17%, que está entre 15% y 25% del límite de 25%, por lo que consideramos que el riesgo es moderado. El cierre del activo es 209.63",475,96,22041.8,failed,False,,,,False,,,True
+exp3_decoding,D1,L1,low,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (7.17%) es moderada, mientras que la caja de 20d (-1.17%) está muy baja. El retorno a 5 días (-0.55%) muestra una baja de 3 puntos y la caída desde el maximo de",475,96,21566.9,failed,False,,,,False,,,True
+exp3_decoding,D1,L2,low,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.66,
+  ""reason"": ""El cierre del activo GLD es de 121.20 USD, con un cierre 90 puntos por 20d anualizada, un retorno de 5 días de -0.90%, y una cayida desde el máximo de 20d de -1.89%. A",475,96,22266.5,failed,False,,,,False,,,True
+exp3_decoding,D1,L2,low,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.85,
+  ""reason"": ""El indicador de Volatilidad 20d anualizada (7.45%) está por debajo de 15%, lo cual aumenta el riesgo. El indicador de Caida desde el maximo de 20d (-1.89%) es bajo, pero sigue siendo menor que -5%.",475,96,22184.4,failed,False,,,,False,,,True
+exp3_decoding,D1,L2,low,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Volatilidad 20d anualizada es menor a 15%, cayendo desde el maximo de 20d, indicando riesgo moderado. Cierre en 121.20 USD con un retorno a 5 dias de 0.90% y volatilidad de 7",475,96,21490.5,failed,False,,,,False,,,True
+exp3_decoding,D1,L2,low,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo GLD es de 121.20 USD, con una volatilidad de 7.45%, una caída de 1.89% desde el maximo de 20d y una retención de 90% en 5 dias.""
+}
+```",475,93,21466.2,recovered,True,low,0.9,"El cierre del activo GLD es de 121.20 USD, con una volatilidad de 7.45%, una caída de 1.89% desde el maximo de 20d y una retención de 90% en 5 dias.",True,0.0,True,False
+exp3_decoding,D1,L2,low,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (7.45%) y la Caida desde el maximo de 20d (-1.89%) son altos. El retorno a 5 dias (-0.90%) es bajo. Por lo tanto, la severidad de la alerta de riesgo de",475,96,23945.4,failed,False,,,,False,,,True
+exp3_decoding,D1,L3,low,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.85,
+  ""reason"": ""El nivel de volatilidad del 20d anualizado (9.54%) está entre 15% y 25%, por lo que el riesgo de mercado es moderado. La caja de 20d (1.15%) también está cerca de cero, lo que aumenta la",473,96,26097.1,failed,False,,,,False,,,True
+exp3_decoding,D1,L3,low,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.85,
+  ""reason"": ""El indicador de volatilidad 20d anualizada (9.54%) está por debajo de 15%, lo cual aumenta el riesgo. El cierre de 45.94 USD es menor al monto mínimo del mercado en 5 dias (-0.90%). El aumento en",473,96,23777.2,failed,False,,,,False,,,True
+exp3_decoding,D1,L3,low,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Volatilidad 20d anualizada es menor a 15%, cayendo desde el maximo de 20d, indicando riesgo moderado. Cierre en 45.94 USD con un retroceso del 0.90%, la volatilidad se mantiene alrededor",473,96,27217.6,failed,False,,,,False,,,True
+exp3_decoding,D1,L3,low,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El indicador de volatilidad (20d anualizada) es de 9.54%, que está entre 15% y 25%. Esta indicación sugiere que hay una moderada volatilidad en la tendencia. El cierre de -0.90% es un poco negativo,",473,96,22967.3,failed,False,,,,False,,,True
+exp3_decoding,D1,L3,low,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (9.54%) y la caja de retención a 5 dias (45.94 USD) indican una situación de riesgo moderada, ya que la volatilidad es bajo, la caja de retención a 5 dias es alta, y",473,96,25926.4,failed,False,,,,False,,,True
+exp3_decoding,D1,M1,medium,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.66,
+  ""reason"": ""El SPY ha registrado un cambio de cierre del 504.16 USD con un cierre retroactivo de -5.03% en 5 días, con una volatilidad del 19.19% a 20 días anualizada y una cota de -8.41%",476,96,27131.9,failed,False,,,,False,,,True
+exp3_decoding,D1,M1,medium,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El precio fue de 504.16 USD, con un cierre de -5.03%, un return al 5 días de -5.03%, una volatilidad de 19.19%, y una caja de -8.41% desde el maximo de 20 días.",476,96,31454.7,failed,False,,,,False,,,True
+exp3_decoding,D1,M1,medium,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Volatilidad 20d anualizada es menor a 15%, cayendo desde el maximo de 20d, indicando riesgo moderado. Cierre en 504.16 USD con un retorno a 5 dias de -5.03%, que se considera una caja de",476,96,27139.0,failed,False,,,,False,,,True
+exp3_decoding,D1,M1,medium,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El indicador de volatilidad 20d anualizada (19.19%) está en un rango de 15% a 25% y cayó a -3%, con un retorno a 5 dias (-5.03%) que es más alto que -3%, lo que indica una sever",476,96,27382.3,failed,False,,,,False,,,True
+exp3_decoding,D1,M1,medium,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (19.19%) es menor a 15%, lo cual es una consideración importante para la gestión de riesgos de mercado. A pesar de la caja de retención del 5% (-5.03%) y la caja de recaudación",476,96,28633.5,failed,False,,,,False,,,True
+exp3_decoding,D1,M2,medium,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La volatilidad del 20d anualizada (15.79%) y la cayendita desde el maximo de 20d (6.91%) son altos, pero la acción de 367.56 USD es a un nivel sostenido. Además, el retorno a",476,96,26553.1,failed,False,,,,False,,,True
+exp3_decoding,D1,M2,medium,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La acción SPY registró un cierre del 367.56 USD, con un retorno de -4.72%, indicando una volatilidad de 15.79%, que es inferior a 25% por 20 días. También se observa una caja de -6.91",476,96,28009.8,failed,False,,,,False,,,True
+exp3_decoding,D1,M2,medium,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Volatilidad 20d anualizada es menor a 15%, cayendo desde el maximo de 20d, indicando riesgo moderado. Cierre en 367.56 USD con un retorno a 5 dias de -4.72%, que se considera una caja baj",476,96,27104.2,failed,False,,,,False,,,True
+exp3_decoding,D1,M2,medium,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El indicador de volatilidad 20d anualizada (15.79%) está en un rango de 15% a 25% y el indicador de retorno a 5 dias (-4.72%) también está en un rango de 15% a 25%. Esto sug",476,96,30058.2,failed,False,,,,False,,,True
+exp3_decoding,D1,M2,medium,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (15.79%) es menor a 15%, lo cual es una consideración positiva para la situación de la alerta de riesgo de mercado. Además, la cayidad desde el maximo de 20d (−6.91%) es mín",476,96,28955.2,failed,False,,,,False,,,True
+exp3_decoding,D1,H1,high,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La volatilidad del 20d anualizada (76.95%) y la cayendita desde el maximo de 20d (29.11%) indican una muy baja calidad del mercado. El cierre en 218.09 USD muestra una alta volatilidad y",478,96,25237.6,failed,False,,,,False,,,True
+exp3_decoding,D1,H1,high,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La acción SPY registró un cierre del 218.09 USD, con un retorno de 12.54%, indicando una volatilidad moderada, una caja de 76.95% y una caja de -29.11%, indicando un riesgo moderado.",478,96,28832.9,failed,False,,,,False,,,True
+exp3_decoding,D1,H1,high,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Volatilidad 20d anualizada es menor a 15%, con una retroalimentación del 12.54%, que está a 25% de la señal del retorno a 5 dias, con una retroalimentación del -12.54% que se convierte en 2 pts",478,96,28024.8,failed,False,,,,False,,,True
+exp3_decoding,D1,H1,high,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El indicador de volatilidad 20d anualizada (76.95%) está en un rango de 15% a 25% y cayó a -29.11%, lo cual indica una tendencia negativa en el mercado. La indicación de la caja de 2",478,96,27282.4,failed,False,,,,False,,,True
+exp3_decoding,D1,H1,high,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (76.95%) está en el rango de 15% a 25%, lo que implica que la alerta de riesgo de mercado es moderada. El cierre del activo es de -12.54%, lo que representa una pérdida",478,96,28261.1,failed,False,,,,False,,,True
+exp3_decoding,D1,H2,high,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La volatilidad del 20d anualizada (34.14%) y la cayendita desde el maximo de 20d (10.61%) indican una muy baja calidad del mercado. El cierre en 161.22 USD, una alta volatilidad y",477,96,25161.0,failed,False,,,,False,,,True
+exp3_decoding,D1,H2,high,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 20 días, desde -9.17% en el cierre, y se ha ido a un nivel que no supera el -6% de retorno a 5 días. Este tipo de situación sugiere una severa emergencia económica o financiera, por lo",477,96,25607.0,failed,False,,,,False,,,True
+exp3_decoding,D1,H2,high,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Activo: IWM. Cierre: 161.22 USD. Retorno a 5 dias: -9.17%. Volatilidad 20d anualizada: 34.14%. Caida desde el maximo de 20d: -10.61%.""
+}",477,96,24674.7,recovered,True,low,0.8,Activo: IWM. Cierre: 161.22 USD. Retorno a 5 dias: -9.17%. Volatilidad 20d anualizada: 34.14%. Caida desde el maximo de 20d: -10.61%.,False,2.0,True,False
+exp3_decoding,D1,H2,high,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El indicador de volatilidad (20d anualizada) es de 34.14%, que es menor que 15%, por lo que consideramos que la alerta de riesgo de mercado es baja. El cierre a 5 días (-9.17%) y la retroalimentación (-1",477,96,26273.9,failed,False,,,,False,,,True
+exp3_decoding,D1,H2,high,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (34.14%) es menor a 15%, lo cual es una consideración importante para la severidad de la alerta de riesgo de mercado. Además, la cayidad desde el maximo de 20d (−10.61%) es",477,96,25056.6,failed,False,,,,False,,,True
+exp3_decoding,D1,H3,high,42,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La volatilidad del 20d anualizada (31.44%) y la cayendita desde el maximo de 20d (13.72%) indican una muy baja calidad del mercado. El cierre del activo es del lado invertido, con una alta volatilidad y",478,96,24884.5,failed,False,,,,False,,,True
+exp3_decoding,D1,H3,high,43,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""La acción SPY registró un cierre del 488.38 USD, con un retorno de -11.50%, indicando una volatilidad moderada, una caja de 20 días anualizada de -13.72%, y una pérdida desde el maximo de 20 días",478,96,28294.2,failed,False,,,,False,,,True
+exp3_decoding,D1,H3,high,44,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""Volatilidad 20d anualizada es menor a 15%, cayendo desde el maximo de 20d, indicando riesgo moderado. Cierre en 488.38 USD con un retorno a 5 dias de -11.50%, indicando una volatilidad",478,96,26508.0,failed,False,,,,False,,,True
+exp3_decoding,D1,H3,high,45,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.8,
+  ""reason"": ""El indicador de volatilidad 20d anualizada (31.44%) está en un rango de 15% a 25% y cayó a -13.72%, lo cual constituye una alerta de riesgo de mercado con una severidad de 4-6 puntos",478,96,24995.3,failed,False,,,,False,,,True
+exp3_decoding,D1,H3,high,46,D1_sampling_T0.8_p0.9,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""medium"",
+  ""confidence"": 0.7,
+  ""reason"": ""La volatilidad 20d anualizada (31.44%) es menor a 15%, lo cual es una consideración importante para la gestión de riesgos de mercado. A pesar de la caja de retención del 20d (-13.72%), aunque el retorno a 5 dias",478,96,26443.7,failed,False,,,,False,,,True

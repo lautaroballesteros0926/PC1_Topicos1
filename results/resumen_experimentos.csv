@@ -1,0 +1,7 @@
+,n,parse_exact_rate,parse_any_rate,schema_valid_rate,accuracy,macro_f1,mean_ordinal_error,grounded_rate,label_stability_vs_greedy
+Exp1 P0,8.0,0.0,1.0,0.0,0.0,0.0,,,
+Exp1 P1,8.0,0.0,1.0,1.0,0.375,0.182,1.0,0.875,
+Exp2 C0,8.0,0.0,1.0,1.0,0.375,0.182,1.0,0.875,
+Exp2 C1,8.0,0.0,1.0,1.0,0.375,0.182,1.0,0.75,
+Exp3 D0,8.0,0.0,1.0,1.0,0.375,0.182,1.0,0.875,
+Exp3 D1,40.0,0.0,0.95,0.925,0.325,0.241,0.946,0.946,0.75

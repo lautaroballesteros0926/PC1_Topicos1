@@ -1,0 +1,105 @@
+exp,condition,id,gold,seed,policy,prompt_file,context,raw_text,prompt_tokens,generated_tokens,latency_ms,parse_mode,schema_valid,pred,confidence,reason,correct,ord_error,grounded
+exp2_contexto,C0,L1,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 209.63 USD a 209.18 USD en 5 días, con un retorno a 5 días de -0.55%, que es muy bajo. Además, la volatilidad 20d anualizada es de 7.17%, lo que es muy baja. La caja de cierre es de -1.17%, lo que es muy baja. La caja de 20d es de -3%, lo que es muy baja. El precio se ha bajado de manera significativa desde el maximo de 20d, lo que es muy bajo. Por lo tanto, la severidad de la alerta de riesgo de mercado es de low.""
+}
+```",475,189,48391.1,recovered,False,,,,False,,
+exp2_contexto,C0,L2,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo GLD de 121.20 USD con un retorno a 5 días de 0.90% y una volatilidad 20d anualizada de 7.45% y una caja de -1.89% indica una situación de riesgo moderada. El cierre es superior a -5% y la volatilidad es menor a 15%. La caja de -1.89% indica que el activo está en una situación de riesgo moderada, pero con una caída desde el maximo de 20d de -1.89% que es un poco mayor que -5%.""
+}
+```",475,177,45257.7,recovered,False,,,,False,,
+exp2_contexto,C0,L3,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El valor del activo es de 45.94 USD, con un retorno a 5 dias de -0.90%, una volatilidad de 9.54%, y una caja de -1.15% desde el maximo de 20d. Los indicadores de volatilidad y caja son menores a 15%, lo que les da un valor de 0 puntos. El retorno a 5 dias es mejor que -3%, lo que les da un valor de 0 puntos. Por lo tanto, la severidad de la alerta de riesgo de mercado es de media (2-3 puntos).""
+}
+```",473,169,37399.6,recovered,False,,,,False,,
+exp2_contexto,C0,M1,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5.03% y una volatilidad del 19.19%. Esta situación se considera severa debido a la caída desde el máximo de 20 días, con un retroceso del -8.41%. ""
+}
+```",476,103,22247.3,recovered,True,low,0.9,"El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5.03% y una volatilidad del 19.19%. Esta situación se considera severa debido a la caída desde el máximo de 20 días, con un retroceso del -8.41%. ",False,1.0,True
+exp2_contexto,C0,M2,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 367.56 USD a 323.84 USD en 5 días, con un retorno a 5 días de -4.72%, que es muy bajo. El volatilidad 20d anualizada es de 15.79%, lo que es muy bajo. La caja de cierre es de -6.91%, lo que es muy baja. La caja de 20d es de -3%, lo que es muy baja. El precio se ha bajado de 367.56 USD a 323.84 USD en 5 días, con un retorno a 5 días de -4.72%, que es muy bajo. El volatilidad",476,192,43633.5,failed,False,,,,False,,
+exp2_contexto,C0,H1,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio de SPY ha bajado de 218.09 USD a 215.45 USD en 5 días, con un retorno a 5 días de -12.54%, que es muy bajo. Además, la volatilidad 20d anualizada es de 76.95%, lo que es muy baja. La caja de cierre es de -29.11%, lo que es muy baja. La caja de 20d es de -12.54%, lo que es muy baja. El precio ha bajado de 218.09 USD a 215.45 USD en 5 días, con un retorno a 5 días de -12.54%,",478,192,41925.0,failed,False,,,,False,,
+exp2_contexto,C0,H2,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo IWM de 161.22 USD con un retorno a 5 días de -9.17% y una volatilidad 20d anualizada de 34.14% y una caja de -10.61% indica una situación de riesgo de mercado moderada. El cierre es superior a -5% y la volatilidad es menor a 15%, lo que contribuye a una seguridad moderada. La caja de -10.61% indica una caída desde el maximo de 20d de -10.61%, lo que puede ser un factor de riesgo importante. ""
+}
+```",477,179,36980.5,recovered,False,,,,False,,
+exp2_contexto,C0,H3,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 11.50% y una volatilidad del 31.44%, lo que indica una alta riesgosa situación. El precio se ha mantenido en un nivel más bajo que el máximo de 20 días, lo que sugiere que la situación es aún más crítica. ""
+}
+```",478,114,28652.0,recovered,False,,,,False,,
+exp2_contexto,C1,L1,low,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El activo tiene una volatilidad de 7.17% y una caja de -0.55%, que son considerados moderados. El cierre del activo es de 209.63 USD, con un retorno a 5 días de -0.55%, lo que indica una caída moderada desde el maximo de 20d. El retorno a 5 días es de -0.55%, lo que indica una caída moderada desde el maximo de 20d. El cierre del activo es de 209.63 USD, con un retorno a 5 días de -0.55%, lo que indica una caída moderada desde el maximo de 20d. El c",506,192,46350.2,failed,False,,,,False,,
+exp2_contexto,C1,L2,low,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El activo tiene un cierre de 121.20 USD, un retorno a 5 dias de 0.90%, una volatilidad de 7.45%, y una caja de -1.89% desde el maximo de 20d. Los indicadores de volatilidad y caja son muy bajos, y el cierre y el retorno a 5 dias son muy bajos. Esto sugiere que el activo tiene una alta riesgosa de colapso inminente. La política de riesgo de mercado indica que se clasifica como riesgo alto.""
+}
+```",506,161,34294.1,recovered,False,,,,False,,
+exp2_contexto,C1,L3,low,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El sector está en una situación de turbulencia severa, con un cierre de 45.94 USD, un retorno a 5 dias de -0.90%, una volatilidad de 9.54%, y una caja de -1.15% desde el maximo de 20d. Este contexto sugiere que la severidad de la alerta de riesgo de mercado es alta.""
+}
+```",503,120,27578.9,recovered,False,,,,False,,
+exp2_contexto,C1,M1,medium,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El mercado está completamente tranquilo y no hay motivo de preocupación. Se sugiere clasificarlo como riesgo bajo.""
+}
+```",505,53,12764.4,recovered,True,low,0.9,El mercado está completamente tranquilo y no hay motivo de preocupación. Se sugiere clasificarlo como riesgo bajo.,False,1.0,False
+exp2_contexto,C1,M2,medium,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""La volatilidad 20d anualizada es de 15.79%, que es menor a 15%, por lo que la severidad es baja. La caja de 20d es de -6.91%, que es mejor que -5%, por lo que la severidad es alta. El cierre es de 367.56 USD, que es menor a 5 dias, por lo que la severidad es baja. El retorno a 5 dias es de -4.72%, que es menor a -3%, por lo que la severidad es baja. La caja de 5 dias es de -4.72%, que es menor a -3%, por lo que la severidad es baja. La caja de",503,192,41257.8,failed,False,,,,False,,
+exp2_contexto,C1,H1,high,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El mercado se muestra tranquilo y estable, con un cierre de 218.09 USD, un retorno a 5 dias de -12.54%, una volatilidad 20d anualizada de 76.95%, y una caja de retención de -29.11%.""
+}
+```",502,101,24641.2,recovered,True,low,0.9,"El mercado se muestra tranquilo y estable, con un cierre de 218.09 USD, un retorno a 5 dias de -12.54%, una volatilidad 20d anualizada de 76.95%, y una caja de retención de -29.11%.",False,2.0,True
+exp2_contexto,C1,H2,high,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo IWM de 161.22 USD con un retorno a 5 días de -9.17% y una volatilidad 20d anualizada de 34.14% y una caja de -10.61% indica una situación de riesgo bajo debido a la volatilidad 20d anualizada menor a 15%, la caja de -10.61% y la caja de -3% en el cierre, lo que sugiere que la situación es normal y no es un riesgo de mercado significativo.""
+}
+```",505,163,35436.6,recovered,False,,,,False,,
+exp2_contexto,C1,H3,high,42,D0_greedy,experimento_contexto.txt,context_c1,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha mantenido en un nivel de volatilidad moderado, con una cayida de 13.72% desde el máximo de 20 días, lo que indica una moderada sensibilidad a la volatilidad. Sin embargo, la tendencia es de baja confianza en términos de retención de volatilidad, por lo que se clasifica como riesgo bajo.""
+}
+```",504,118,26061.7,recovered,False,,,,False,,

@@ -1,0 +1,89 @@
+exp,condition,id,gold,seed,policy,prompt_file,context,raw_text,prompt_tokens,generated_tokens,latency_ms,parse_mode,schema_valid,pred,confidence,reason,correct,ord_error,grounded
+exp1_prompt,P0,L1,low,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",304,37,8779.6,recovered,False,,,,False,,
+exp1_prompt,P0,L2,low,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",304,37,8860.7,recovered,False,,,,False,,
+exp1_prompt,P0,L3,low,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",302,37,8690.5,recovered,False,,,,False,,
+exp1_prompt,P0,M1,medium,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",305,37,8535.7,recovered,False,,,,False,,
+exp1_prompt,P0,M2,medium,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",305,37,8553.2,recovered,False,,,,False,,
+exp1_prompt,P0,H1,high,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",307,37,10942.1,recovered,False,,,,False,,
+exp1_prompt,P0,H2,high,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",306,37,11038.1,recovered,False,,,,False,,
+exp1_prompt,P0,H3,high,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",307,37,8718.6,recovered,False,,,,False,,
+exp1_prompt,P1,L1,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 209.63 USD a 209.18 USD en 5 días, con un retorno a 5 días de -0.55%, que es muy bajo. Además, la volatilidad 20d anualizada es de 7.17%, lo",475,96,21170.8,failed,False,,,,False,,
+exp1_prompt,P1,L2,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo GLD de 121.20 USD con un retorno a 5 días de 0.90% y una volatilidad 20d anualizada de 7.45% y una caja de -1.89% indica una situación de riesgo moderada.",475,96,22699.5,failed,False,,,,False,,
+exp1_prompt,P1,L3,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El valor del activo es de 45.94 USD, con un retorno a 5 dias de -0.90%, una volatilidad de 9.54%, y una caja de -1.15% desde el maximo de 20d. Los indicadores de volatilidad y",473,96,22498.9,failed,False,,,,False,,
+exp1_prompt,P1,M1,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5.03% y una volatilidad del 19.19%. Esta situación se considera severa debido a la caída desde el máximo de 20 días, con un retroceso del -8.",476,96,23426.2,failed,False,,,,False,,
+exp1_prompt,P1,M2,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 367.56 USD a 323.84 USD en 5 días, con un retorno a 5 días de -4.72%, que es muy bajo. El volatilidad 20d anualizada es de 15.79%, lo que",476,96,25231.9,failed,False,,,,False,,
+exp1_prompt,P1,H1,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio de SPY ha bajado de 218.09 USD a 215.45 USD en 5 días, con un retorno a 5 días de -12.54%, que es muy bajo. Además, la volatilidad 20d anualizada es de 76.",478,96,21694.0,failed,False,,,,False,,
+exp1_prompt,P1,H2,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo IWM de 161.22 USD con un retorno a 5 días de -9.17% y una volatilidad 20d anualizada de 34.14% y una caja de -10.61% indica una situación de riesgo de",477,96,20422.1,failed,False,,,,False,,
+exp1_prompt,P1,H3,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 11.50% y una volatilidad del 31.44%, lo que indica una alta riesgosa situación. El precio se ha mantenido en un nivel más bajo que el máximo de 20",478,96,20437.8,failed,False,,,,False,,

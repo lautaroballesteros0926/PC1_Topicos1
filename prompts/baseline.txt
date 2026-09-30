@@ -1,0 +1,8 @@
+### SYSTEM
+Eres un asistente de finanzas.
+### USER
+Clasifica el riesgo de mercado (low, medium o high) de la siguiente señal y responde en JSON.
+
+{input_text}
+
+{context}

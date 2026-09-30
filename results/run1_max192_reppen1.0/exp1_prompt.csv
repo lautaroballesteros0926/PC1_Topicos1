@@ -1,0 +1,101 @@
+exp,condition,id,gold,seed,policy,prompt_file,context,raw_text,prompt_tokens,generated_tokens,latency_ms,parse_mode,schema_valid,pred,confidence,reason,correct,ord_error,grounded
+exp1_prompt,P0,L1,low,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",304,37,9293.7,recovered,False,,,,False,,
+exp1_prompt,P0,L2,low,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",304,37,8717.6,recovered,False,,,,False,,
+exp1_prompt,P0,L3,low,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",302,37,9858.0,recovered,False,,,,False,,
+exp1_prompt,P0,M1,medium,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",305,37,8659.0,recovered,False,,,,False,,
+exp1_prompt,P0,M2,medium,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",305,37,8367.1,recovered,False,,,,False,,
+exp1_prompt,P0,H1,high,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",307,37,8531.6,recovered,False,,,,False,,
+exp1_prompt,P0,H2,high,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",306,37,9366.2,recovered,False,,,,False,,
+exp1_prompt,P0,H3,high,42,D0_greedy,baseline.txt,context_c0,"```json
+{
+  ""Riesgo de Mercado"": ""medium"",
+  ""Severidad Segun el Total de Puntos"": ""2-3""
+}
+```",307,37,10037.1,recovered,False,,,,False,,
+exp1_prompt,P1,L1,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 209.63 USD a 209.18 USD en 5 días, con un retorno a 5 días de -0.55%, que es muy bajo. Además, la volatilidad 20d anualizada es de 7.17%, lo que es muy baja. La caja de cierre es de -1.17%, lo que es muy baja. La caja de 20d es de -3%, lo que es muy baja. El precio se ha bajado de manera significativa desde el maximo de 20d, lo que es muy bajo. Por lo tanto, la severidad de la alerta de riesgo de mercado es de low.""
+}
+```",475,189,48391.1,recovered,False,,,,False,,
+exp1_prompt,P1,L2,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo GLD de 121.20 USD con un retorno a 5 días de 0.90% y una volatilidad 20d anualizada de 7.45% y una caja de -1.89% indica una situación de riesgo moderada. El cierre es superior a -5% y la volatilidad es menor a 15%. La caja de -1.89% indica que el activo está en una situación de riesgo moderada, pero con una caída desde el maximo de 20d de -1.89% que es un poco mayor que -5%.""
+}
+```",475,177,45257.7,recovered,False,,,,False,,
+exp1_prompt,P1,L3,low,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El valor del activo es de 45.94 USD, con un retorno a 5 dias de -0.90%, una volatilidad de 9.54%, y una caja de -1.15% desde el maximo de 20d. Los indicadores de volatilidad y caja son menores a 15%, lo que les da un valor de 0 puntos. El retorno a 5 dias es mejor que -3%, lo que les da un valor de 0 puntos. Por lo tanto, la severidad de la alerta de riesgo de mercado es de media (2-3 puntos).""
+}
+```",473,169,37399.6,recovered,False,,,,False,,
+exp1_prompt,P1,M1,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5.03% y una volatilidad del 19.19%. Esta situación se considera severa debido a la caída desde el máximo de 20 días, con un retroceso del -8.41%. ""
+}
+```",476,103,22247.3,recovered,True,low,0.9,"El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 5.03% y una volatilidad del 19.19%. Esta situación se considera severa debido a la caída desde el máximo de 20 días, con un retroceso del -8.41%. ",False,1.0,True
+exp1_prompt,P1,M2,medium,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de 367.56 USD a 323.84 USD en 5 días, con un retorno a 5 días de -4.72%, que es muy bajo. El volatilidad 20d anualizada es de 15.79%, lo que es muy bajo. La caja de cierre es de -6.91%, lo que es muy baja. La caja de 20d es de -3%, lo que es muy baja. El precio se ha bajado de 367.56 USD a 323.84 USD en 5 días, con un retorno a 5 días de -4.72%, que es muy bajo. El volatilidad",476,192,43633.5,failed,False,,,,False,,
+exp1_prompt,P1,H1,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio de SPY ha bajado de 218.09 USD a 215.45 USD en 5 días, con un retorno a 5 días de -12.54%, que es muy bajo. Además, la volatilidad 20d anualizada es de 76.95%, lo que es muy baja. La caja de cierre es de -29.11%, lo que es muy baja. La caja de 20d es de -12.54%, lo que es muy baja. El precio ha bajado de 218.09 USD a 215.45 USD en 5 días, con un retorno a 5 días de -12.54%,",478,192,41925.0,failed,False,,,,False,,
+exp1_prompt,P1,H2,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El cierre del activo IWM de 161.22 USD con un retorno a 5 días de -9.17% y una volatilidad 20d anualizada de 34.14% y una caja de -10.61% indica una situación de riesgo de mercado moderada. El cierre es superior a -5% y la volatilidad es menor a 15%, lo que contribuye a una seguridad moderada. La caja de -10.61% indica una caída desde el maximo de 20d de -10.61%, lo que puede ser un factor de riesgo importante. ""
+}
+```",477,179,36980.5,recovered,False,,,,False,,
+exp1_prompt,P1,H3,high,42,D0_greedy,experimento_prompt.txt,context_c0,"```json
+{
+  ""label"": ""low"",
+  ""confidence"": 0.9,
+  ""reason"": ""El precio se ha bajado de manera significativa en los últimos 5 días, con un retroceso del 11.50% y una volatilidad del 31.44%, lo que indica una alta riesgosa situación. El precio se ha mantenido en un nivel más bajo que el máximo de 20 días, lo que sugiere que la situación es aún más crítica. ""
+}
+```",478,114,28652.0,recovered,False,,,,False,,
