@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Consulta estructurada de recuperacion",
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 200
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "risk_event",
+        "risk_indicator",
+        "policy_response",
+        "mechanism",
+        "other"
+      ]
+    },
+    "abstain": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "query",
+    "intent",
+    "abstain"
+  ],
+  "additionalProperties": false
+}
