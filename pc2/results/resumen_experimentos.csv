@@ -1,0 +1,6 @@
+experimento,condicion,n,schema_valid_rate,recall@1,recall@3,recall@5
+consulta,Q0,6,,0.6667,0.8333,0.9167
+consulta,Q1,6,0.8333,0.6667,0.6667,0.75
+chunking,small (100),6,,0.5833,0.8333,0.8333
+chunking,baseline (180),6,,0.6667,0.8333,0.9167
+chunking,large (320),6,,0.6667,0.9167,1.0
