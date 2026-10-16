@@ -1,0 +1,21 @@
+# Jupyter Lab para la PC2 CC0F4 (uso local: sin token, no exponer a la red).
+#   docker compose up          -> http://localhost:8889/lab
+#   docker compose down        -> detiene y elimina el contenedor (el volumen del modelo se conserva)
+# Se usa el puerto 8889 para poder tener PC1 (8888) y PC2 abiertas a la vez.
+services:
+  pc2:
+    build: .
+    image: cc0f4-pc2
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./:/workspace/pc2
+      - pc1_hf:/home/user/.cache/huggingface
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+      --ServerApp.root_dir=/workspace/pc2
+      --IdentityProvider.token=''
+
+volumes:
+  pc1_hf:
+    name: pc1_hf   # cache de modelos compartida con la PC1 (Qwen ya descargado); aqui tambien guarda e5-small
