@@ -1,0 +1,93 @@
+{
+  "llm_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "llm_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "encoder_id": "intfloat/multilingual-e5-small",
+  "embedding_dim": 384,
+  "encoder_max_seq_length": 512,
+  "torch": "2.14.1+cpu",
+  "transformers": "5.19.0",
+  "sentence_transformers": "5.7.0",
+  "faiss": "1.15.1",
+  "jsonschema": "4.26.0",
+  "python": "3.12.15",
+  "seed": 42,
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 96,
+    "repetition_penalty": 1.05
+  },
+  "target_words": {
+    "small": 100,
+    "baseline": 180,
+    "large": 320
+  },
+  "overlap_passages": 1,
+  "k_values": [
+    1,
+    3,
+    5
+  ],
+  "index": "faiss.IndexFlatIP",
+  "normalizacion": "L2",
+  "prefijos": [
+    "query: ",
+    "passage: "
+  ],
+  "corpus_sha256": "a28ee0f9855e",
+  "queries_sha256": "750106046d85",
+  "qrels_sha256": "c86609cd3026",
+  "prompt_sha256": "0240597d638f",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Consulta estructurada de recuperacion",
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "minLength": 8,
+        "maxLength": 200
+      },
+      "intent": {
+        "type": "string",
+        "enum": [
+          "risk_event",
+          "risk_indicator",
+          "policy_response",
+          "mechanism",
+          "other"
+        ]
+      },
+      "abstain": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "query",
+      "intent",
+      "abstain"
+    ],
+    "additionalProperties": false
+  },
+  "n_documentos": 8,
+  "n_passages": 50,
+  "n_consultas": 6,
+  "exp1": {
+    "n_necesidades": 6,
+    "parse_rate": 1.0,
+    "parse_exact_rate": 0.0,
+    "schema_valid_rate": 0.8333333333333334,
+    "abstain_rate": 0.0,
+    "n_q1_utilizables": 5,
+    "mean_recall@1_Q0": 0.6666666666666666,
+    "mean_recall@1_Q1": 0.6666666666666666,
+    "mean_recall@3_Q0": 0.8333333333333334,
+    "mean_recall@3_Q1": 0.6666666666666666,
+    "mean_recall@5_Q0": 0.9166666666666666,
+    "mean_recall@5_Q1": 0.75,
+    "mean_recall@3_Q0_solo_utilizables": 0.8,
+    "mean_recall@3_Q1_solo_utilizables": 0.8,
+    "consultas_que_mejoran": 0,
+    "consultas_que_empeoran": 1,
+    "consultas_sin_cambio": 5
+  }
+}
