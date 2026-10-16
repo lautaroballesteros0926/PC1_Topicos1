@@ -1,0 +1,23 @@
+# PC2 CC0F4 - Consulta estructurada y recuperacion densa (riesgo de mercado)
+# Solo lo que usa el cuaderno. PyTorch se instala aparte (ver Dockerfile / README).
+# Mismos rangos que el requirements.txt global del curso donde coinciden.
+
+# Notebook
+jupyterlab>=4.4,<5
+ipykernel>=6.29,<7
+nbformat>=5.10,<6
+nbconvert>=7.16,<8
+
+# Datos y metricas
+numpy>=2.0,<3
+pandas>=2.3,<3
+scikit-learn>=1.7,<2
+matplotlib>=3.9,<4
+
+# LLM (consulta estructurada) y validacion
+transformers>=5.15,<6
+jsonschema>=4.25,<5
+
+# Embeddings y recuperacion densa
+sentence-transformers>=5.7,<6
+faiss-cpu>=1.15,<2
