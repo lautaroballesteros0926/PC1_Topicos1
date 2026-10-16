@@ -1,0 +1,7 @@
+query_id,dificultad,small,baseline,large,Δ small-baseline,Δ large-baseline
+Q01,easy,0.5,0.5,0.5,0.0,0.0
+Q02,medium,1.0,1.0,1.0,0.0,0.0
+Q03,hard,0.5,1.0,1.0,-0.5,0.0
+Q04,ambiguous,1.0,0.5,1.0,0.5,0.5
+Q05,easy,1.0,1.0,1.0,0.0,0.0
+Q06,medium,1.0,1.0,1.0,0.0,0.0
