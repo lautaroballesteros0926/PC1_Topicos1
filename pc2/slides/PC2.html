@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>PC2 CC0F4 - Consulta estructurada y recuperación densa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  @page { size: 1281px 721px; margin: 0; }
+  :root {
+    --bg:#F1F3F6; --surface:#FFFFFF; --surface2:#E7EAF0;
+    --ink:#1B2027; --ink2:#4B5563; --ink3:#8A91A0;
+    --border:#D7DCE4; --border2:#BCC3CF;
+    --accent:#5646D6; --teal:#0E8074; --amber:#B0670C; --red:#A63527;
+    --low:#0E8074; --med:#B0670C; --high:#A63527;
+    --serif:'Fraunces', Cambria, Georgia, serif;
+    --sans:'IBM Plex Sans', Calibri, 'Segoe UI', Arial, sans-serif;
+    --mono:'IBM Plex Mono', Consolas, 'Courier New', monospace;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:#fff; }
+  body { font-family:var(--sans); color:var(--ink); font-variant-numeric:tabular-nums; }
+  .slide { width:1281px; height:721px; position:relative; overflow:hidden; background:var(--bg);
+           padding:44px 60px 0; page-break-after:always; break-after:page; }
+  .eyebrow { font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); }
+  h1 { font-family:var(--serif); font-style:italic; font-weight:600; font-size:42px; line-height:1.08; margin-top:8px; letter-spacing:-.2px; }
+  .lede { font-size:20px; line-height:1.45; color:var(--ink2); margin-top:10px; max-width:1050px; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 26px; }
+  .tag { font-family:var(--mono); font-size:12.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); }
+  .mono { font-family:var(--mono); }
+  .foot { position:absolute; left:60px; right:60px; bottom:20px; display:flex; justify-content:space-between;
+          font-family:var(--mono); font-size:11.5px; color:var(--ink3); }
+  b { font-weight:600; color:var(--ink); }
+  .row { display:flex; gap:18px; }
+  .abs { position:absolute; }
+  .low{color:var(--low)} .med{color:var(--med)} .high{color:var(--high)} .acc{color:var(--accent)}
+  .chip { display:inline-block; font-family:var(--mono); font-size:13px; padding:2px 10px; border-radius:999px; border:1px solid var(--border2); color:var(--ink2); background:var(--surface); }
+  .chip.low{border-color:var(--low);color:var(--low)} .chip.med{border-color:var(--med);color:var(--med)} .chip.high{border-color:var(--high);color:var(--high)}
+  .chip.acc{border-color:var(--accent);color:var(--accent)}
+  .field { display:flex; flex-direction:column; gap:3px; min-width:0; }
+  .field .k { font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); }
+  .field .v { font-family:var(--mono); font-size:22px; font-weight:500; }
+  .field .d { font-size:12.5px; color:var(--ink2); }
+  table { width:100%; border-collapse:collapse; font-size:16.5px; }
+  th { text-align:left; font-family:var(--mono); font-size:12.5px; letter-spacing:.03em; text-transform:none; color:var(--ink3); font-weight:500; padding:9px 12px; border-bottom:1px solid var(--border); }
+  td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  td.n, th.n { text-align:right; font-family:var(--mono); }
+  td.m { font-family:var(--mono); }
+  .code { font-family:var(--mono); font-size:16px; line-height:1.55; color:var(--ink); }
+  .code .c { color:var(--ink3); }
+  .note { font-size:16.5px; color:var(--ink2); line-height:1.45; }
+  .eq { font-family:var(--serif); font-style:italic; font-size:22px; color:var(--ink); }
+  .eq sub { font-style:normal; font-family:var(--sans); font-size:.62em; }
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<section class="slide" style="padding-top:64px">
+  <div class="eyebrow">CC0F4 · Tópicos de Ciencia de la Computación I · Práctica calificada 2</div>
+  <h1 style="font-size:56px; margin-top:21px; line-height:1.05">De una consulta estructurada a recuperación densa verificable</h1>
+  <p class="lede" style="font-size:24px; max-width:900px; margin-top:21px">Vigilante de riesgo de mercado: un LLM convierte una necesidad en JSON validado, e5-small la busca en FAISS y se mide si la evidencia aparece en los primeros resultados.</p>
+
+  <div class="card" style="margin-top:44px; padding:22px 26px; display:grid; grid-template-columns:repeat(5,1fr); gap:18px 20px">
+    <div class="field"><span class="k">corpus</span><span class="v">8 · 50</span><span class="d">documentos · passages</span></div>
+    <div class="field"><span class="k">consultas</span><span class="v">6</span><span class="d">con qrels por passage</span></div>
+    <div class="field"><span class="k">encoder</span><span class="v">e5-small</span><span class="d">384 dim · query: / passage:</span></div>
+    <div class="field"><span class="k">índice</span><span class="v">FlatIP</span><span class="d">exacto · L2-normalizado</span></div>
+    <div class="field"><span class="k">experimentos</span><span class="v acc">2</span><span class="d">consulta, chunking</span></div>
+  </div>
+
+  <div class="abs" style="left:60px; bottom:52px">
+    <div style="font-size:23px; font-weight:500">Pedro Lautaro Quispe Ballesteros</div>
+    <div class="mono" style="font-size:15px; color:var(--ink3); margin-top:5px">PC1_Topicos1 / pc2</div>
+  </div>
+</section>
+
+<!-- ============ 1. PROBLEMA ============ -->
+<section class="slide">
+  <div class="eyebrow">01 · Problema</div>
+  <h1>¿Qué evidencia necesito antes de emitir una alerta?</h1>
+  <p class="lede">La PC1 mostró que el modelo no clasifica bien una señal (dijo <span class="mono">low</span> en los 8 casos). Antes de pensar en RAG hay que saber si el recuperador encuentra el texto que sustenta una alerta.</p>
+
+  <div class="row" style="margin-top:26px; align-items:stretch">
+    <div class="card" style="flex:1.15">
+      <div class="tag">necesidad de información (Q04)</div>
+      <div style="font-size:22px; line-height:1.4; margin-top:10px">«¿Qué hizo la Reserva Federal con las tasas de interés para responder al pánico por el coronavirus?»</div>
+      <div class="tag" style="margin-top:22px">evidencia relevante (qrels)</div>
+      <div class="code" style="margin-top:8px">D08-P01 <span class="c">FOMC 15-mar-2020: rango a 0 %–0,25 %</span><br>D01-P06 <span class="c">crónica del crash: recorte de 50 pb y 0–0,25 %</span></div>
+    </div>
+    <div class="card" style="flex:.85">
+      <div class="tag">lo que construyo</div>
+      <div class="code" style="margin-top:10px; font-size:15.5px">necesidad<br>&nbsp;→ LLM → JSON validado<br>&nbsp;→ embedding (e5-small)<br>&nbsp;→ FAISS IndexFlatIP<br>&nbsp;→ top-k → Recall@k</div>
+      <div class="note" style="margin-top:12px">Lo recuperado <b>no</b> se usa todavía para generar una respuesta.</div>
+    </div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>1 / 10</span></div>
+</section>
+
+<!-- ============ 2. CORPUS Y CONSULTAS ============ -->
+<section class="slide">
+  <div class="eyebrow">02 · Corpus, consultas y qrels</div>
+  <h1>8 documentos públicos, 6 necesidades, evidencia marcada por passage</h1>
+
+  <div class="row" style="margin-top:12px; gap:8px; align-items:center">
+    <span class="chip">8 documentos · 50 passages · 2.101 palabras</span>
+    <span class="chip">Wikipedia · Fed · AP</span>
+    <span class="chip acc">resumidos en español por mí</span>
+    <span class="chip">fijados antes de ejecutar</span>
+  </div>
+
+  <div class="card" style="margin-top:14px; padding:14px 22px">
+    <table style="font-size:15.5px">
+      <tr><th style="width:50px">id</th><th>necesidad de información (Q0)</th><th style="width:100px">dificultad</th><th style="width:190px">passages relevantes</th></tr>
+      <tr><td class="m">Q01</td><td>volatilidad esperada en el peor día de la crisis COVID</td><td>easy</td><td class="m">D01-P05 · D05-P05</td></tr>
+      <tr><td class="m">Q02</td><td>por qué SVB no resistió con tanta cartera de bonos</td><td>medium</td><td class="m">D02-P02 · D02-P03</td></tr>
+      <tr><td class="m">Q03</td><td>pedir prestado en moneda barata y ventas masivas de golpe</td><td>hard</td><td class="m">D03-P02 · D03-P03</td></tr>
+      <tr><td class="m">Q04</td><td>qué hizo la Fed con las tasas ante el pánico por el coronavirus</td><td>ambiguous</td><td class="m">D08-P01 · D01-P06</td></tr>
+      <tr><td class="m">Q05</td><td>cómo se mide la caída desde el máximo reciente</td><td>easy</td><td class="m">D06-P01 · D06-P02</td></tr>
+      <tr><td class="m">Q06</td><td>reacción de los bonos del Tesoro ante los aranceles de abril 2025</td><td>medium</td><td class="m">D04-P05</td></tr>
+    </table>
+  </div>
+  <div class="note" style="margin-top:12px">Los qrels van sobre <b>passage_id</b>, no sobre chunks: no cambian cuando cambia la segmentación. D01 y D08 hablan del mismo mes; D02 y D07, de alzas de tasas: vecinos confusos a propósito.</div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>2 / 10</span></div>
+</section>
+
+<!-- ============ 3. PIPELINE ============ -->
+<section class="slide">
+  <div class="eyebrow">03 · Pipeline</div>
+  <h1>De la pregunta al top-k, cada paso se puede inspeccionar</h1>
+
+  <div class="row" style="margin-top:26px; gap:10px; align-items:stretch; font-size:15.5px">
+    <div class="card" style="flex:1; padding:16px 14px"><div class="tag">Semana 3</div><b>LLM</b><br>Qwen2.5-0.5B<br>greedy</div>
+    <div style="align-self:center; color:var(--ink3)">→</div>
+    <div class="card" style="flex:1; padding:16px 14px"><div class="tag">Semana 3</div><b>JSON Schema</b><br>query · intent · abstain</div>
+    <div style="align-self:center; color:var(--ink3)">→</div>
+    <div class="card" style="flex:1; padding:16px 14px"><div class="tag">Semana 4</div><b>chunks</b><br>passages + overlap 1</div>
+    <div style="align-self:center; color:var(--ink3)">→</div>
+    <div class="card" style="flex:1; padding:16px 14px"><div class="tag">Semana 4</div><b>e5-small</b><br>query: / passage:</div>
+    <div style="align-self:center; color:var(--ink3)">→</div>
+    <div class="card" style="flex:1; padding:16px 14px"><div class="tag">Semana 4</div><b>IndexFlatIP</b><br>top-k</div>
+  </div>
+
+  <div class="row" style="margin-top:22px; gap:10px; align-items:stretch; font-size:14.5px">
+    <div class="card" style="flex:1; padding:12px 14px; background:var(--surface2)"><span class="tag">se mide</span><br>parseable · schema_valid_rate</div>
+    <div style="width:22px"></div>
+    <div class="card" style="flex:1; padding:12px 14px; background:var(--surface2)"><span class="tag">se verifica</span><br>validación contra el schema</div>
+    <div style="width:22px"></div>
+    <div class="card" style="flex:1; padding:12px 14px; background:var(--surface2)"><span class="tag">se controla</span><br>target_words, ≤ 512 tokens</div>
+    <div style="width:22px"></div>
+    <div class="card" style="flex:1; padding:12px 14px; background:var(--surface2)"><span class="tag">se comprueba</span><br>norma = 1 · coseno = IP</div>
+    <div style="width:22px"></div>
+    <div class="card" style="flex:1; padding:12px 14px; background:var(--surface2)"><span class="tag">se mide</span><br>Recall@1 / 3 / 5</div>
+  </div>
+
+  <div class="card" style="margin-top:22px; padding:16px 24px">
+    <div class="note">Dos experimentos, una variable cada uno: <b>Exp. 1</b> cambia la consulta (Q0 vs Q1) · <b>Exp. 2</b> cambia el tamaño del fragmento (100 / 180 / 320 palabras). Todo lo demás permanece fijo.</div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>3 / 10</span></div>
+</section>
+
+<!-- ============ 4. CONSULTA ESTRUCTURADA ============ -->
+<section class="slide">
+  <div class="eyebrow">04 · Consulta estructurada y JSON Schema</div>
+  <h1>Tres niveles: parseable, schema-valid, adecuada</h1>
+
+  <div class="row" style="margin-top:20px; align-items:stretch">
+    <div class="card" style="flex:1">
+      <div class="tag">prompt (separa instrucción, entrada, contrato)</div>
+      <div class="code" style="margin-top:8px; font-size:14.5px">TAREA &nbsp;&nbsp;reformula, no respondas<br>NECESIDAD &nbsp;{need}<br>CONTRATO &nbsp;query · intent · abstain<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;«sin Markdown»</div>
+      <div class="tag" style="margin-top:14px">schema 2020-12</div>
+      <div class="code" style="margin-top:6px; font-size:14.5px">query: string 8–200<br>intent: enum[5] · abstain: boolean<br>additionalProperties: false</div>
+    </div>
+    <div class="card" style="flex:1.1">
+      <div class="tag">resultado con Qwen2.5-0.5B, greedy (6 necesidades)</div>
+      <table style="margin-top:6px; font-size:16px">
+        <tr><td>parseable</td><td class="n"><b>6 / 6</b></td></tr>
+        <tr><td>JSON exacto (sin cerca ```)</td><td class="n"><b class="high">0 / 6</b></td></tr>
+        <tr><td>schema-valid</td><td class="n"><b>5 / 6</b> = 0.833</td></tr>
+        <tr><td>abstain = true</td><td class="n">0</td></tr>
+      </table>
+      <div class="note" style="margin-top:8px; font-size:14.5px"><b>Q03</b> inventó <span class="mono">policy_response</span> y <span class="mono">other</span> y omitió <span class="mono">abstain</span>: JSON legible, schema roto.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px; padding:14px 22px">
+    <div class="note" style="font-size:15.5px"><b>Adecuada</b> = ¿conserva lo que yo quería buscar? No la decide el schema: la mide la recuperación. Aquí <span class="mono">intent</span> fue <span class="mono">risk_event</span> en las 5 válidas, también para Q04 (política monetaria) y Q05 (indicador).</div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>4 / 10</span></div>
+</section>
+
+<!-- ============ 5. EMBEDDINGS E INDICE ============ -->
+<section class="slide">
+  <div class="eyebrow">05 · Embeddings, similitud e índice</div>
+  <h1>Coseno e producto interno coinciden si los vectores son unitarios</h1>
+
+  <div class="row" style="margin-top:20px; align-items:stretch">
+    <div class="card" style="flex:1">
+      <div class="tag">multilingual-e5-small · 384 dim · 512 tokens</div>
+      <div class="code" style="margin-top:8px; font-size:15px">"query: ¿Qué hizo la Fed…"<br>"passage: El 15 de marzo de 2020…"</div>
+      <div class="note" style="margin-top:6px; font-size:14.5px">Los prefijos son parte de la interfaz del modelo.</div>
+      <div class="tag" style="margin-top:14px">normalización y similitud</div>
+      <div class="eq" style="margin-top:6px">x̂ᵀŷ = cos(x, y) &nbsp; si ‖x̂‖ = ‖ŷ‖ = 1</div>
+      <div class="note" style="margin-top:6px; font-size:14.5px">comprobado con vectores reales: 0.863245 = 0.863245</div>
+    </div>
+    <div class="card" style="flex:1">
+      <div class="tag">índice exacto</div>
+      <div class="code" style="margin-top:8px; font-size:15px">index = faiss.IndexFlatIP(384)<br>index.add(chunk_vectors)<br>scores, ids = index.search(q, k)</div>
+      <div class="note" style="margin-top:6px; font-size:14.5px">búsqueda exhaustiva = exacta; igual a NumPy (verificado).</div>
+      <table style="margin-top:12px; font-size:14.5px">
+        <tr><td>documento</td><td>unidad de la fuente</td></tr>
+        <tr><td>chunk</td><td>unidad que se indexa</td></tr>
+        <tr><td>índice</td><td>organiza y busca vectores</td></tr>
+        <tr><td>recuperador</td><td>política completa: k, qué se entrega</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>5 / 10</span></div>
+</section>
+
+<!-- ============ 6. SEGMENTACION Y DISEÑO ============ -->
+<section class="slide">
+  <div class="eyebrow">06 · Segmentación y diseño de los experimentos</div>
+  <h1>Se agrupan passages hasta ~target_words, con 1 de solape</h1>
+
+  <div class="row" style="margin-top:18px; align-items:stretch">
+    <div class="card" style="flex:1">
+      <div class="tag">Exp. 2 · target_words</div>
+      <table style="margin-top:4px; font-size:15.5px">
+        <tr><th>condición</th><th class="n">chunks</th><th class="n">pal. media</th><th class="n">tok. máx</th></tr>
+        <tr><td>small · 100</td><td class="n">40</td><td class="n">76.8</td><td class="n">154</td></tr>
+        <tr><td>baseline · 180</td><td class="n">20</td><td class="n">131.2</td><td class="n">242</td></tr>
+        <tr><td>large · 320</td><td class="n">9</td><td class="n">239.8</td><td class="n">444</td></tr>
+      </table>
+      <div class="note" style="margin-top:8px; font-size:14.5px">444 &lt; 512: no hay truncación; se mide granularidad.</div>
+    </div>
+    <div class="card" style="flex:1">
+      <div class="tag">ejemplo real: D08 (6 passages) con baseline</div>
+      <div class="code" style="margin-top:10px; font-size:14.5px">P1 P2 P3 P4 P5 P6<br><span class="acc">[P1 P2 P3 P4 P5]</span> &nbsp;D08-C01<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="med">[P5 P6]</span> &nbsp;D08-C02</div>
+      <div class="note" style="margin-top:8px; font-size:14.5px">P5 aparece en dos chunks: conserva continuidad, pero repite texto y gasta lugares del top-k.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px; padding:12px 20px">
+    <table style="font-size:14.5px">
+      <tr><th style="width:90px"></th><th>variable modificada</th><th>fijo</th><th>métrica</th></tr>
+      <tr><td><b>Exp. 1</b></td><td>consulta: Q0 vs Q1 (LLM)</td><td>corpus, chunks 180, e5, FlatIP, k</td><td>schema_valid_rate, Recall@k</td></tr>
+      <tr><td><b>Exp. 2</b></td><td>target_words 100 / 180 / 320</td><td>corpus, Q0, qrels, overlap, e5, FlatIP</td><td>Recall@1/3/5 · principal: @3</td></tr>
+    </table>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>6 / 10</span></div>
+</section>
+
+<!-- ============ 7. RESULTADOS EXP 1 ============ -->
+<section class="slide">
+  <div class="eyebrow">07 · Resultados · Experimento 1</div>
+  <h1>Q1 casi copió a Q0; el descenso es un solo caso inválido</h1>
+
+  <div class="row" style="margin-top:16px; align-items:stretch">
+    <div class="card" style="flex:1.35; padding:14px 18px">
+      <table style="font-size:15.5px">
+        <tr><th>id</th><th>Q1 (LLM)</th><th class="n">R@3 Q0</th><th class="n">R@3 Q1</th></tr>
+        <tr><td class="m">Q01</td><td>válida · copia de Q0</td><td class="n">0.5</td><td class="n">0.5</td></tr>
+        <tr><td class="m">Q02</td><td>válida · copia de Q0</td><td class="n">1.0</td><td class="n">1.0</td></tr>
+        <tr><td class="m">Q03</td><td><b class="high">inválida</b> · claves inventadas</td><td class="n">1.0</td><td class="n"><b class="high">0.0</b></td></tr>
+        <tr><td class="m">Q04</td><td>válida · copia de Q0</td><td class="n">0.5</td><td class="n">0.5</td></tr>
+        <tr><td class="m">Q05</td><td>válida · recorta «¿Cómo se mide»</td><td class="n">1.0</td><td class="n">1.0</td></tr>
+        <tr><td class="m">Q06</td><td>válida · copia de Q0</td><td class="n">1.0</td><td class="n">1.0</td></tr>
+      </table>
+    </div>
+    <div class="card" style="flex:.65; padding:14px 18px">
+      <div class="tag">mean Recall@3</div>
+      <div class="field" style="margin-top:6px"><span class="k">Q0</span><span class="v">0.833</span></div>
+      <div class="field" style="margin-top:6px"><span class="k">Q1 (pipeline)</span><span class="v high">0.667</span></div>
+      <div class="field" style="margin-top:6px"><span class="k">solo utilizables</span><span class="v">0.800 = 0.800</span></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px; padding:12px 22px">
+    <div class="note" style="font-size:15.5px">Q1 inválida no llega al índice: Recall = 0. Con JSON válido, los top-3 coinciden 3 de 3 con los de Q0. <b>No hay evidencia de que estructurar mejore la recuperación</b>; sí de que el contrato puede fallar.</div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>7 / 10</span></div>
+</section>
+
+<!-- ============ 8. RESULTADOS EXP 2 ============ -->
+<section class="slide">
+  <div class="eyebrow">08 · Resultados · Experimento 2</div>
+  <h1>Más contexto por chunk gana cobertura y pierde precisión</h1>
+
+  <div class="row" style="margin-top:16px; align-items:stretch">
+    <div class="card" style="flex:1.1; padding:14px 18px">
+      <table style="font-size:15.5px">
+        <tr><th></th><th class="n">R@1</th><th class="n">R@3</th><th class="n">R@5</th><th class="n">prec@3</th></tr>
+        <tr><td>small</td><td class="n">0.583</td><td class="n"><b>0.833</b></td><td class="n">0.833</td><td class="n">0.336</td></tr>
+        <tr><td>baseline</td><td class="n">0.667</td><td class="n"><b>0.833</b></td><td class="n">0.917</td><td class="n">0.194</td></tr>
+        <tr><td>large</td><td class="n">0.667</td><td class="n"><b>0.917</b></td><td class="n">1.000</td><td class="n">0.097</td></tr>
+      </table>
+      <div class="tag" style="margin-top:12px">Recall@3 por consulta</div>
+      <table style="font-size:14.5px; margin-top:2px">
+        <tr><th></th><th class="n">Q01</th><th class="n">Q02</th><th class="n">Q03</th><th class="n">Q04</th><th class="n">Q05</th><th class="n">Q06</th></tr>
+        <tr><td>small</td><td class="n">.5</td><td class="n">1</td><td class="n"><b class="high">.5</b></td><td class="n">1</td><td class="n">1</td><td class="n">1</td></tr>
+        <tr><td>baseline</td><td class="n">.5</td><td class="n">1</td><td class="n">1</td><td class="n"><b class="high">.5</b></td><td class="n">1</td><td class="n">1</td></tr>
+        <tr><td>large</td><td class="n">.5</td><td class="n">1</td><td class="n">1</td><td class="n">1</td><td class="n">1</td><td class="n">1</td></tr>
+      </table>
+    </div>
+    <div class="card" style="flex:.9; padding:14px 18px">
+      <div class="tag">Q04 · 0.5 → 1.0 (small, large)</div>
+      <div class="note" style="font-size:14.5px; margin-top:4px">En baseline, dos chunks de D08 que se solapan en D08-P05 más uno de D02 desplazan a D01-P06.</div>
+      <div class="tag" style="margin-top:12px">Q03 · 0.5 → 1.0 (baseline, large)</div>
+      <div class="note" style="font-size:14.5px; margin-top:4px">small: P02 en rank 1 pero P03 en otro chunk fuera del top-3. Con chunk grande van juntos, pero en rank 3 y 2.</div>
+      <div class="tag" style="margin-top:12px">sin cambio</div>
+      <div class="note" style="font-size:14.5px; margin-top:4px">Q02, Q05, Q06 (1.0) y Q01 (0.5).</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px; padding:12px 22px">
+    <div class="note" style="font-size:15px">0.833 → 0.917 es <b>medio caso de una consulta</b>. Con large hay 9 chunks de 5.7 passages: top-5 cubre más de la mitad del índice, por eso Recall@5 = 1.0 es casi trivial.</div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>8 / 10</span></div>
+</section>
+
+<!-- ============ 9. ERROR ============ -->
+<section class="slide">
+  <div class="eyebrow">09 · Un error de recuperación · Q01</div>
+  <h1>Un documento acapara el ranking y desplaza al otro</h1>
+
+  <div class="row" style="margin-top:16px; align-items:stretch">
+    <div class="card" style="flex:1; padding:14px 18px">
+      <div class="tag">necesidad</div>
+      <div style="font-size:18px; margin-top:4px; line-height:1.35">«¿Qué pasó con la volatilidad esperada del mercado en el peor día de la crisis del COVID en marzo de 2020?»</div>
+      <div class="tag" style="margin-top:12px">gold (2 documentos)</div>
+      <div class="code" style="margin-top:4px; font-size:14.5px">D01-P05 <span class="c">crónica 16-mar: VIX cierra en 82,69</span><br>D05-P05 <span class="c">doc VIX: récord de cierre 82,69</span></div>
+    </div>
+    <div class="card" style="flex:1; padding:14px 18px">
+      <div class="tag">dónde queda el chunk con D05-P05</div>
+      <table style="font-size:15px; margin-top:4px">
+        <tr><th></th><th class="n">rank</th><th class="n">score</th><th class="n">top-1</th></tr>
+        <tr><td>small (40)</td><td class="n"><b class="high">10</b></td><td class="n">0.8544</td><td class="n">0.8723</td></tr>
+        <tr><td>baseline (20)</td><td class="n"><b class="high">9</b></td><td class="n">0.8479</td><td class="n">0.8825</td></tr>
+        <tr><td>large (9)</td><td class="n"><b>4</b></td><td class="n">0.8536</td><td class="n">0.8908</td></tr>
+      </table>
+      <div class="code" style="margin-top:8px; font-size:13.5px">top-5 small&nbsp;&nbsp;D01 D01 D01 D01 D01<br>top-5 base&nbsp;&nbsp;&nbsp;D01 D01 D01 D08 D03</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px; padding:14px 22px">
+    <div class="note" style="font-size:15.5px">La consulta comparte vocabulario con la crónica del COVID, así que <b>D01 acapara el top-k</b>. Los scores de e5 están en una banda estrecha (0.85–0.89): 0.002 decide el orden. El tamaño del chunk no lo arregla; haría falta <b>diversificar o reordenar</b> (Semana 5 en adelante) o mencionar el indicador en la consulta.</div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>9 / 10</span></div>
+</section>
+
+<!-- ============ 10. LIMITACION Y CONCLUSION ============ -->
+<section class="slide">
+  <div class="eyebrow">10 · Limitación y conclusión</div>
+  <h1>Lo que está respaldado y lo que todavía no</h1>
+
+  <div class="row" style="margin-top:22px; align-items:stretch">
+    <div class="card" style="flex:1">
+      <div class="tag">respaldado por estos datos</div>
+      <ul style="margin:10px 0 0 20px; font-size:17.5px; line-height:1.55">
+        <li>6/6 parseables, <b>0/6</b> JSON exacto, <b>5/6</b> schema-valid</li>
+        <li>Con JSON válido, Q1 copió Q0: sin mejora de recuperación</li>
+        <li>Recall@3: 0.833 → 0.917, por una consulta (Q04)</li>
+        <li>Precisión de evidencia: 0.336 → 0.097</li>
+        <li>Q01: un documento desplaza al otro; no es chunking</li>
+      </ul>
+    </div>
+    <div class="card" style="flex:1">
+      <div class="tag">limitaciones</div>
+      <ul style="margin:10px 0 0 20px; font-size:17.5px; line-height:1.55">
+        <li>6 consultas, 50 passages: cada consulta pesa 0.167</li>
+        <li>Qwen 0.5B: ignora «sin Markdown», intent siempre <span class="mono">risk_event</span></li>
+        <li>Corpus resumido por mí: léxico compartido con mis consultas</li>
+        <li>Recall por passages cubiertos favorece chunks grandes</li>
+        <li>Un encoder, índice exacto, sin intervalos de confianza</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px; padding:14px 22px">
+    <div class="tag">siguiente paso</div>
+    <div class="note" style="margin-top:6px; font-size:16.5px">Modelo mayor o decoding con restricción para la consulta; qrels graduados y más consultas; diversificar o reordenar antes de entregar evidencia a un generador (Semana 5 en adelante).</div>
+  </div>
+  <div class="foot"><span>PC2 CC0F4 · Quispe Ballesteros</span><span>10 / 10</span></div>
+</section>
+
+</body>
+</html>
