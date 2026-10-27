@@ -1,0 +1,15 @@
+{
+  "declared_before_generation_utc": "2026-10-27T04:04:44Z",
+  "retrieval_condition": "C_hybrid_rrf_reranker",
+  "top_k_chunks": 3,
+  "selection_rule": "Se elige C (B + Cross-Encoder) por tener el mayor Recall@3, Recall@5 y nDCG@5 del Experimento 1, aunque los intervalos de bootstrap casi siempre cruzan cero; B queda como alternativa mas barata.",
+  "llm": "Qwen/Qwen2.5-0.5B-Instruct",
+  "llm_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 200,
+    "repetition_penalty": 1.05
+  },
+  "seed": 42,
+  "same_questions_and_decoding_in_both_conditions": true
+}
