@@ -1,0 +1,25 @@
+# Jupyter Lab para el examen parcial CC0F4 (uso local: sin token, no exponer a la red).
+#   docker compose up          -> http://localhost:8890/lab
+#   docker compose down        -> detiene y elimina el contenedor (el volumen del modelo se conserva)
+# Puerto 8890 para poder tener PC1 (8888), PC2 (8889) y el parcial abiertos a la vez.
+# .env es opcional: solo lo necesita el anexo de DeepSeek (ver .env.example).
+services:
+  parcial:
+    build: .
+    image: cc0f4-parcial
+    ports:
+      - "8890:8888"
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - ./:/workspace/parcial
+      - pc1_hf:/home/user/.cache/huggingface
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+      --ServerApp.root_dir=/workspace/parcial
+      --IdentityProvider.token=''
+
+volumes:
+  pc1_hf:
+    name: pc1_hf   # cache de modelos compartida con la PC1 y la PC2 (Qwen y e5-small ya descargados)
