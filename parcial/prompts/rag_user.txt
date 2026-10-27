@@ -1,0 +1,8 @@
+EVIDENCE
+{evidence}
+
+QUESTION
+{question}
+
+INSTRUCTIONS
+Answer in at most 3 sentences. After each statement, put the IDs of the passages that support it in square brackets. If the evidence is not enough to answer, reply exactly: INSUFFICIENT EVIDENCE.
