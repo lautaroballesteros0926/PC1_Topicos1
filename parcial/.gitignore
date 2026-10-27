@@ -1,0 +1,18 @@
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# claves de API: nunca se suben (usar .env.example como plantilla)
+.env
+
+# material personal de estudio: no se sube
+guia_personal/
+guia_estudio/
+
+# originales descargados (PDF/HTML pesan varios MB; ver src/build_corpus.py --download)
+data/_raw/
+
+# registros de consola de las corridas (solo barras de progreso)
+results/*_stdout.txt
+results/notebook_exec_log.txt
