@@ -1,0 +1,5 @@
+QUESTION
+{question}
+
+INSTRUCTIONS
+Answer in at most 3 sentences. If you do not know the answer, reply exactly: I DON'T KNOW.
