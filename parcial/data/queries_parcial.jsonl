@@ -1,0 +1,22 @@
+{"query_id": "Q01", "query": "How high did the VIX close on the worst day of the March 2020 COVID-19 market crash?", "difficulty": "easy", "category": "numeric_lookup", "pc2_origin": "PC2-Q01", "exp2_rag": true}
+{"query_id": "Q02", "query": "Why couldn't Silicon Valley Bank withstand withdrawals even though it held such a large portfolio of bonds?", "difficulty": "medium", "category": "causal_multi_doc", "pc2_origin": "PC2-Q02", "exp2_rag": true}
+{"query_id": "Q03", "query": "What does it mean to borrow in a cheap currency to invest elsewhere, and why can that trigger sudden mass selling?", "difficulty": "hard", "category": "conceptual_multi_doc", "pc2_origin": "PC2-Q03", "exp2_rag": false}
+{"query_id": "Q04", "query": "What did the Federal Reserve do with interest rates in response to the coronavirus panic?", "difficulty": "hard", "category": "ambiguous_similar_docs", "pc2_origin": "PC2-Q04", "exp2_rag": true}
+{"query_id": "Q05", "query": "How do you measure how far an asset has fallen from its most recent peak?", "difficulty": "easy", "category": "definition", "pc2_origin": "PC2-Q05", "exp2_rag": false}
+{"query_id": "Q06", "query": "How did U.S. Treasury bonds react when the April 2025 tariffs were announced?", "difficulty": "medium", "category": "causal_multi_doc", "pc2_origin": "PC2-Q06", "exp2_rag": true}
+{"query_id": "Q07", "query": "Which FOMC member dissented at the March 2020 emergency meeting, and what rate did they prefer?", "difficulty": "medium", "category": "boilerplate_distractors", "exp2_rag": true}
+{"query_id": "Q08", "query": "What did the FOMC decide on the federal funds rate in June 2022 and what did it signal about further increases?", "difficulty": "hard", "category": "boilerplate_distractors", "exp2_rag": false}
+{"query_id": "Q09", "query": "What did the Fed say about the health of the U.S. banking system right after the Silicon Valley Bank failure?", "difficulty": "medium", "category": "multi_doc", "exp2_rag": true}
+{"query_id": "Q10", "query": "Which emergency lending program did the Fed create in March 2023 for banks, and how were pledged securities valued?", "difficulty": "medium", "category": "multi_doc", "exp2_rag": true}
+{"query_id": "Q11", "query": "Why did Federal Reserve supervisors fail to stop Silicon Valley Bank's problems before it collapsed?", "difficulty": "hard", "category": "causal_multi_passage", "exp2_rag": false}
+{"query_id": "Q12", "query": "Which 2018 law raised the asset threshold for applying enhanced prudential standards to large banks?", "difficulty": "hard", "category": "lexical_gap", "exp2_rag": false}
+{"query_id": "Q13", "query": "What share of Silicon Valley Bank's deposits was not covered by deposit insurance?", "difficulty": "medium", "category": "paraphrase_duplicates", "exp2_rag": true}
+{"query_id": "Q14", "query": "What move in the S&P 500 triggers a 15-minute trading halt on U.S. stock markets?", "difficulty": "easy", "category": "definition", "exp2_rag": false}
+{"query_id": "Q15", "query": "Why do volatility spikes force leveraged investors to sell assets even in unrelated markets?", "difficulty": "hard", "category": "conceptual_multi_doc", "exp2_rag": false}
+{"query_id": "Q16", "query": "What happened to Japanese stocks and to the VIX on August 5, 2024?", "difficulty": "medium", "category": "numeric_lookup", "exp2_rag": true}
+{"query_id": "Q17", "query": "How did option-implied stock volatility in April 2025 compare with earlier stress episodes?", "difficulty": "hard", "category": "comparison_multi_doc", "exp2_rag": false}
+{"query_id": "Q18", "query": "Why did dollar funding markets seize up for foreign banks in March 2020, and how did central banks respond?", "difficulty": "hard", "category": "causal_multi_doc", "exp2_rag": false}
+{"query_id": "Q19", "query": "How much did the S&P 500 gain on the day the 2025 tariff pause was announced?", "difficulty": "easy", "category": "numeric_lookup", "exp2_rag": true}
+{"query_id": "Q20", "query": "What inputs and time horizon are used to calculate the VIX?", "difficulty": "medium", "category": "definition", "exp2_rag": false}
+{"query_id": "Q21", "query": "How far did the S&P 500 fall in 2022 and what drove the decline?", "difficulty": "medium", "category": "multi_passage", "exp2_rag": false}
+{"query_id": "Q22", "query": "When did the U.S. Treasury yield curve invert before the COVID crash and when did it return to normal?", "difficulty": "medium", "category": "multi_doc", "exp2_rag": false}
