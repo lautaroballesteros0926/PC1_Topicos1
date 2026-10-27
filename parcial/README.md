@@ -1,7 +1,7 @@
 # CC0F4 · Examen parcial — Del prototipo LLM y la recuperación densa a un sistema RAG evaluable
 
 **Pedro Lautaro Quispe Ballesteros** · CC0F4 Tópicos de Ciencia de la Computación I (2026-2) · Semanas 1 a 7 · modalidad individual.
-Commit evaluado: `<pendiente: se completa al hacer el commit final>`.
+Commit evaluado: `7825348` (`7825348317f8a1f754d5d0e5945801a6482e4d9c`, repositorio `lautaroballesteros0926/PC1_Topicos1`, rama `main`); los cambios posteriores solo completan la auditoría manual y este registro.
 
 Tema de investigación (el mismo de la PC1 y la PC2): *Sistema multiagente con RAG híbrido para la detección temprana de riesgo de mercado con alertas sustentadas en evidencia*.
 Este examen **no implementa agentes**: construye y evalúa la base que los agentes necesitarán (evidencia recuperada, respuesta con citas y una herramienta con contratos) y dice con datos dónde falla.
