@@ -1,0 +1,17 @@
+scenario,group,description,expected,observed_kind,observed_code,attempts,label,elapsed_ms,source_calls,correct_outcome,naive_outcome,naive_exception,naive_elapsed_ms
+S01,valida,"COVID-19, SPY 2020-03-16 (caso H1 de la PC1)","{""kind"": ""ok"", ""label"": ""high"", ""attempts"": 1}",ok,,1,high,42.89,1,True,ok,,18.7
+S02,valida,"Mercado en calma, SPY 2017-06-30 (caso L1)","{""kind"": ""ok"", ""label"": ""low"", ""attempts"": 1}",ok,,1,low,13.7,1,True,ok,,15.1
+S03,valida,"Carry trade, SPY 2024-08-05 (caso M1)","{""kind"": ""ok"", ""label"": ""medium"", ""attempts"": 1}",ok,,1,medium,18.32,1,True,ok,,14.9
+S04,entrada_invalida,ticker en minuscula,"{""kind"": ""validation"", ""attempts"": 0}",validation,input_contract,0,,0.45,0,True,uncaught_exception,DomainError,0.0
+S05,entrada_invalida,fecha con formato dd/mm/aaaa,"{""kind"": ""validation"", ""attempts"": 0}",validation,input_contract,0,,0.08,0,True,ok,,13.7
+S06,entrada_invalida,falta el campo as_of,"{""kind"": ""validation"", ""attempts"": 0}",validation,input_contract,0,,0.08,0,True,uncaught_exception,AttributeError,11.3
+S07,entrada_invalida,campo extra no permitido (window),"{""kind"": ""validation"", ""attempts"": 0}",validation,input_contract,0,,0.22,0,True,ok,,13.3
+S08,protocolo,herramienta fuera de la lista permitida,"{""kind"": ""protocol"", ""attempts"": 0}",protocol,unknown_tool,0,,0.01,0,True,executed_unknown_tool,,0.0
+S09,dominio,ticker valido por tipo pero no soportado (TSLA),"{""kind"": ""domain"", ""code"": ""ticker_not_supported"", ""attempts"": 1}",domain,ticker_not_supported,1,,0.12,0,True,uncaught_exception,DomainError,0.0
+S10,dominio,fecha de sabado (no hay cierre),"{""kind"": ""domain"", ""code"": ""date_not_trading_day"", ""attempts"": 1}",domain,date_not_trading_day,1,,13.74,1,True,uncaught_exception,DomainError,10.7
+S11,dominio,fecha sin 20 retornos previos,"{""kind"": ""domain"", ""code"": ""insufficient_history"", ""attempts"": 1}",domain,insufficient_history,1,,13.46,1,True,uncaught_exception,DomainError,13.4
+S12,dominio,fecha fuera del rango de datos,"{""kind"": ""domain"", ""code"": ""date_out_of_range"", ""attempts"": 1}",domain,date_out_of_range,1,,13.08,1,True,uncaught_exception,DomainError,12.1
+S13,transitorio,la fuente falla 2 veces y luego responde (reintento con backoff),"{""kind"": ""ok"", ""label"": ""high"", ""attempts"": 3}",ok,,3,high,166.35,3,True,uncaught_exception,TransientToolError,0.0
+S14,transitorio,la fuente siempre falla (reintentos agotados),"{""kind"": ""transient"", ""code"": ""source_unavailable_retries_exhausted"", ""attempts"": 3}",transient,source_unavailable_retries_exhausted,3,,151.27,3,True,uncaught_exception,TransientToolError,0.0
+S15,timeout,"la fuente tarda 1 s; intento 0.2 s, deadline 0.7 s","{""kind"": ""timeout"", ""code"": ""attempt_timeout_deadline_exhausted"", ""attempts"": 2}",timeout,attempt_timeout_deadline_exhausted,2,,452.62,2,True,ok,,1024.2
+S16,contrato_salida,datos corruptos: cierre negativo viola el contrato de salida,"{""kind"": ""output_contract"", ""attempts"": 1}",output_contract,output_contract,1,,18.62,1,True,ok,,14.4
