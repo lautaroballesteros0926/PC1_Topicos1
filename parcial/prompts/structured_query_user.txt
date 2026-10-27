@@ -1,0 +1,12 @@
+TASK
+Convert the NEED into a short search query for a collection of English financial documents. Do not answer the question: only rephrase it as a search query. Keep dates, figures and proper names.
+
+NEED
+{need}
+
+CONTRACT
+Return ONLY a valid JSON object with exactly these keys:
+- query: English text, between 5 and 25 words, without question marks
+- intent: one of "risk_event" (a market event or episode), "risk_indicator" (a metric or risk indicator), "policy_response" (a monetary or regulatory decision), "mechanism" (how or why a phenomenon happens), "other"
+- abstain: true only if the need is unrelated to market risk; otherwise false
+Rules: no extra keys, no Markdown, no text before or after the JSON.
