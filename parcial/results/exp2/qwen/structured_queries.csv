@@ -1,0 +1,126 @@
+query_id,need,raw_output,parse_mode,parseable,schema_valid,errors,query_q1,intent,abstain,q1_equals_q0,latency_s
+Q01,How high did the VIX close on the worst day of the March 2020 COVID-19 market crash?,"{
+  ""query"": ""How high did the VIX close on the worst day of the March 2020 COVID-19 market crash?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,How high did the VIX close on the worst day of the March 2020 COVID-19 market crash?,risk_event,False,True,11.17
+Q02,Why couldn't Silicon Valley Bank withstand withdrawals even though it held such a large portfolio of bonds?,"{
+  ""query"": ""Why couldn't Silicon Valley Bank withstand withdrawals even though it held such a large portfolio of bonds?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,Why couldn't Silicon Valley Bank withstand withdrawals even though it held such a large portfolio of bonds?,risk_event,False,True,10.22
+Q03,"What does it mean to borrow in a cheap currency to invest elsewhere, and why can that trigger sudden mass selling?","{
+  ""query"": ""What does it mean to borrow in a cheap currency to invest elsewhere, and why can that trigger sudden mass selling?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,"What does it mean to borrow in a cheap currency to invest elsewhere, and why can that trigger sudden mass selling?",risk_event,False,True,11.52
+Q04,What did the Federal Reserve do with interest rates in response to the coronavirus panic?,"{
+  ""query"": ""What did the Federal Reserve do with interest rates in response to the coronavirus panic?"",
+  ""intent"": ""policy_response"",
+  ""abstain"": false
+}",exact,True,True,,What did the Federal Reserve do with interest rates in response to the coronavirus panic?,policy_response,False,True,9.68
+Q05,How do you measure how far an asset has fallen from its most recent peak?,"{
+  ""query"": ""how do you measure how far an asset has fallen from its most recent peak"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,how do you measure how far an asset has fallen from its most recent peak,risk_event,False,True,9.86
+Q06,How did U.S. Treasury bonds react when the April 2025 tariffs were announced?,"{
+  ""query"": ""How did U.S. Treasury bonds react when the April 2025 tariffs were announced?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,How did U.S. Treasury bonds react when the April 2025 tariffs were announced?,risk_event,False,True,10.49
+Q07,"Which FOMC member dissented at the March 2020 emergency meeting, and what rate did they prefer?","{
+  ""query"": ""Which FOMC member dissented at the March 2020 emergency meeting, and what rate did they prefer?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,"Which FOMC member dissented at the March 2020 emergency meeting, and what rate did they prefer?",risk_event,False,True,12.35
+Q08,What did the FOMC decide on the federal funds rate in June 2022 and what did it signal about further increases?,"{
+  ""query"": ""FOMC federal funds rate June 2022 decision"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,FOMC federal funds rate June 2022 decision,risk_event,False,False,9.38
+Q09,What did the Fed say about the health of the U.S. banking system right after the Silicon Valley Bank failure?,"{
+  ""query"": ""What did the Fed say about the health of the U.S. banking system right after the Silicon Valley Bank failure?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,What did the Fed say about the health of the U.S. banking system right after the Silicon Valley Bank failure?,risk_event,False,True,12.82
+Q10,"Which emergency lending program did the Fed create in March 2023 for banks, and how were pledged securities valued?","{
+  ""query"": ""Fed created emergency lending program in March 2023 for banks"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,Fed created emergency lending program in March 2023 for banks,risk_event,False,False,11.39
+Q11,Why did Federal Reserve supervisors fail to stop Silicon Valley Bank's problems before it collapsed?,"{
+  ""query"": ""Why did Federal Reserve supervisors fail to stop Silicon Valley Bank's problems before it collapsed?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,Why did Federal Reserve supervisors fail to stop Silicon Valley Bank's problems before it collapsed?,risk_event,False,True,11.5
+Q12,Which 2018 law raised the asset threshold for applying enhanced prudential standards to large banks?,"{
+  ""query"": ""Which 2018 law raised the asset threshold for applying enhanced prudential standards to large banks?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,Which 2018 law raised the asset threshold for applying enhanced prudential standards to large banks?,risk_event,False,True,10.73
+Q13,What share of Silicon Valley Bank's deposits was not covered by deposit insurance?,"{
+  ""query"": ""What share of Silicon Valley Bank's deposits was not covered by deposit insurance?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,What share of Silicon Valley Bank's deposits was not covered by deposit insurance?,risk_event,False,True,9.09
+Q14,What move in the S&P 500 triggers a 15-minute trading halt on U.S. stock markets?,"{
+  ""query"": ""What move in the S&P 500 triggers a 15-minute trading halt on U.S. stock markets?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,What move in the S&P 500 triggers a 15-minute trading halt on U.S. stock markets?,risk_event,False,True,10.11
+Q15,Why do volatility spikes force leveraged investors to sell assets even in unrelated markets?,"{
+  ""query"": ""Why do volatility spikes force leveraged investors to sell assets even in unrelated markets?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,Why do volatility spikes force leveraged investors to sell assets even in unrelated markets?,risk_event,False,True,9.5
+Q16,"What happened to Japanese stocks and to the VIX on August 5, 2024?","{
+  ""query"": ""What happened to Japanese stocks and to the VIX on August 5, 2024?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,"What happened to Japanese stocks and to the VIX on August 5, 2024?",risk_event,False,True,9.92
+Q17,How did option-implied stock volatility in April 2025 compare with earlier stress episodes?,"{
+  ""query"": ""How did option-implied stock volatility in April 2025 compare with earlier stress episodes?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,How did option-implied stock volatility in April 2025 compare with earlier stress episodes?,risk_event,False,True,12.81
+Q18,"Why did dollar funding markets seize up for foreign banks in March 2020, and how did central banks respond?","{
+  ""query"": ""Why did dollar funding markets seize up for foreign banks in March 2020, and how did central banks respond?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,"Why did dollar funding markets seize up for foreign banks in March 2020, and how did central banks respond?",risk_event,False,True,12.76
+Q19,How much did the S&P 500 gain on the day the 2025 tariff pause was announced?,"{
+  ""query"": ""How much did the S&P 500 gain on the day the 2025 tariff pause was announced?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,How much did the S&P 500 gain on the day the 2025 tariff pause was announced?,risk_event,False,True,10.01
+Q20,What inputs and time horizon are used to calculate the VIX?,"{
+  ""query"": ""What inputs and time horizon are used to calculate the VIX?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,What inputs and time horizon are used to calculate the VIX?,risk_event,False,True,7.93
+Q21,How far did the S&P 500 fall in 2022 and what drove the decline?,"{
+  ""query"": ""How far did the S&P 500 fall in 2022 and what drove the decline?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,How far did the S&P 500 fall in 2022 and what drove the decline?,risk_event,False,True,10.38
+Q22,When did the U.S. Treasury yield curve invert before the COVID crash and when did it return to normal?,"{
+  ""query"": ""When did the U.S. Treasury yield curve invert before the COVID crash?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,When did the U.S. Treasury yield curve invert before the COVID crash?,risk_event,False,False,9.42
+N01,"What was the peak value of the VIX during the 2008 financial crisis, and on what date did it occur?","{
+  ""query"": ""What was the peak value of the VIX during the 2008 financial crisis?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,What was the peak value of the VIX during the 2008 financial crisis?,risk_event,False,False,9.05
+N02,How did Peruvian stocks and the sol react to the August 2024 carry trade unwind?,"{
+  ""query"": ""How did Peruvian stocks and the sol react to the August 2024 carry trade unwind?"",
+  ""intent"": ""risk_event"",
+  ""abstain"": false
+}",exact,True,True,,How did Peruvian stocks and the sol react to the August 2024 carry trade unwind?,risk_event,False,True,10.27
+N03,What interest rate decision did the Bank of England announce at its September 2024 meeting?,"{
+  ""query"": ""Bank of England September 2024 meeting interest rate decision"",
+  ""intent"": ""policy_response"",
+  ""abstain"": false
+}",exact,True,True,,Bank of England September 2024 meeting interest rate decision,policy_response,False,False,8.21
