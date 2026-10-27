@@ -1,0 +1,16 @@
+{
+  "version": "parcial-v1",
+  "n_documents": 21,
+  "n_passages": 150,
+  "n_queries": 22,
+  "n_queries_no_evidence": 3,
+  "n_rag_queries": 10,
+  "n_relevant_pairs": 57,
+  "sha256_12": {
+    "corpus_parcial.jsonl": "f60c86a5582f",
+    "queries_parcial.jsonl": "8f50fe08919d",
+    "qrels_parcial.json": "4c3e0b3a7370",
+    "reference_answers_parcial.jsonl": "4563a3e82b4f",
+    "queries_sin_evidencia.jsonl": "8614ed2287cf"
+  }
+}
