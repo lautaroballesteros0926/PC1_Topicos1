@@ -1,0 +1,5 @@
+.git
+.env
+**/.ipynb_checkpoints
+**/__pycache__
+guia_personal
