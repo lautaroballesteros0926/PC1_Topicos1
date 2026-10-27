@@ -1,0 +1,36 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-8.4.2, pluggy-1.7.0 -- /usr/local/bin/python
+rootdir: /workspace/parcial
+plugins: platformdirs-4.13.5, anyio-4.15.1
+collecting ... collected 28 items
+
+tests/test_retrieval.py::test_metrics_distinguish_order_from_coverage PASSED [  3%]
+tests/test_retrieval.py::test_expand_removes_overlap_duplicates PASSED   [  7%]
+tests/test_retrieval.py::test_bm25_prefers_lexical_match PASSED          [ 10%]
+tests/test_retrieval.py::test_chunks_cover_every_passage_with_overlap PASSED [ 14%]
+tests/test_retrieval.py::test_benchmark_is_consistent PASSED             [ 17%]
+tests/test_retrieval.py::test_paired_bootstrap_detects_no_difference PASSED [ 21%]
+tests/test_tool_risk.py::test_valid_call_returns_tool_result PASSED      [ 25%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[L1] PASSED       [ 28%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[L2] PASSED       [ 32%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[L3] PASSED       [ 35%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[M1] PASSED       [ 39%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[M2] PASSED       [ 42%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[H1] PASSED       [ 46%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[H2] PASSED       [ 50%]
+tests/test_tool_risk.py::test_reproduces_pc1_gold_cases[H3] PASSED       [ 53%]
+tests/test_tool_risk.py::test_invalid_input_is_validation_error_without_execution[args0] PASSED [ 57%]
+tests/test_tool_risk.py::test_invalid_input_is_validation_error_without_execution[args1] PASSED [ 60%]
+tests/test_tool_risk.py::test_invalid_input_is_validation_error_without_execution[args2] PASSED [ 64%]
+tests/test_tool_risk.py::test_invalid_input_is_validation_error_without_execution[args3] PASSED [ 67%]
+tests/test_tool_risk.py::test_protocol_errors PASSED                     [ 71%]
+tests/test_tool_risk.py::test_domain_errors_are_not_retried[args0-ticker_not_supported] PASSED [ 75%]
+tests/test_tool_risk.py::test_domain_errors_are_not_retried[args1-date_not_trading_day] PASSED [ 78%]
+tests/test_tool_risk.py::test_domain_errors_are_not_retried[args2-insufficient_history] PASSED [ 82%]
+tests/test_tool_risk.py::test_domain_errors_are_not_retried[args3-date_out_of_range] PASSED [ 85%]
+tests/test_tool_risk.py::test_transient_failure_recovers_with_retry PASSED [ 89%]
+tests/test_tool_risk.py::test_transient_failure_exhausts_retries PASSED  [ 92%]
+tests/test_tool_risk.py::test_timeout_is_bounded_by_deadline PASSED      [ 96%]
+tests/test_tool_risk.py::test_output_contract_violation_is_detected PASSED [100%]
+
+============================== 28 passed in 2.51s ==============================
