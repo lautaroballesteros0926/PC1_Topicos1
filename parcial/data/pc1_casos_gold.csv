@@ -1,0 +1,9 @@
+id,ticker,date,event,close,ret5,vol20,dd20,score,gold_label
+L1,SPY,2017-06-30,"Mercado en calma, mediados de 2017",209.63,-0.55,7.17,-1.17,0,low
+L2,GLD,2019-04-30,"Oro estable, abril 2019",121.2,0.9,7.45,-1.89,0,low
+L3,KO,2021-04-30,"Accion defensiva estable, abril 2021",45.94,-0.9,9.54,-1.15,0,low
+M1,SPY,2024-08-05,"Unwind del carry trade, 5-ago-2024",504.16,-5.03,19.19,-8.41,3,medium
+M2,SPY,2023-03-13,"Crisis bancaria SVB, marzo 2023",367.56,-4.72,15.79,-6.91,3,medium
+H1,SPY,2020-03-16,"Crash COVID-19, marzo 2020",218.09,-12.54,76.95,-29.11,6,high
+H2,IWM,2022-06-13,"Venta masiva de small caps, junio 2022",161.22,-9.17,34.14,-10.61,6,high
+H3,SPY,2025-04-08,"Shock arancelario, abril 2025",488.38,-11.5,31.44,-13.72,6,high
