@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta charset="utf-8">
+<title>CC0F4 · Examen parcial</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  @page { size: 1281px 721px; margin: 0; }
+  :root {
+    --bg:#F1F3F6; --surface:#FFFFFF; --surface2:#E7EAF0;
+    --ink:#1B2027; --ink2:#4B5563; --ink3:#8A91A0;
+    --border:#D7DCE4; --border2:#BCC3CF;
+    --accent:#5646D6; --teal:#0E8074; --amber:#B0670C; --red:#A63527;
+    --low:#0E8074; --med:#B0670C; --high:#A63527;
+    --serif:'Fraunces', Cambria, Georgia, serif;
+    --sans:'IBM Plex Sans', Calibri, 'Segoe UI', Arial, sans-serif;
+    --mono:'IBM Plex Mono', Consolas, 'Courier New', monospace;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:#fff; }
+  body { font-family:var(--sans); color:var(--ink); font-variant-numeric:tabular-nums; }
+  .slide { width:1281px; height:721px; position:relative; overflow:hidden; background:var(--bg);
+           padding:44px 60px 0; page-break-after:always; break-after:page; }
+  .eyebrow { font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); }
+  h1 { font-family:var(--serif); font-style:italic; font-weight:600; font-size:42px; line-height:1.08; margin-top:8px; letter-spacing:-.2px; }
+  .lede { font-size:20px; line-height:1.45; color:var(--ink2); margin-top:10px; max-width:1050px; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 26px; }
+  .tag { font-family:var(--mono); font-size:12.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); }
+  .mono { font-family:var(--mono); }
+  .foot { position:absolute; left:60px; right:60px; bottom:20px; display:flex; justify-content:space-between;
+          font-family:var(--mono); font-size:11.5px; color:var(--ink3); }
+  b { font-weight:600; color:var(--ink); }
+  .row { display:flex; gap:18px; }
+  .abs { position:absolute; }
+  .low{color:var(--low)} .med{color:var(--med)} .high{color:var(--high)} .acc{color:var(--accent)}
+  .chip { display:inline-block; font-family:var(--mono); font-size:13px; padding:2px 10px; border-radius:999px; border:1px solid var(--border2); color:var(--ink2); background:var(--surface); }
+  .chip.low{border-color:var(--low);color:var(--low)} .chip.med{border-color:var(--med);color:var(--med)} .chip.high{border-color:var(--high);color:var(--high)}
+  .chip.acc{border-color:var(--accent);color:var(--accent)}
+  .field { display:flex; flex-direction:column; gap:3px; min-width:0; }
+  .field .k { font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); }
+  .field .v { font-family:var(--mono); font-size:22px; font-weight:500; }
+  .field .d { font-size:12.5px; color:var(--ink2); }
+  table { width:100%; border-collapse:collapse; font-size:16.5px; }
+  th { text-align:left; font-family:var(--mono); font-size:12.5px; letter-spacing:.03em; text-transform:none; color:var(--ink3); font-weight:500; padding:9px 12px; border-bottom:1px solid var(--border); }
+  td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  td.n, th.n { text-align:right; font-family:var(--mono); }
+  td.m { font-family:var(--mono); }
+  .code { font-family:var(--mono); font-size:16px; line-height:1.55; color:var(--ink); }
+  .code .c { color:var(--ink3); }
+  .note { font-size:16.5px; color:var(--ink2); line-height:1.45; }
+  .eq { font-family:var(--serif); font-style:italic; font-size:22px; color:var(--ink); }
+  .eq sub { font-style:normal; font-family:var(--sans); font-size:.62em; }
+
+  .ei{color:var(--amber)} .ie{color:var(--teal)} .nn{color:var(--accent)}
+  .chip.ei{border-color:var(--amber);color:var(--amber)} .chip.ie{border-color:var(--teal);color:var(--teal)} .chip.nn{border-color:var(--accent);color:var(--accent)}
+  .seq { font-family:var(--mono); font-size:15.5px; letter-spacing:.04em; line-height:1.5; white-space:nowrap; }
+  .seq .cut { color:var(--red); font-weight:600; padding:0 3px; }
+  .seq .hl { background:#FDEBC8; border-radius:3px; padding:0 1px; font-weight:600; }
+  .bar { height:20px; border-radius:5px; background:var(--surface2); position:relative; }
+  .bar > i { position:absolute; left:0; top:0; bottom:0; border-radius:5px; display:block; }
+  .step { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px 18px; flex:1; min-width:0; }
+  .step .n { font-family:var(--mono); font-size:12px; color:var(--ink3); letter-spacing:.07em; }
+  .step .t { font-size:18px; font-weight:600; margin-top:4px; }
+  .step .s { font-size:13.5px; color:var(--ink2); margin-top:6px; line-height:1.4; }
+  .arrow { align-self:center; font-size:22px; color:var(--ink3); }
+  .mini { background:var(--surface2); border-radius:8px; padding:7px 10px; margin-top:10px; font-family:var(--mono); font-size:12px; color:var(--ink2); line-height:1.4; }
+  img.fig { display:block; width:100%; height:auto; }
+</style>
+</head>
+<body>
+<section class="slide" style="padding-top:64px">
+  <div class="eyebrow">CC0F4 · Examen parcial · Semanas 1 a 7</div>
+  <h1 style="font-size:54px; margin-top:21px; line-height:1.05">Del prototipo LLM a un sistema RAG evaluable</h1>
+  <p class="lede" style="font-size:24px; max-width:960px; margin-top:21px">Recuperación híbrida, respuestas con citas y una herramienta con contratos, medidas sobre documentos reales de riesgo de mercado.</p>
+  <div class="card" style="margin-top:44px; padding:22px 26px; display:grid; grid-template-columns:repeat(5,1fr); gap:18px 20px">
+    <div class="field"><span class="k">documentos</span><span class="v">21</span><span class="d">Fed, BIS, Wikipedia</span></div>
+    <div class="field"><span class="k">passages</span><span class="v">150</span><span class="d">extractos textuales</span></div>
+    <div class="field"><span class="k">consultas</span><span class="v">22+3</span><span class="d">con y sin evidencia</span></div>
+    <div class="field"><span class="k">sistemas</span><span class="v">A · B · C</span><span class="d">densa · híbrida · reranker</span></div>
+    <div class="field"><span class="k">herramienta</span><span class="v acc">8/8</span><span class="d">casos de la PC1 reproducidos</span></div>
+  </div>
+  <div class="abs" style="left:60px; bottom:52px">
+    <div style="font-size:23px; font-weight:500">Pedro Lautaro Quispe Ballesteros</div>
+    <div class="mono" style="font-size:15px; color:var(--ink3); margin-top:5px">Tópicos de Ciencia de la Computación I · 2026-2 · 29 de octubre de 2026</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">01 · Problema y continuidad</div>
+  <h1>La misma pregunta de la PC1 y la PC2, ahora con evidencia y medición</h1>
+  <p class="lede">¿Qué evidencia sustenta una alerta de riesgo de mercado, y cómo sé que funciona?</p>
+  <div class="row" style="margin-top:40px; align-items:stretch; gap:10px">
+    <div class="step"><div class="n">PC1</div><div class="t">El LLM no calcula</div><div class="s">Qwen 0,5B dijo «low» en 8 de 8 casos. Los indicadores deben calcularse con código.</div><div class="mini">→ herramienta (Exp. 3)</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">PC2</div><div class="t">Un documento acapara</div><div class="s">Recuperación densa sobre 8 documentos y 6 consultas; la consulta Q01 quedaba desplazada.</div><div class="mini">→ BM25 + reranker (Exp. 1)</div></div>
+    <div class="arrow">→</div>
+    <div class="step" style="border-color:var(--accent)"><div class="n">PARCIAL</div><div class="t">Evaluar de verdad</div><div class="s">Documentos reales, qrels fijados antes de comparar, RAG con citas auditado y errores a la vista.</div><div class="mini">→ Exp. 1, 2 y 3</div></div>
+  </div>
+  <div class="note" style="margin-top:34px">No hay agentes: se construye y mide la base que los agentes necesitarán desde la Semana 9.</div>
+  <div class="foot"><span>CC0F4 · Examen parcial · Lautaro Quispe</span><span>1 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">02 · Arquitectura y datos</div>
+  <h1>Datos reales y qrels fijados antes de comparar sistemas</h1>
+  <p class="lede">Episodios de la PC1 (COVID, tasas 2022, SVB, carry trade, aranceles) en documentos oficiales en inglés.</p>
+  <div class="row" style="margin-top:34px; align-items:stretch">
+    <div class="card" style="flex:1.35; padding:26px 28px">
+      <div class="tag">flujo del Experimento 1 y 2</div>
+      <div class="row" style="margin-top:18px; gap:8px; align-items:stretch">
+        <div class="step"><div class="n">A</div><div class="t">e5 + FAISS</div><div class="s">significado</div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="n">B</div><div class="t">+ BM25 + RRF</div><div class="s">palabras + fusión</div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="n">C</div><div class="t">+ Cross-Encoder</div><div class="s">reordena 10</div></div>
+      </div>
+      <div class="note" style="margin-top:20px">top-3 → respuesta con citas → auditoría de respuesta, citas y grounding.</div>
+    </div>
+    <div class="card" style="flex:.65; display:grid; grid-template-columns:1fr 1fr; gap:26px 12px; align-content:start; padding:26px 28px">
+      <div class="field"><span class="k">documentos</span><span class="v">21</span><span class="d">8 Wikipedia · 8 Fed · 3 informes · 2 BIS</span></div>
+      <div class="field"><span class="k">passages</span><span class="v">150</span><span class="d">textuales, con id</span></div>
+      <div class="field"><span class="k">consultas</span><span class="v">22</span><span class="d">+3 sin evidencia</span></div>
+      <div class="field"><span class="k">chunks</span><span class="v">102</span><span class="d">180 palabras, overlap 1</span></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:22px; padding:20px 28px">
+    <div class="tag">distractores propios de las fuentes (no creados después de ver resultados)</div>
+    <div class="row" style="margin-top:14px; gap:12px; flex-wrap:wrap">
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">comunicados FOMC casi idénticos (D12 a D15)</span>
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">hechos de SVB repetidos en 4 documentos</span>
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">«CBOE Volatility Index» ≠ «VIX» (Q01)</span>
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">3 consultas sin respuesta en el corpus</span>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · Examen parcial · Lautaro Quispe</span><span>2 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">03 · Trazabilidad de aprendizajes</div>
+  <h1>Cada semana deja una evidencia que se puede abrir en el cuaderno</h1>
+  <div class="card" style="margin-top:30px; padding:14px 24px"><table style="font-size:19px; width:100%">
+    <tr><th>sem.</th><th>concepto</th><th>evidencia</th></tr><tr><td class="mono"><b>S1</b></td><td>tokens, Q/K/V, máscara causal</td><td class="mono" style="font-size:14.5px">diferencia 0,0 al cambiar el último token</td></tr><tr><td class="mono"><b>S2</b></td><td>logits → softmax → greedy, KV cache</td><td class="mono" style="font-size:14.5px">greedy = argmax; caché más rápido</td></tr><tr><td class="mono"><b>S3</b></td><td>JSON Schema, válido ≠ adecuado</td><td class="mono" style="font-size:14.5px">25/25 válidas, 20/25 copian Q0</td></tr><tr><td class="mono"><b>S4</b></td><td>chunking, FAISS, top-k, qrels</td><td class="mono" style="font-size:14.5px">102 chunks, 4 truncados</td></tr><tr><td class="mono"><b>S5</b></td><td>BM25, RRF, Cross-Encoder</td><td class="mono" style="font-size:14.5px">A/B/C con bootstrap</td></tr><tr><td class="mono"><b>S6</b></td><td>contratos, retry, timeout</td><td class="mono" style="font-size:14.5px">16/16 escenarios, 8/8 casos PC1</td></tr><tr><td class="mono"><b>S7</b></td><td>Recall, MRR, nDCG, grounding</td><td class="mono" style="font-size:14.5px">errores Q01, Q07, Q19</td></tr>
+  </table></div>
+  <div class="note" style="margin-top:20px">Matriz completa con recurso, celda, evidencia y limitación en el README.</div>
+  <div class="foot"><span>CC0F4 · Examen parcial · Lautaro Quispe</span><span>3 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">04 · Comparación de recuperación</div>
+  <h1>Ninguna configuración domina, y el reranker cuesta 46 veces más</h1>
+  <div class="row" style="margin-top:30px; align-items:stretch">
+    <div class="card" style="flex:1.1; padding:24px 28px">
+      <div class="tag">Recall@3 (22 consultas)</div>
+      <div style="display:grid; grid-template-columns:70px 1fr 70px; gap:14px; align-items:center; margin-top:18px">
+        <span class="mono" style="font-size:16px">A</span><div class="bar" style="height:26px"><i style="width:62%; background:var(--ink3)"></i></div><span class="mono" style="font-size:16px">0,310</span><span class="mono" style="font-size:16px">B</span><div class="bar" style="height:26px"><i style="width:76%; background:var(--accent)"></i></div><span class="mono" style="font-size:16px">0,382</span><span class="mono" style="font-size:16px">C</span><div class="bar" style="height:26px"><i style="width:88%; background:var(--teal)"></i></div><span class="mono" style="font-size:16px">0,442</span>
+      </div>
+      <table style="font-size:16px; margin-top:22px; width:100%">
+        <tr><th></th><th class="n">R@5</th><th class="n">MRR</th><th class="n">nDCG@5</th><th class="n">latencia</th></tr>
+        <tr><td><b>A</b></td><td class="n">0,492</td><td class="n">0,541</td><td class="n">0,420</td><td class="n">40 ms</td></tr>
+        <tr><td><b>B</b></td><td class="n">0,480</td><td class="n">0,619</td><td class="n">0,446</td><td class="n">38 ms</td></tr>
+        <tr><td><b>C</b></td><td class="n">0,611</td><td class="n">0,587</td><td class="n">0,500</td><td class="n">1,862 ms</td></tr>
+      </table>
+    </div>
+    <div class="card" style="flex:.9; padding:24px 28px">
+      <div class="tag">cómo leerlo</div>
+      <div class="note" style="margin-top:12px"><b>A → B</b> suma BM25 <i>y</i> fusión: no se atribuye a una sola.</div>
+      <div class="note" style="margin-top:10px"><b>B → C</b> aísla el reranker: sube Recall@5 pero baja el MRR.</div>
+      <div class="note" style="margin-top:10px">Bootstrap: solo Recall@5 de C sobre B excluye el cero (0,130; IC 0,002 a 0,280).</div>
+      <div style="margin-top:14px"><span class="chip acc">BM25 solo: R@3 0,352</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · Examen parcial · Lautaro Quispe</span><span>4 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">05 · RAG y evidencia</div>
+  <h1>La evidencia quita el «no sé», pero no garantiza respuestas fieles</h1>
+  <div class="row" style="margin-top:28px; align-items:stretch">
+    <div class="card" style="flex:1; padding:22px 26px">
+      <div class="tag">Qwen 0,5B · mismas 13 preguntas · comprobación mecánica</div>
+      <table style="font-size:16px; margin-top:12px; width:100%">
+        <tr><th></th><th class="n">closed-book</th><th class="n">con RAG</th></tr>
+        <tr><td>abstiene (10 respondibles)</td><td class="n">5</td><td class="n">0</td></tr>
+        <tr><td>abstiene (3 sin evidencia)</td><td class="n">1</td><td class="n"><b>0</b></td></tr>
+        <tr><td>respuestas con cita</td><td class="n">0</td><td class="n">7</td></tr>
+        <tr><td>ids citados en los qrels</td><td class="n">–</td><td class="n">0,29</td></tr>
+      </table>
+      <div class="note" style="margin-top:20px"><i>Auditoría manual en curso: se completa antes de exponer.</i></div>
+    </div>
+    <div class="card" style="flex:1; padding:22px 26px">
+      <div class="tag">tres fallos distintos</div>
+      <div class="note" style="margin-top:12px"><b>Q07 · alucina.</b> Sin la passage correcta inventa que «Sheets disintió» (fue Mester).</div>
+      <div class="note" style="margin-top:10px"><b>Q19 · cita mal.</b> Dice 9,52 % (correcto) pero cita <span class="mono">D05-P05</span>; está en <span class="mono">D05-P13</span>.</div>
+      <div class="note" style="margin-top:10px"><b>N01–N03 · no se abstiene.</b> Reescribe un passage cambiando 2020 por 2008.</div>
+      <div class="note" style="margin-top:10px">El contexto cubre toda la evidencia solo en 2 de 10 preguntas.</div>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · Examen parcial · Lautaro Quispe</span><span>5 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">06 · Herramienta y contratos</div>
+  <h1>Los contratos convierten los fallos en datos que se pueden decidir</h1>
+  <p class="lede"><span class="mono">risk.compute_signal(ticker, fecha)</span>: indicadores y severidad con la regla de la PC1.</p>
+  <div class="row" style="margin-top:22px; align-items:stretch; gap:8px">
+    <div class="step"><div class="n">1 · ENTRADA</div><div class="t">Pydantic</div><div class="s">tipos, patrón, sin campos extra</div><div class="mini">validation</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">2 · DOMINIO</div><div class="t">¿existe?</div><div class="s">ticker, día de negociación, historia</div><div class="mini">domain</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">3 · EJECUCIÓN</div><div class="t">retry + timeout</div><div class="s">solo transient y timeout</div><div class="mini">deadline 2 s</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">4 · SALIDA</div><div class="t">contrato</div><div class="s">ToolResult o ToolError</div><div class="mini">output_contract</div></div>
+  </div>
+  <div class="card" style="margin-top:26px; padding:18px 26px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px">
+    <div class="field"><span class="k">escenarios</span><span class="v">16/16</span><span class="d">resultado esperado</span></div>
+    <div class="field"><span class="k">casos PC1</span><span class="v">8/8</span><span class="d">reproducidos exactos</span></div>
+    <div class="field"><span class="k">excepciones sin capturar</span><span class="v">0 vs 8</span><span class="d">contratos vs ingenuo</span></div>
+    <div class="field"><span class="k">pruebas</span><span class="v acc">28</span><span class="d">pytest, todas pasan</span></div>
+  </div>
+  <div class="card" style="margin-top:18px; padding:16px 26px">
+    <div class="tag">cuándo reintentar</div>
+    <div class="row" style="margin-top:10px; gap:10px; flex-wrap:nowrap">
+      <span class="chip low" style="font-size:15px; padding:5px 14px">transient → sí</span>
+      <span class="chip low" style="font-size:15px; padding:5px 14px">timeout → si hay tiempo</span>
+      <span class="chip high" style="font-size:15px; padding:5px 14px">validation → no</span>
+      <span class="chip high" style="font-size:15px; padding:5px 14px">domain → no</span>
+      <span class="chip high" style="font-size:15px; padding:5px 14px">output_contract → no</span>
+    </div>
+    <div class="note" style="margin-top:10px; font-size:15px">Reintentar no es reparar: repetir la misma llamada no corrige un argumento mal formado.</div>
+  </div>
+  <div class="foot"><span>CC0F4 · Examen parcial · Lautaro Quispe</span><span>6 / 7</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">07 · Resultados, errores y conclusiones</div>
+  <h1>Lo que sé, lo que no sé y lo que sigue</h1>
+  <div class="row" style="margin-top:28px; align-items:stretch">
+    <div class="card" style="flex:1; padding:30px 32px">
+      <div class="tag">el error que nadie arregla (Q01)</div>
+      <div class="note" style="margin-top:18px; font-size:19.5px">Pregunta por el <b>VIX</b>; la evidencia dice «CBOE Volatility Index». Ningún sistema trae ese chunk al top-10.</div>
+      <div class="note" style="margin-top:16px; font-size:19.5px">El reranker solo reordena candidatos: lo que no es candidato no se rescata.</div>
+    </div>
+    <div class="card" style="flex:1; padding:30px 32px">
+      <div class="tag">conclusiones acotadas</div>
+      <div class="note" style="margin-top:18px; font-size:19.5px">BM25 y densa son <b>complementarias</b>; con 22 consultas no hay ganadora clara.</div>
+      <div class="note" style="margin-top:16px; font-size:19.5px">Evidencia ≠ fidelidad: con 0,5B el límite es el generador y la cobertura.</div>
+      <div class="note" style="margin-top:16px; font-size:19.5px">Los indicadores van en código con contratos, no en el LLM.</div>
+    </div>
+    <div class="card" style="flex:1; padding:30px 32px">
+      <div class="tag">límites</div>
+      <div class="note" style="margin-top:18px; font-size:19.5px">22 consultas · 1 anotador · 4 chunks truncados · 1 modelo de 0,5B.</div>
+      <div class="note" style="margin-top:16px; font-size:19.5px">Un diagnóstico por chunk se añadió <i>después</i> de ver resultados.</div>
+      <div class="note" style="margin-top:16px; font-size:19.5px"><b>Semana 9:</b> workflows y agentes sobre esta base.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:22px; padding:20px 28px">
+    <div class="tag">lo que deja el repositorio</div>
+    <div class="row" style="margin-top:12px; gap:10px; flex-wrap:wrap">
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">baseline reproducible</span>
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">corpus y qrels trazables</span>
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">recuperación comparada</span>
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">RAG evaluado</span>
+      <span class="chip acc" style="font-size:15px; padding:5px 14px">herramienta con contratos</span>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · Examen parcial · Lautaro Quispe</span><span>7 / 7</span></div>
+</section>
+</body>
+</html>
