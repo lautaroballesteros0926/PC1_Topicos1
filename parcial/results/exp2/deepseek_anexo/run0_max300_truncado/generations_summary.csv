@@ -1,0 +1,27 @@
+query_id,condition,expected_abstain,answer,abstained,n_cited,cited_in_context_rate,cited_relevant_rate,token_f1_proxy,numeric_fact_proxy,n_output_tokens,model_reported
+Q01,closed_book,False,"The worst day was March 16, 2020, when the S&P 500 fell about 12%. The VIX closed that day at **82.69**, its highest close on record.",False,0,,,0.353,1.0,196,deepseek-flash
+Q01,rag,False,"On Black Thursday, 12 March 2020—described as the greatest single-day percentage fall since the 1987 crash [D01-P08]—the VIX hit and closed at 75.47 [D06-P07].",False,2,1.0,0.0,0.182,0.3333333333333333,286,deepseek-flash
+Q02,closed_book,False,"SVB held large bond portfolios, but many were long-duration, low-yield securities whose market value fell sharply when interest rates rose. To meet withdrawals, it had to sell assets at a loss, which eroded capital and triggered more depositor panic, especially among uninsured depositors. Thus the portfolio’s size did not provide liquidity without realizing large losses.",False,0,,,0.348,,145,deepseek-flash
+Q02,rag,False,,False,0,,,0.0,,300,deepseek-flash
+Q04,closed_book,False,"In March 2020, the Federal Reserve cut its federal funds rate target by 150 basis points in two emergency moves, lowering it to a range of 0% to 0.25%. It also launched large-scale asset purchases and emergency lending facilities to support markets.",False,0,,,0.31,0.2857142857142857,187,deepseek-flash
+Q04,rag,False,"The Federal Open Market Committee lowered the federal funds rate target by 50 basis points on 3 March [D01-P02]. It also decided to lower the target range for the federal funds rate to 0 to 1/4 percent, citing effects of the coronavirus [D10-P02].",False,2,1.0,1.0,0.414,0.5714285714285714,287,deepseek-flash
+Q06,closed_book,False,"U.S. Treasury bonds initially rallied after the April 2025 tariff announcement, as investors sought safe havens and yields fell. That move reversed sharply later in the week, with long-dated Treasury yields rising and prices falling amid a broader selloff and liquidity concerns. The reaction was thus",False,0,,,0.222,0.0,300,deepseek-flash
+Q06,rag,False,"Initially, as stock prices declined, investors moved into bonds, pushing yields down [D",False,0,,,0.207,0.0,300,deepseek-flash
+Q07,closed_book,False,,False,0,,,0.0,0.0,300,deepseek-flash
+Q07,rag,False,INSUFFICIENT EVIDENCE,True,0,,,0.0,0.0,237,deepseek-flash
+Q09,closed_book,False,"The Fed said the U.S. banking system remained “sound and resilient” and was on a “solid foundation,” largely due to post-2008 financial reforms. It also joined Treasury",False,0,,,0.458,,300,deepseek-flash
+Q09,rag,False,INSUFFICIENT EVIDENCE,True,0,,,0.0,,73,deepseek-flash
+Q10,closed_book,False,The Fed created the Bank Term Funding Program (BTFP) in March 2023. Eligible securities pledged as collateral were valued at par rather than at market value.,False,0,,,0.553,,81,deepseek-flash
+Q10,rag,False,"The Fed created the Bank Term Funding Program (BTFP), an emergency lending program offering up to one-year loans to eligible depository institutions [D04-P08]. Pledged collateral, including U.S. Treasuries, agency debt, and mortgage-backed securities, was valued at par instead of open-market value [D04-P08].",False,1,1.0,1.0,0.656,,234,deepseek-flash
+Q13,closed_book,False,,False,0,,,0.0,0.0,300,deepseek-flash
+Q13,rag,False,89 percent of Silicon Valley Bank’s deposit liabilities exceeded the maximum insured by the FDIC [D04-P06].,False,1,1.0,1.0,0.5,1.0,112,deepseek-flash
+Q16,closed_book,False,"On August 5, 2024, Japanese stocks crashed: the Nikkei 225 fell 12.4% (4,451 points), its largest one-day point drop and worst percentage decline since 1987, while the Topix fell about 12.2%. The VIX spiked sharply, closing around 38.6 after trading above 60 intraday, as global markets sold off on yen carry-trade unwinding and U.S. recession fears.",False,0,,,0.302,0.25,200,deepseek-flash
+Q16,rag,False,"On 5 August 2024, the Japanese TOPIX index lost 12% in a single day [D20-P02][D20-P04]. The VIX briefly registered levels not seen since Covid-19 [D20-P02], and in off-hours trading it spiked above 60 [D20-P04].",False,2,1.0,1.0,0.645,0.75,233,deepseek-flash
+Q19,closed_book,False,"On April 9, 2025, when the 90-day tariff pause was announced, the S&P 500 gained about **9.5%**—its largest one-day rise since 2008.",False,0,,,0.526,0.5,184,deepseek-flash
+Q19,rag,False,"The S&P 500 rose 9.52% on the day the tariff pause was announced [D05-P13]. The pause announcement occurred on April 9, 2025 [D05-P04].",False,2,1.0,0.5,0.588,0.5,193,deepseek-flash
+N01,closed_book,True,"The VIX’s peak closing value during the 2008 financial crisis was 80.86 on November 20, 2008. Its intraday peak was 89.53 on October 24, 2008.",False,0,,,,,150,deepseek-flash
+N01,rag,True,INSUFFICIENT EVIDENCE,True,0,,,,,105,deepseek-flash
+N02,closed_book,True,I DON'T KNOW,True,0,,,,,300,deepseek-flash
+N02,rag,True,INSUFFICIENT EVIDENCE,True,0,,,,,60,deepseek-flash
+N03,closed_book,True,"At its September 2024 meeting, the Bank of England’s Monetary Policy Committee announced it would hold the Bank Rate at 5.00%.",False,0,,,,,77,deepseek-flash
+N03,rag,True,INSUFFICIENT EVIDENCE,True,0,,,,,73,deepseek-flash
