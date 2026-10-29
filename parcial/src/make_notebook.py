@@ -159,7 +159,8 @@ candidatos = 10, top-k ∈ {1, 3, 5}, semilla 42. **Métricas** (Semana 7): Reca
 duplicados (los qrels son por `passage_id`), más la latencia por etapa y el bootstrap pareado (5 000 remuestreos) sobre las diferencias por consulta.
 """)
 code("""
-RERUN_EXP1 = True    # False: solo lee results/exp1/ (mismos números, sin recalcular)
+import os
+RERUN_EXP1 = os.environ.get("CC0F4_RERUN_EXP1", "1") == "1"   # CC0F4_RERUN_EXP1=0: solo lee results/exp1/ (mismos números, sin recalcular)
 from exp1 import run_exp1, CONDITIONS, DIAGNOSTIC
 if RERUN_EXP1:
     e1 = run_exp1()
@@ -367,9 +368,9 @@ print("Qwen2.5-0.5B — comprobaciones MECÁNICAS (no sustituyen la auditoría m
 auto_summary(gen).T
 """)
 md("""
-### Auditoría manual (la completa el autor)
+### Auditoría manual
 Plantillas: `results/exp2/qwen/audit_answers_template.csv` (26 respuestas: corrección; citas en RAG; abstención) y `audit_claims_template.csv` (19 afirmaciones de las respuestas RAG: respaldada `yes` / `partial` / `no`
-por el passage citado o por el contexto). Criterios en el docstring de `src/exp2_audit.py`. La celda siguiente resume lo que se haya completado.
+por el passage citado o por el contexto). Criterios en el docstring de `src/exp2_audit.py`. La celda siguiente resume la auditoría.
 """)
 code("""
 from exp2_audit import summarize_audit
@@ -378,6 +379,10 @@ print("Estado de la auditoría manual:", audit["status"])
 if audit["answers"] is not None:
     display(audit["answers"]); display(audit["claims"]); print("pendiente:", audit["pending"])
     display(audit["unsupported"])
+""")
+md("""
+**Lectura de la auditoría.** Las tres medidas **no coinciden**. Con evidencia, la respuesta correcta pasa de 0/10 (closed-book) a 2/10 (Q16 y Q19), pero la abstención adecuada **baja** de 1/3 a 0/3 y solo 1 de 13 respuestas RAG tiene las citas correctas (Q16).
+El *faithfulness* (12 sí, 2 parcial y 5 no de 19 afirmaciones: 0,68) es mucho más alto que la corrección porque muchas afirmaciones son **copias literales del contexto que no responden la pregunta** (Q01, Q02, Q09): fiel no es correcto. Y las citas fallan incluso con el contenido correcto (Q19: cifra en `D05-P13`, cita `D05-P05`).
 """)
 md("""
 ### Casos observados (lectura de las respuestas; la auditoría los formaliza)
@@ -410,7 +415,7 @@ md("""
 ### Registro experimental — Experimento 2
 | Pregunta | Línea base | Fijo | Modificación | Métricas | Resultado (mecánico) | Error | Limitaciones | Conclusión |
 |---|---|---|---|---|---|---|---|---|
-| ¿Cambia la evidencia recuperada las respuestas del mismo LLM? | closed-book | Qwen2.5-0.5B, 13 preguntas, greedy, top-3 chunks de C | + evidencia con citas | corrección, citas y grounding (manual); proxies mecánicos | Qwen RAG: 0/10 abstenciones en respondibles (closed-book: 5/10), 0/3 en sin evidencia; 7/10 con cita, 29 % de ids citados en los qrels | Q07 (alucinación), Q19 (cita mal asignada), Q10 (detalle inventado), N01–N03 | 13 preguntas, un modelo de 0.5B, un auditor, contexto fijo en top-3 chunks | Con este modelo la evidencia elimina el «no sé» pero no garantiza respuestas ni citas fieles; el techo lo marca la recuperación |
+| ¿Cambia la evidencia recuperada las respuestas del mismo LLM? | closed-book | Qwen2.5-0.5B, 13 preguntas, greedy, top-3 chunks de C | + evidencia con citas | corrección, citas y grounding (auditoría manual); proxies mecánicos | Auditoría: correcta 2/10 (closed-book 0/10), abstención correcta 0/3 (closed-book 1/3), citas correctas 1/13, faithfulness 0,68. Mecánico: RAG 0/10 abstenciones en respondibles (closed-book 5/10), 7/10 con cita, 29 % de ids citados en qrels | Q07 (alucinación), Q19 (cita mal asignada), Q10 (detalle inventado), N01–N03 | 13 preguntas, un modelo de 0.5B, un auditor, contexto fijo en top-3 chunks | Con este modelo la evidencia elimina el «no sé» pero no garantiza respuestas ni citas fieles; el techo lo marca la recuperación |
 """)
 
 # =============================================================================================== 6. anexo deepseek
