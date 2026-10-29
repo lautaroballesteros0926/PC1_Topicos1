@@ -178,17 +178,17 @@
 <section class="slide">
   <div class="eyebrow">05 · RAG y evidencia</div>
   <h1>La evidencia quita el «no sé», pero no garantiza respuestas fieles</h1>
-  <div class="row" style="margin-top:28px; align-items:stretch">
-    <div class="card" style="flex:1; padding:22px 26px">
+  <div class="row" style="margin-top:20px; align-items:stretch">
+    <div class="card" style="flex:1; padding:18px 24px">
       <div class="tag">Qwen 0,5B · mismas 13 preguntas · comprobación mecánica</div>
-      <table style="font-size:16px; margin-top:12px; width:100%">
+      <table style="font-size:14.5px; margin-top:6px; width:100%; line-height:1.15">
         <tr><th></th><th class="n">closed-book</th><th class="n">con RAG</th></tr>
         <tr><td>abstiene (10 respondibles)</td><td class="n">5</td><td class="n">0</td></tr>
         <tr><td>abstiene (3 sin evidencia)</td><td class="n">1</td><td class="n"><b>0</b></td></tr>
         <tr><td>respuestas con cita</td><td class="n">0</td><td class="n">7</td></tr>
         <tr><td>ids citados en los qrels</td><td class="n">–</td><td class="n">0,29</td></tr>
       </table>
-      <div class="note" style="margin-top:20px"><i>Auditoría manual en curso: se completa antes de exponer.</i></div>
+      <div class="tag" style="margin-top:12px">auditoría manual</div><table style="font-size:14.5px; width:100%; line-height:1.15"><tr><th></th><th class="n">closed-book</th><th class="n">RAG</th></tr><tr><td>respuesta correcta</td><td class="n">0/10</td><td class="n">2/10</td></tr><tr><td>abstención adecuada</td><td class="n">1/3</td><td class="n">0/3</td></tr><tr><td>citas correctas</td><td class="n">–</td><td class="n">1/13</td></tr><tr><td>afirmaciones respaldadas</td><td class="n">–</td><td class="n">0,68</td></tr></table>
     </div>
     <div class="card" style="flex:1; padding:22px 26px">
       <div class="tag">tres fallos distintos</div>
