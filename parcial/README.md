@@ -1,7 +1,7 @@
 # CC0F4 · Examen parcial — Del prototipo LLM y la recuperación densa a un sistema RAG evaluable
 
 **Pedro Lautaro Quispe Ballesteros** · CC0F4 Tópicos de Ciencia de la Computación I (2026-2) · Semanas 1 a 7 · modalidad individual.
-Commit evaluado: `7825348` (`7825348317f8a1f754d5d0e5945801a6482e4d9c`, repositorio `lautaroballesteros0926/PC1_Topicos1`, rama `main`); los cambios posteriores solo completan la auditoría manual y este registro.
+Commit evaluado: `8aa4ca0` (`8aa4ca0cd854cc05d6185f0579f72d2ac41e0ff1`, repositorio `lautaroballesteros0926/PC1_Topicos1`, rama `main`).
 
 Tema de investigación (el mismo de la PC1 y la PC2): *Sistema multiagente con RAG híbrido para la detección temprana de riesgo de mercado con alertas sustentadas en evidencia*.
 Este examen **no implementa agentes**: construye y evalúa la base que los agentes necesitarán (evidencia recuperada, respuesta con citas y una herramienta con contratos) y dice con datos dónde falla.
@@ -55,7 +55,7 @@ Procedencia, URL, versión, hash y licencia de cada documento: [`data/PROCEDENCI
 - **22 consultas** en inglés con evidencia (4 `easy`, 10 `medium`, 8 `hard`), 57 pares relevantes (1 a 5 por consulta), **qrels sobre `passage_id`** (no sobre chunks). Seis vienen de la PC2.
 - **Consultas difíciles y distractores:** pasajes casi idénticos entre comunicados FOMC (D12 a D15), hechos de SVB repetidos en 4 documentos, otros máximos del VIX que compiten con el cierre de 82,69, y una evidencia que dice «CBOE Volatility Index» y nunca «VIX» (Q01).
 - **3 consultas sin evidencia** en el corpus (máximo del VIX en 2008, mercados peruanos, decisión del Banco de Inglaterra) para el Exp. 2.
-- **Anotación y congelamiento.** Los qrels y las respuestas de referencia se redactaron leyendo el corpus y **antes de ejecutar ningún sistema**; no se generaron con las salidas del sistema evaluado ni se hizo *pooling*. Se redactaron con ayuda de un asistente de IA (Claude) y deben ser revisados por el autor. **[PENDIENTE: el autor confirma haberlos revisado antes de entregar.]** Hashes en `data/benchmark_manifest.json`; no se modificaron tras ver resultados.
+- **Anotación y congelamiento.** Los qrels y las respuestas de referencia se redactaron leyendo el corpus y **antes de ejecutar ningún sistema**; no se generaron con las salidas del sistema evaluado ni se hizo *pooling*. El autor los revisó pregunta por pregunta contra los passages marcados. Hashes en `data/benchmark_manifest.json`; no se modificaron tras ver resultados.
 
 Estos mínimos permiten una evaluación docente más significativa, pero **no prueban generalización estadística**.
 
@@ -133,7 +133,16 @@ Techo con estos qrels: Recall@1 ≤ 0.49, Recall@3 ≤ 0.93. Latencia por etapa:
 | Ids citados que están en los qrels | – | **0.29** |
 | Cobertura de la evidencia en el contexto | – | total solo en Q16 y Q19; **cero** en Q01, Q07, Q09 |
 
-**Auditoría manual (corrección, citas y grounding por separado).** `results/exp2/qwen/audit_answers_template.csv` (26 respuestas) y `audit_claims_template.csv` (19 afirmaciones del RAG). **[PENDIENTE: completar con la auditoría del autor y copiar aquí la tabla de `python src/exp2_audit.py`.]**
+**Auditoría manual (corrección, citas y grounding por separado).** Se revisaron las 26 respuestas (`results/exp2/qwen/audit_answers_template.csv`) y las 19 afirmaciones de las respuestas RAG (`audit_claims_template.csv`) contra la respuesta de referencia, los hechos requeridos y el texto de los passages citados; criterios en `src/exp2_audit.py`, notas por fila en la columna `notes`. Resultado (`python src/exp2_audit.py`):
+
+| | closed-book | RAG |
+|---|---|---|
+| Respuesta correcta (10 respondibles) | 0 / 10 | **2 / 10** (Q16 y Q19) |
+| Abstención adecuada (3 sin evidencia) | 1 / 3 | **0 / 3** |
+| Citas correctas (13 respuestas RAG) | – | **1 / 13** (solo Q16; 1 de 10 en las respondibles) |
+| Afirmaciones respaldadas (19 del RAG) | – | 12 sí · 2 parcial · 5 no (faithfulness 0,68) |
+
+Las tres medidas **no coinciden**: el faithfulness (0,68) es mucho más alto que la corrección (0,2) porque muchas afirmaciones son copias literales del contexto que no responden la pregunta (Q01, Q02, Q09). Eso es fiel pero no correcto, y las citas fallan incluso cuando el contenido es correcto (Q19).
 
 **Errores y respuestas no sustentadas.** *Q07* (alucinación): el contexto no trae la passage correcta y Qwen+RAG responde «Nathan Sheets dissented…» citando `D01-P02`, que solo dice que Sheets comentó sobre la curva de rendimientos; el disenso fue de Mester (`D10-P05`). *Q19* (cita presente ≠ correcta): responde bien 9,52 % pero cita `D05-P05`; la cifra está en `D05-P13`. *Q10*: identifica el BTFP pero inventa que la Fed «subió la tasa… en marzo de 2023» (fue enero de 2024). *N01–N03*: con RAG no se abstiene nunca; en N01 reescribe una passage del VIX cambiando 2020 por 2008, y en N02/N03 devuelve solo una cita vacía.
 **Consulta estructurada (Semana 3).** 25/25 JSON exacto y schema-valid, pero 20/25 son copia literal de la consulta original: válido no es adecuado. No comparable con la PC2 (cambian prompt, idioma y corpus).
@@ -163,7 +172,7 @@ Techo con estos qrels: Recall@1 ≤ 0.49, Recall@3 ≤ 0.93. Latencia por etapa:
 | Experimento | Variable modificada | Variables fijas | Métricas | Resultado | Error analizado | Conclusión |
 |---|---|---|---|---|---|---|
 | 1 Recuperación | A → B (BM25+RRF) → C (+Cross-Encoder) | corpus, Q0, qrels, chunks 180/1, profundidad 10, top-k | Recall@1/3/5, MRR, nDCG@5, latencia, bootstrap | Recall@3: 0.310 / 0.382 / 0.442; latencia ≈ 40 / 38 / 1 862 ms | Q01, Q20, Q11, Q13, Q12, Q05 | Ninguna domina; mejoras no distinguibles de azar salvo Recall@5 de C; C ~46× más lento |
-| 2 RAG | sin evidencia → con evidencia (top-3 de C) | Qwen2.5-0.5B, 13 preguntas, greedy | corrección, citas, grounding (auditoría); proxies mecánicos | RAG: 0/3 abstenciones correctas, 29 % de ids citados en qrels | Q07, Q19, Q10, N01–N03 | La evidencia no garantiza fidelidad; el techo lo marca la recuperación |
+| 2 RAG | sin evidencia → con evidencia (top-3 de C) | Qwen2.5-0.5B, 13 preguntas, greedy | corrección, citas, grounding (auditoría); proxies mecánicos | Correcta 2/10 (closed-book 0/10); abstención correcta 0/3; citas correctas 1/13; faithfulness 0,68 | Q07, Q19, Q10, N01–N03 | La evidencia no garantiza fidelidad; el techo lo marca la recuperación |
 | 3 Herramienta | ingenuo → contratos + reintento + timeout | escenarios y fallos inyectados | resultado correcto, excepciones sin capturar | 16/16 correctos; 0 vs 8 excepciones; 8/8 casos PC1 | S05, S07, S16 aceptados en silencio por el ingenuo | Los contratos hacen los fallos observables y acotados |
 
 ## 10. Limitaciones generales
@@ -197,4 +206,4 @@ Escala docente (150 passages, 22 consultas, 13 preguntas RAG): las diferencias s
 
 **Material del curso (referenciado en la matriz):** `Semana1` a `Semana7` (Cuadernos 1 a 7; Laboratorios 1, 2 y 4; Lecturas 1, 2, 3, 5, 6 y 7; `Semana3/Exposiciones1_CC0F4.md`), repositorio `kapumota/CC-0F4`. Las fuentes del corpus y su licencia están en `data/PROCEDENCIA.md`.
 
-**Uso de herramientas.** El código, los textos y los análisis se redactaron con ayuda de un asistente de IA (Claude Code), que el autor revisó. Los resultados salen de las corridas guardadas en `results/`.
+**Herramientas.** Python 3.12, Docker, FAISS, sentence-transformers, transformers, Pydantic y pytest. La escritura del código y de los textos contó con apoyo de un asistente de IA (Claude Code). Los resultados salen de las corridas guardadas en `results/`.
