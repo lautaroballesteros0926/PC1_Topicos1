@@ -96,11 +96,11 @@ from llm import LLM_ID, LLM_REVISION, DECODING
 tok = AutoTokenizer.from_pretrained(LLM_ID, revision=LLM_REVISION)
 qwen = AutoModelForCausalLM.from_pretrained(LLM_ID, revision=LLM_REVISION, dtype=torch.float32).eval()
 cfg = qwen.config
-print(f"{LLM_ID} @ {LLM_REVISION[:7]} | capas={cfg.num_hidden_layers} | d_model={cfg.hidden_size} | cabezas Q={cfg.num_attention_heads} "
-      f"| cabezas K/V={cfg.num_key_value_heads} | vocab={cfg.vocab_size} | ventana={cfg.max_position_embeddings} tokens")
+print(f"{LLM_ID} @ {LLM_REVISION[:7]} | capas={cfg.num_hidden_layers} | d_model={cfg.hidden_size} | query heads={cfg.num_attention_heads} "
+      f"| key-value heads={cfg.num_key_value_heads} | vocab={cfg.vocab_size} | ventana={cfg.max_position_embeddings} tokens")
 attn = qwen.model.layers[0].self_attn
 print("capa 0 -> q_proj", tuple(attn.q_proj.weight.shape), "| k_proj", tuple(attn.k_proj.weight.shape), "| v_proj", tuple(attn.v_proj.weight.shape),
-      "(menos cabezas K/V que Q: atención de consultas agrupadas)")
+      "(menos key-value heads que query heads: grouped-query attention, GQA)")
 sent = bench["passages"]["D05-P13"][:60]
 print("\\ntexto:", repr(sent)); print("tokens Qwen:", tok.convert_ids_to_tokens(tok(sent)["input_ids"])[:14])
 """)
@@ -261,7 +261,7 @@ md("""
 ### Registro experimental — Experimento 1
 | Pregunta | Línea base | Variables fijas | Modificación | Métricas | Resultado | Error analizado | Limitaciones | Conclusión |
 |---|---|---|---|---|---|---|---|---|
-| ¿Qué aportan BM25+RRF y el Cross-Encoder a la recuperación densa? | A (e5 + FAISS) | corpus, Q0, qrels, chunks 180/overlap 1, profundidad 10, top-k | A→B: BM25+RRF (2 cambios); B→C: Cross-Encoder | Recall@1/3/5, MRR, nDCG@5, latencia, bootstrap | Recall@3: A 0.310, B 0.382, C 0.442; latencia ≈ 40 / 38 / 1 862 ms | Q01 (nadie lo recupera), Q20, Q11, Q13, Q05 | 22 consultas; 4 chunks truncados; qrels binarios de un anotador; métrica por passage depende del orden en el chunk | Mejoras pequeñas y no distinguibles de azar salvo Recall@5 de C sobre B; C cuesta ~46× más; BM25 y densa son complementarias |
+| ¿Qué aportan BM25+RRF y el Cross-Encoder a la recuperación densa? | A (e5 + FAISS) | corpus, Q0, qrels, chunks 180/overlap 1, profundidad 10, top-k | A→B: BM25+RRF (2 cambios); B→C: Cross-Encoder | Recall@1/3/5, MRR, nDCG@5, latencia, bootstrap | Recall@3: A 0.310, B 0.382, C 0.442; latencia ≈ 40 / 38 / 1 862 ms | Q01 (evidencia principal fuera del top-10), Q20, Q11, Q13, Q05 | 22 consultas; 4 chunks truncados; qrels binarios de un anotador; métrica por passage depende del orden en el chunk | Mejoras pequeñas y no distinguibles de azar salvo Recall@5 de C sobre B; C cuesta ~46× más; BM25 y densa son complementarias |
 
 **Limitaciones adicionales.** (1) Los qrels son binarios y pudieron omitir passages útiles (duplicados entre Wikipedia y la Fed); eso castiga a un recuperador que acierta con una passage no anotada. (2) Recall@1 está
 acotado por 0.49 (hay entre 1 y 5 relevantes por consulta). (3) Un solo encoder, un solo reranker, una sola segmentación. (4) La latencia mide una laptop con Docker, no producción. (5) El diagnóstico por chunks se añadió
