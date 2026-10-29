@@ -33,4 +33,4 @@ tests/test_tool_risk.py::test_transient_failure_exhausts_retries PASSED  [ 92%]
 tests/test_tool_risk.py::test_timeout_is_bounded_by_deadline PASSED      [ 96%]
 tests/test_tool_risk.py::test_output_contract_violation_is_detected PASSED [100%]
 
-============================== 28 passed in 2.40s ==============================
+============================== 28 passed in 2.51s ==============================
