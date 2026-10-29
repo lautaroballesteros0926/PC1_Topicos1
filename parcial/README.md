@@ -68,13 +68,13 @@ parcial/
 ├── notebook/Parcial_RAG_evaluable.ipynb     # cuaderno único, con salidas
 ├── src/  common.py (constantes fijas)  retrieval.py (chunks, e5+FAISS, BM25, RRF, Cross-Encoder)  metrics.py  analysis.py
 │        exp1.py  exp2.py  exp2_audit.py  exp2_deepseek.py  exp3.py  tool_risk.py  risk_rules.py  llm.py  rag.py
-│        build_corpus.py  build_benchmark.py  make_notebook.py
+│        build_corpus.py  build_benchmark.py  make_notebook.py  make_figures.py (figuras de las diapositivas)
 ├── data/    corpus_parcial.jsonl  queries_parcial.jsonl  qrels_parcial.json  reference_answers_parcial.jsonl
 │            queries_sin_evidencia.jsonl  schema_consulta.json  prices/ (CSV de la PC1)  pc1_casos_gold.csv  PROCEDENCIA.md  README.md
 ├── prompts/ rag_*.txt  closed_book_*.txt  structured_query_*.txt
 ├── tests/   test_retrieval.py  test_tool_risk.py                 # 28 pruebas
 ├── results/ exp1/  exp2/qwen/  exp2/deepseek_anexo/  exp3/  declared_config.json
-└── slides/Examen_Parcial_CC0F4.pdf
+└── slides/Examen_Parcial_CC0F4.pdf (portada + 12 láminas)  fig/ (figuras generadas desde results/)
 ```
 
 Archivos con **salidas originales** para comprobar los cálculos: `results/exp1/` (`per_query.csv`, `summary.csv`, `latency_by_stage.csv`, `bootstrap_pairwise_ci.csv`, `failure_types.csv`, `rankings.jsonl` con el top-10 de cada consulta y condición, `chunks.csv`, `run_manifest.json`), `results/exp2/qwen/` (`generations.jsonl` con el prompt exacto de cada respuesta, `generations_summary.csv`, `structured_queries.csv`, plantillas y auditoría), `results/exp3/` (`scenarios.jsonl`, `scenarios_summary.csv`, `pc1_reproduction.csv`, `pytest_output.txt`).
