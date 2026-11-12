@@ -1,0 +1,124 @@
+{
+ "task_id": "T14",
+ "policy": "W0_workflow",
+ "stop_reason": "ABSTAIN",
+ "stop_detail": "",
+ "answer": {
+  "decision": "abstain",
+  "ticker": null,
+  "as_of": null,
+  "severity": null,
+  "evidence_ids": [],
+  "memory_ids": [],
+  "rationale": "signal tool failed (date_out_of_range); no supported decision"
+ },
+ "steps": 3,
+ "tool_calls": 2,
+ "tool_errors": 1,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 1752.7,
+ "seen_passages": [
+  "D06-P03",
+  "D06-P04",
+  "D06-P05",
+  "D06-P06",
+  "D20-P01",
+  "D20-P02"
+ ],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": null,
+ "trace": [
+  {
+   "task_id": "T14",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Issue the market-risk alert for SPY on 2008-10-24, during the 2008 financial crisis, using the peak VIX reading of that crisis.",
+    "top_k": 3
+   },
+   "reason": "plan step 1: retrieve evidence for the question",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1723.8,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1723.8,
+   "observation": {
+    "passage_ids": [
+     "D06-P03",
+     "D06-P04",
+     "D06-P05",
+     "D06-P06",
+     "D20-P01",
+     "D20-P02"
+    ]
+   }
+  },
+  {
+   "task_id": "T14",
+   "step": 2,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2008-10-24"
+   },
+   "reason": "plan step 2: compute the requested signal",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 28.5,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 28.5,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "domain",
+    "code": "date_out_of_range",
+    "retryable": false,
+    "attempts": 1
+   }
+  },
+  {
+   "task_id": "T14",
+   "step": 3,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "abstain",
+    "evidence_ids": [],
+    "rationale": "signal tool failed (date_out_of_range); no supported decision"
+   },
+   "reason": "rule: tool error -> abstain",
+   "decision_status": "accepted",
+   "observation_status": "final",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "ABSTAIN"
+  }
+ ]
+}

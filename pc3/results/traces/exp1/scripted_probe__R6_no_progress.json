@@ -1,0 +1,122 @@
+{
+ "task_id": "R6_no_progress",
+ "policy": "scripted_probe",
+ "stop_reason": "NO_PROGRESS",
+ "stop_detail": "search_evidence",
+ "answer": null,
+ "steps": 3,
+ "tool_calls": 3,
+ "tool_errors": 0,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 6357.9,
+ "seen_passages": [
+  "D04-P01",
+  "D04-P02",
+  "D17-P09",
+  "D17-P10",
+  "D04-P05",
+  "D04-P06"
+ ],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": null,
+ "trace": [
+  {
+   "task_id": "R6_no_progress",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Silicon Valley Bank failure",
+    "top_k": 3
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1812.7,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1812.7,
+   "observation": {
+    "passage_ids": [
+     "D04-P01",
+     "D04-P02",
+     "D17-P09",
+     "D17-P10",
+     "D04-P05",
+     "D04-P06"
+    ]
+   }
+  },
+  {
+   "task_id": "R6_no_progress",
+   "step": 2,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Silicon Valley Bank failure",
+    "top_k": 2
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 2619.4,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 2619.4,
+   "observation": {
+    "passage_ids": [
+     "D04-P01",
+     "D04-P02",
+     "D17-P09",
+     "D17-P10"
+    ]
+   }
+  },
+  {
+   "task_id": "R6_no_progress",
+   "step": 3,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Silicon Valley Bank failure",
+    "top_k": 1
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1925.4,
+   "raw_output": null,
+   "stop_reason": "NO_PROGRESS",
+   "tool_latency_ms": 1925.4,
+   "observation": {
+    "passage_ids": [
+     "D04-P01",
+     "D04-P02"
+    ]
+   }
+  }
+ ]
+}

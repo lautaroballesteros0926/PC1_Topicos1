@@ -1,0 +1,76 @@
+{
+ "task_id": "R4_unsupported_finish",
+ "policy": "scripted_probe",
+ "stop_reason": "INVALID_OUTPUT",
+ "stop_detail": "finish_severity_not_supported",
+ "answer": null,
+ "steps": 2,
+ "tool_calls": 0,
+ "tool_errors": 0,
+ "invalid_outputs": 2,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 0.1,
+ "seen_passages": [],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": null,
+ "trace": [
+  {
+   "task_id": "R4_unsupported_finish",
+   "step": 1,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "alert",
+    "ticker": "SPY",
+    "as_of": "2020-03-16",
+    "severity": "high",
+    "evidence_ids": [
+     "D99-P99"
+    ]
+   },
+   "reason": "",
+   "decision_status": "rejected",
+   "observation_status": "rejected",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": null,
+   "error": "finish_unobserved_evidence"
+  },
+  {
+   "task_id": "R4_unsupported_finish",
+   "step": 2,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "alert",
+    "ticker": "SPY",
+    "as_of": "2020-03-16",
+    "severity": "high",
+    "evidence_ids": []
+   },
+   "reason": "",
+   "decision_status": "rejected",
+   "observation_status": "rejected",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "INVALID_OUTPUT",
+   "error": "finish_severity_not_supported"
+  }
+ ]
+}

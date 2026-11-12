@@ -1,0 +1,128 @@
+{
+ "task_id": "T10",
+ "policy": "W0_workflow",
+ "stop_reason": "ABSTAIN",
+ "stop_detail": "",
+ "answer": {
+  "decision": "abstain",
+  "ticker": null,
+  "as_of": null,
+  "severity": null,
+  "evidence_ids": [],
+  "memory_ids": [],
+  "rationale": "signal tool failed (source_unavailable_retries_exhausted); no supported decision"
+ },
+ "steps": 3,
+ "tool_calls": 2,
+ "tool_errors": 1,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 1907.5,
+ "seen_passages": [
+  "D02-P01",
+  "D02-P02",
+  "D04-P01",
+  "D04-P02",
+  "D02-P03",
+  "D02-P04"
+ ],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": {
+  "kind": "transient",
+  "fail_times": 50,
+  "note": "INYECTADO: la fuente falla en todos los intentos"
+ },
+ "trace": [
+  {
+   "task_id": "T10",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Should a market-risk alert be issued for SPY on 2022-06-13, during the 2022 market decline? Support it with evidence.",
+    "top_k": 3
+   },
+   "reason": "plan step 1: retrieve evidence for the question",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1754.8,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1754.8,
+   "observation": {
+    "passage_ids": [
+     "D02-P01",
+     "D02-P02",
+     "D04-P01",
+     "D04-P02",
+     "D02-P03",
+     "D02-P04"
+    ]
+   }
+  },
+  {
+   "task_id": "T10",
+   "step": 2,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2022-06-13"
+   },
+   "reason": "plan step 2: compute the requested signal",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 152.3,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 152.3,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "transient",
+    "code": "source_unavailable_retries_exhausted",
+    "retryable": true,
+    "attempts": 3
+   }
+  },
+  {
+   "task_id": "T10",
+   "step": 3,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "abstain",
+    "evidence_ids": [],
+    "rationale": "signal tool failed (source_unavailable_retries_exhausted); no supported decision"
+   },
+   "reason": "rule: tool error -> abstain",
+   "decision_status": "accepted",
+   "observation_status": "final",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "ABSTAIN"
+  }
+ ]
+}

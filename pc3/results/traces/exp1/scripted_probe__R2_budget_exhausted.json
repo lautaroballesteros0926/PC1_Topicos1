@@ -1,0 +1,202 @@
+{
+ "task_id": "R2_budget_exhausted",
+ "policy": "scripted_probe",
+ "stop_reason": "MAX_STEPS",
+ "stop_detail": "max_tool_calls",
+ "answer": null,
+ "steps": 6,
+ "tool_calls": 5,
+ "tool_errors": 0,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 8178.9,
+ "seen_passages": [
+  "D01-P08",
+  "D01-P09",
+  "D04-P05",
+  "D04-P06",
+  "D20-P02",
+  "D20-P03",
+  "D05-P01",
+  "D05-P02",
+  "D05-P03",
+  "D02-P01",
+  "D02-P02"
+ ],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": null,
+ "trace": [
+  {
+   "task_id": "R2_budget_exhausted",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "COVID-19 stock market crash March 2020",
+    "top_k": 1
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1532.7,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1532.7,
+   "observation": {
+    "passage_ids": [
+     "D01-P08",
+     "D01-P09"
+    ]
+   }
+  },
+  {
+   "task_id": "R2_budget_exhausted",
+   "step": 2,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Silicon Valley Bank deposits run",
+    "top_k": 1
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1667.6,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1667.6,
+   "observation": {
+    "passage_ids": [
+     "D04-P05",
+     "D04-P06"
+    ]
+   }
+  },
+  {
+   "task_id": "R2_budget_exhausted",
+   "step": 3,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "carry trade unwind August 2024 yen",
+    "top_k": 1
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1466.7,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1466.7,
+   "observation": {
+    "passage_ids": [
+     "D20-P02",
+     "D20-P03"
+    ]
+   }
+  },
+  {
+   "task_id": "R2_budget_exhausted",
+   "step": 4,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "April 2025 tariffs stock market crash",
+    "top_k": 1
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1714.8,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1714.8,
+   "observation": {
+    "passage_ids": [
+     "D05-P01",
+     "D05-P02",
+     "D05-P03"
+    ]
+   }
+  },
+  {
+   "task_id": "R2_budget_exhausted",
+   "step": 5,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "2022 bear market inflation",
+    "top_k": 1
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1796.6,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1796.6,
+   "observation": {
+    "passage_ids": [
+     "D02-P01",
+     "D02-P02"
+    ]
+   }
+  },
+  {
+   "task_id": "R2_budget_exhausted",
+   "step": 6,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "VIX volatility index calculation",
+    "top_k": 1
+   },
+   "reason": "",
+   "decision_status": "denied_budget",
+   "observation_status": null,
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "MAX_STEPS"
+  }
+ ]
+}

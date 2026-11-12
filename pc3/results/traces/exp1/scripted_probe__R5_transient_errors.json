@@ -1,0 +1,88 @@
+{
+ "task_id": "R5_transient_errors",
+ "policy": "scripted_probe",
+ "stop_reason": "TOOL_ERROR",
+ "stop_detail": "transient:source_unavailable_retries_exhausted",
+ "answer": null,
+ "steps": 2,
+ "tool_calls": 2,
+ "tool_errors": 2,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 304.4,
+ "seen_passages": [],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": {
+  "kind": "transient",
+  "fail_times": 50,
+  "note": "INYECTADO"
+ },
+ "trace": [
+  {
+   "task_id": "R5_transient_errors",
+   "step": 1,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2020-03-16"
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 151.9,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 151.9,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "transient",
+    "code": "source_unavailable_retries_exhausted",
+    "retryable": true,
+    "attempts": 3
+   }
+  },
+  {
+   "task_id": "R5_transient_errors",
+   "step": 2,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2020-03-13"
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 152.2,
+   "raw_output": null,
+   "stop_reason": "TOOL_ERROR",
+   "tool_latency_ms": 152.2,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "transient",
+    "code": "source_unavailable_retries_exhausted",
+    "retryable": true,
+    "attempts": 3
+   }
+  }
+ ]
+}

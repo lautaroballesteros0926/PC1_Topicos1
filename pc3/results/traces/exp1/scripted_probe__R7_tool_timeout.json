@@ -1,0 +1,88 @@
+{
+ "task_id": "R7_tool_timeout",
+ "policy": "scripted_probe",
+ "stop_reason": "TIMEOUT",
+ "stop_detail": "timeout:attempt_timeout_retries_exhausted",
+ "answer": null,
+ "steps": 2,
+ "tool_calls": 2,
+ "tool_errors": 2,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 3311.7,
+ "seen_passages": [],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": {
+  "kind": "slow",
+  "delay_s": 1.0,
+  "note": "INYECTADO: cada lectura tarda 1 s (> 0.5 s por intento)"
+ },
+ "trace": [
+  {
+   "task_id": "R7_tool_timeout",
+   "step": 1,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2020-03-16"
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1655.3,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1655.3,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "timeout",
+    "code": "attempt_timeout_retries_exhausted",
+    "retryable": true,
+    "attempts": 3
+   }
+  },
+  {
+   "task_id": "R7_tool_timeout",
+   "step": 2,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2020-03-13"
+   },
+   "reason": "",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1656.2,
+   "raw_output": null,
+   "stop_reason": "TIMEOUT",
+   "tool_latency_ms": 1656.2,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "timeout",
+    "code": "attempt_timeout_retries_exhausted",
+    "retryable": true,
+    "attempts": 3
+   }
+  }
+ ]
+}

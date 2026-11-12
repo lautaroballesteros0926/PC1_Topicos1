@@ -1,0 +1,125 @@
+{
+ "task_id": "T11",
+ "policy": "W0_workflow",
+ "stop_reason": "ABSTAIN",
+ "stop_detail": "",
+ "answer": {
+  "decision": "abstain",
+  "ticker": null,
+  "as_of": null,
+  "severity": null,
+  "evidence_ids": [],
+  "memory_ids": [],
+  "rationale": "signal tool failed (output_contract); no supported decision"
+ },
+ "steps": 3,
+ "tool_calls": 2,
+ "tool_errors": 1,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 1841.8,
+ "seen_passages": [
+  "D05-P01",
+  "D05-P02",
+  "D05-P03",
+  "D05-P04",
+  "D05-P05"
+ ],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": {
+  "kind": "corrupt",
+  "note": "INYECTADO: cierres negativos que violan el contrato de salida"
+ },
+ "trace": [
+  {
+   "task_id": "T11",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Should a market-risk alert be issued for SPY on 2025-04-08, after the April 2025 tariff announcements? Support it with evidence.",
+    "top_k": 3
+   },
+   "reason": "plan step 1: retrieve evidence for the question",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1817.9,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1817.9,
+   "observation": {
+    "passage_ids": [
+     "D05-P01",
+     "D05-P02",
+     "D05-P03",
+     "D05-P04",
+     "D05-P05"
+    ]
+   }
+  },
+  {
+   "task_id": "T11",
+   "step": 2,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2025-04-08"
+   },
+   "reason": "plan step 2: compute the requested signal",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 23.6,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 23.6,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "output_contract",
+    "code": "output_contract",
+    "retryable": false,
+    "attempts": 1
+   }
+  },
+  {
+   "task_id": "T11",
+   "step": 3,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "abstain",
+    "evidence_ids": [],
+    "rationale": "signal tool failed (output_contract); no supported decision"
+   },
+   "reason": "rule: tool error -> abstain",
+   "decision_status": "accepted",
+   "observation_status": "final",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "ABSTAIN"
+  }
+ ]
+}
