@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta charset="utf-8">
+<title>PC3 CC0F4 · Workflows, agentes y memoria</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  @page { size: 1281px 721px; margin: 0; }
+  :root {
+    --bg:#F1F3F6; --surface:#FFFFFF; --surface2:#E7EAF0;
+    --ink:#1B2027; --ink2:#4B5563; --ink3:#8A91A0;
+    --border:#D7DCE4; --border2:#BCC3CF;
+    --accent:#5646D6; --teal:#0E8074; --amber:#B0670C; --red:#A63527;
+    --low:#0E8074; --med:#B0670C; --high:#A63527;
+    --serif:'Fraunces', Cambria, Georgia, serif;
+    --sans:'IBM Plex Sans', Calibri, 'Segoe UI', Arial, sans-serif;
+    --mono:'IBM Plex Mono', Consolas, 'Courier New', monospace;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:#fff; }
+  body { font-family:var(--sans); color:var(--ink); font-variant-numeric:tabular-nums; }
+  .slide { width:1281px; height:721px; position:relative; overflow:hidden; background:var(--bg);
+           padding:44px 60px 0; page-break-after:always; break-after:page; }
+  .eyebrow { font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); }
+  h1 { font-family:var(--serif); font-style:italic; font-weight:600; font-size:42px; line-height:1.08; margin-top:8px; letter-spacing:-.2px; }
+  .lede { font-size:20px; line-height:1.45; color:var(--ink2); margin-top:10px; max-width:1050px; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px 26px; }
+  .tag { font-family:var(--mono); font-size:12.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); }
+  .mono { font-family:var(--mono); }
+  .foot { position:absolute; left:60px; right:60px; bottom:20px; display:flex; justify-content:space-between;
+          font-family:var(--mono); font-size:11.5px; color:var(--ink3); }
+  b { font-weight:600; color:var(--ink); }
+  .row { display:flex; gap:18px; }
+  .abs { position:absolute; }
+  .low{color:var(--low)} .med{color:var(--med)} .high{color:var(--high)} .acc{color:var(--accent)}
+  .chip { display:inline-block; font-family:var(--mono); font-size:13px; padding:2px 10px; border-radius:999px; border:1px solid var(--border2); color:var(--ink2); background:var(--surface); }
+  .chip.low{border-color:var(--low);color:var(--low)} .chip.med{border-color:var(--med);color:var(--med)} .chip.high{border-color:var(--high);color:var(--high)}
+  .chip.acc{border-color:var(--accent);color:var(--accent)}
+  .field { display:flex; flex-direction:column; gap:3px; min-width:0; }
+  .field .k { font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); }
+  .field .v { font-family:var(--mono); font-size:22px; font-weight:500; }
+  .field .d { font-size:12.5px; color:var(--ink2); }
+  table { width:100%; border-collapse:collapse; font-size:16.5px; }
+  th { text-align:left; font-family:var(--mono); font-size:12.5px; letter-spacing:.03em; text-transform:none; color:var(--ink3); font-weight:500; padding:9px 12px; border-bottom:1px solid var(--border); }
+  td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  td.n, th.n { text-align:right; font-family:var(--mono); }
+  td.m { font-family:var(--mono); }
+  .code { font-family:var(--mono); font-size:16px; line-height:1.55; color:var(--ink); }
+  .code .c { color:var(--ink3); }
+  .note { font-size:16.5px; color:var(--ink2); line-height:1.45; }
+  .eq { font-family:var(--serif); font-style:italic; font-size:22px; color:var(--ink); }
+  .eq sub { font-style:normal; font-family:var(--sans); font-size:.62em; }
+
+  .ei{color:var(--amber)} .ie{color:var(--teal)} .nn{color:var(--accent)}
+  .chip.ei{border-color:var(--amber);color:var(--amber)} .chip.ie{border-color:var(--teal);color:var(--teal)} .chip.nn{border-color:var(--accent);color:var(--accent)}
+  .seq { font-family:var(--mono); font-size:15.5px; letter-spacing:.04em; line-height:1.5; white-space:nowrap; }
+  .seq .cut { color:var(--red); font-weight:600; padding:0 3px; }
+  .seq .hl { background:#FDEBC8; border-radius:3px; padding:0 1px; font-weight:600; }
+  .bar { height:20px; border-radius:5px; background:var(--surface2); position:relative; }
+  .bar > i { position:absolute; left:0; top:0; bottom:0; border-radius:5px; display:block; }
+  .step { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px 18px; flex:1; min-width:0; }
+  .step .n { font-family:var(--mono); font-size:12px; color:var(--ink3); letter-spacing:.07em; }
+  .step .t { font-size:18px; font-weight:600; margin-top:4px; }
+  .step .s { font-size:13.5px; color:var(--ink2); margin-top:6px; line-height:1.4; }
+  .arrow { align-self:center; font-size:22px; color:var(--ink3); }
+  .mini { background:var(--surface2); border-radius:8px; padding:7px 10px; margin-top:10px; font-family:var(--mono); font-size:12px; color:var(--ink2); line-height:1.4; }
+  img.fig { display:block; width:100%; height:auto; }
+</style>
+</head>
+<body>
+<style>
+  .slide .note{font-size:21px; line-height:1.5}
+  .slide table td, .slide table th{padding-top:11px; padding-bottom:11px}
+  .slide .code{line-height:1.6}
+  .slide .step .s{font-size:18px} .slide .step .t{font-size:22px}
+</style>
+<section class="slide" style="padding-top:64px">
+  <div class="eyebrow">CC0F4 · Tópicos de Ciencia de la Computación I · Práctica calificada 3</div>
+  <h1 style="font-size:52px; margin-top:21px; line-height:1.06">Workflow, agente y memoria para alertas de riesgo de mercado</h1>
+  <p class="lede" style="font-size:23px; max-width:980px; margin-top:21px">¿Mejora la tarea si un LLM elige las herramientas y recuerda lo que hizo? Lo medimos con el mismo controlador, las mismas herramientas y los mismos límites.</p>
+  <div class="card" style="margin-top:40px; padding:22px 26px; display:grid; grid-template-columns:repeat(5,1fr); gap:18px 20px">
+    <div class="field"><span class="k">tareas</span><span class="v">15</span><span class="d">8 ordinarias · 4 fallo · 3 abstención</span></div>
+    <div class="field"><span class="k">W0 workflow</span><span class="v">12/15</span><span class="d">sin LLM, 1,8 s por tarea</span></div>
+    <div class="field"><span class="k">W1 agente Qwen</span><span class="v">1/15</span><span class="d">14 cortes por repetición</span></div>
+    <div class="field"><span class="k">memoria (agente)</span><span class="v">0</span><span class="d">recall en M0–M3</span></div>
+    <div class="field"><span class="k">memoria (sin LLM)</span><span class="v acc">1,00</span><span class="d">éxito de M3 con invalidación</span></div>
+  </div>
+  <div class="abs" style="left:60px; bottom:52px">
+    <div style="font-size:23px; font-weight:500">Pedro Lautaro Quispe Ballesteros</div>
+    <div class="mono" style="font-size:15px; color:var(--ink3); margin-top:5px">Semanas 9 y 10 · continuación de PC1, PC2 y examen parcial · 2026-2</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">01 · Problema y continuidad</div>
+  <h1>El parcial dejó las piezas; falta coordinarlas y recordar</h1>
+  <p class="lede">Una alerta necesita varias operaciones encadenadas y una terminación verificable.</p>
+  <div class="row" style="margin-top:34px; align-items:stretch; gap:10px">
+    <div class="step"><div class="n">PASO 1</div><div class="t">Buscar evidencia</div><div class="s">Recuperador C del parcial: e5 + BM25 + RRF + Cross-Encoder.</div><div class="mini">search_evidence</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">PASO 2</div><div class="t">Calcular señal</div><div class="s">Regla de la PC1 con contratos (parcial, Exp. 3).</div><div class="mini">compute_signal</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">PASO 3</div><div class="t">Contrastar</div><div class="s">¿La severidad justifica alerta y hay evidencia del evento?</div><div class="mini">regla o LLM</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">PASO 4</div><div class="t">Terminar</div><div class="s">alert · no_alert · abstain, con ids observados.</div><div class="mini">stop_reason</div></div>
+  </div>
+  <div class="card" style="margin-top:40px; padding:18px 24px">
+    <p class="note">Corpus, qrels, recuperador, herramienta y Qwen2.5-0.5B se <b>importan</b> desde <span class="mono">parcial/src</span> sin modificarlos. PC1 mostró que este modelo no aplica la regla; aquí preguntamos si al menos <b>coordina</b> las herramientas.</p>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>1 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">02 · Benchmark</div>
+  <h1>Respuestas esperadas fijadas antes de correr nada</h1>
+  <p class="lede">Severidad con la regla de la PC1; evidencia anotada leyendo los passages del corpus.</p>
+  <div class="row" style="margin-top:40px; align-items:stretch">
+    <div class="card" style="flex:1.2; padding:16px 22px"><table style="font-size:19px">
+      <tr><th>tipo</th><th>tareas</th><th>qué exige</th></tr>
+      <tr><td><b>ordinarias</b></td><td class="mono">T01–T08</td><td>buscar + calcular + contrastar; T07 compara SPY e IWM</td></tr>
+      <tr><td><b>fallo de herramienta</b></td><td class="mono">T09–T12</td><td>T09 fecha no hábil (real); T10–T12 inyectados</td></tr>
+      <tr><td><b>abstención</b></td><td class="mono">T13–T15</td><td>activo sin datos, fecha de 2008, afirmación falsa</td></tr>
+      <tr><td><b>memoria</b></td><td class="mono">S1–S3</td><td>9 interacciones, 7 sesiones: recordar, actualizar, interferir</td></tr>
+    </table></div>
+    <div class="card" style="flex:.8; display:grid; grid-template-columns:1fr 1fr; gap:30px 14px; align-content:start; padding:26px 28px">
+      <div class="field"><span class="k">éxito alert</span><span class="v" style="font-size:22px">campos + evidencia</span><span class="d">≥ 1 id en la evidencia aceptable</span></div>
+      <div class="field"><span class="k">éxito abstención</span><span class="v" style="font-size:22px">sin conclusión</span><span class="d">stop ABSTAIN o TOOL_ERROR</span></div>
+      <div class="field"><span class="k">desarrollo</span><span class="v">2</span><span class="d">tareas aparte para el prompt</span></div>
+      <div class="field"><span class="k">prompt</span><span class="v">v3</span><span class="d">congelado con hash</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>2 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">03 · Arquitectura comparada</div>
+  <h1>Misma máquina; solo cambia quién elige el siguiente paso</h1>
+  <div class="card" style="margin-top:40px; padding:16px 24px"><table style="font-size:20px">
+    <tr><th>decide…</th><th>W0 workflow</th><th>W1 agente Qwen</th><th>controlador (ambos)</th></tr>
+    <tr><td><b>siguiente acción</b></td><td>plan fijo</td><td>LLM: JSON con <span class="mono">reason</span></td><td>allowlist + contrato</td></tr>
+    <tr><td><b>cuándo parar</b></td><td>al acabar el plan</td><td>LLM (<span class="mono">finish</span>)</td><td>pasos, llamadas, tiempo, repetición</td></tr>
+    <tr><td><b>respuesta</b></td><td>regla ≥ medium → alert</td><td>LLM</td><td>acepta solo lo observado</td></tr>
+    <tr><td><b>ejecutar herramientas</b></td><td>—</td><td>—</td><td>siempre el controlador</td></tr>
+  </table></div>
+  <div class="row" style="margin-top:38px; gap:18px">
+    <div class="card" style="flex:1; padding:16px 22px"><p class="note"><b>ReAct acotado:</b> <span class="mono">reason</span> → acción → observación validada → nueva decisión.</p></div>
+    <div class="card" style="flex:1; padding:16px 22px"><p class="note"><b>Errores como datos:</b> el modelo ve <span class="mono">kind</span>, <span class="mono">code</span> y <span class="mono">retryable</span>, nunca el mensaje libre.</p></div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>3 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">04 · Controlador, herramientas y límites</div>
+  <h1>Los límites se declararon antes del primer experimento</h1>
+  <div class="row" style="margin-top:40px; align-items:stretch">
+    <div class="card" style="flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:28px 14px; padding:26px 28px">
+      <div class="field"><span class="k">max_steps</span><span class="v">6</span></div>
+      <div class="field"><span class="k">max_tool_calls</span><span class="v">5</span></div>
+      <div class="field"><span class="k">timeout por tool</span><span class="v">20 s</span><span class="d">+ 2 s internos de riesgo</span></div>
+      <div class="field"><span class="k">deadline total</span><span class="v">300 s</span></div>
+      <div class="field"><span class="k">max_input_tokens</span><span class="v">2048</span><span class="d">memoria ≤ 450</span></div>
+      <div class="field"><span class="k">max_output_tokens</span><span class="v">200</span><span class="d">= parcial</span></div>
+    </div>
+    <div class="card" style="flex:.8; padding:22px 26px">
+      <div class="k mono" style="font-size:14px; color:var(--ink3)">stop_reason verificables</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px"><span class="chip">SUCCESS</span><span class="chip">ABSTAIN</span><span class="chip">MAX_STEPS</span><span class="chip">TIMEOUT</span><span class="chip">TOOL_ERROR</span><span class="chip">INVALID_OUTPUT</span><span class="chip">NO_PROGRESS</span><span class="chip">REPEATED_ACTION</span></div>
+      <p class="note" style="margin-top:18px">Herramientas: <span class="mono">search_evidence</span>, <span class="mono">compute_signal</span> (del parcial) y <span class="mono">read_passage</span> (nueva).</p>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>4 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">05 · Experimento 1 · W0 frente a W1</div>
+  <h1>El workflow fijo gana en éxito, tiempo y tokens</h1>
+  <div class="card" style="margin-top:40px; padding:14px 22px"><table style="font-size:21px">
+    <tr><th>política</th><th class="n">task_success</th><th class="n">terminación correcta</th><th class="n">latencia media</th><th class="n">tokens / tarea</th><th class="n">acciones repetidas</th></tr>
+    <tr><td><b>W0 workflow</b></td><td class="n"><b>0,80</b> (12/15)</td><td class="n">0,93</td><td class="n">1,8 s</td><td class="n">0</td><td class="n">0</td></tr>
+    <tr><td><b>W1 agente Qwen</b></td><td class="n">0,07 (1/15)</td><td class="n">0,07</td><td class="n">38,3 s</td><td class="n">3 020</td><td class="n">14</td></tr>
+  </table></div>
+  <div class="row" style="margin-top:38px; gap:18px">
+    <div class="card" style="flex:1; padding:18px 22px"><p class="note">W1 llega a la <b>señal correcta en 8 de 11</b> tareas (W0: 10). Lo que no sabe es <b>decidir que ya terminó</b>.</p></div>
+    <div class="card" style="flex:1; padding:18px 22px"><p class="note">Ejecución local: no hay costo en dinero. El costo es <b>~21× más tiempo</b> y 45 295 tokens en total.</p></div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>5 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">06 · Experimento 1 · tarea por tarea</div>
+  <h1>Catorce de quince veces el agente repite la acción anterior</h1>
+  <div style="margin-top:40px"><div class="card" style="padding:14px 18px; "><img class="fig" src="fig/exp1_matriz.png" style="max-height:330px; width:auto; max-width:100%; display:block; margin:0 auto"></div></div>
+  <div class="row" style="margin-top:24px; gap:18px">
+    <div class="card" style="flex:1; padding:16px 22px"><p class="note"><b>W0 falla 3:</b> T04 y T08 citan passages no pertinentes; T09 no repara la fecha no hábil.</p></div>
+    <div class="card" style="flex:1; padding:16px 22px"><p class="note"><b>W1 nunca emite una alerta falsa:</b> en T10, T11, T13 y T14 no responde, aunque se corta por repetición.</p></div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>6 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">07 · Experimento 1 · trazas</div>
+  <h1>El agente mejoró un paso, pero no el resultado</h1>
+  <div class="row" style="margin-top:40px; align-items:stretch; gap:18px">
+    <div class="card" style="flex:1; padding:22px 24px">
+      <span class="tag acc">T04 · W1 mejora la búsqueda</span>
+      <div class="code" style="margin-top:14px; font-size:17px">W0 query = pregunta completa<br>→ D17-P03, D17-P04, D03-P04 (SVB) ✗<br><br>W1 query = "small caps IWM 2022 interest<br>rate increases market decline"<br>→ D02-P01…P04 (2022) ✓<br>→ compute IWM high ✓<br>→ read D02-P01 ×2 → REPEATED_ACTION</div>
+    </div>
+    <div class="card" style="flex:1; padding:22px 24px">
+      <span class="tag high">T09 · W1 no mejora y cuesta más</span>
+      <div class="code" style="margin-top:14px; font-size:17px">W0: compute_signal(SPY, 2020-03-15)<br>→ ERROR domain date_not_trading_day<br>→ abstain (seguro, pero falla)<br><br>W1: search "COVID-19 crash" ×2<br>→ REPEATED_ACTION · 25,7 s · 1 984 tokens</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:22px; padding:14px 22px"><p class="note">Ambas mejoras se logran con <b>routing</b> en el workflow: una rama para <span class="mono">date_not_trading_day</span> y una segunda búsqueda si la evidencia no menciona el evento.</p></div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>7 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">08 · Robustez y terminación</div>
+  <h1>Ningún error se convierte en una alerta aparentemente válida</h1>
+  <div class="row" style="margin-top:38px; align-items:stretch">
+    <div class="card" style="flex:1; padding:12px 20px"><table style="font-size:18px">
+      <tr><th>prueba guionizada (no LLM)</th><th>stop_reason</th><th class="n">ok</th></tr><tr><td class="mono">R1_repeated_action</td><td class="mono">REPEATED_ACTION</td><td class="n">✓</td></tr><tr><td class="mono">R2_budget_exhausted</td><td class="mono">MAX_STEPS</td><td class="n">✓</td></tr><tr><td class="mono">R3_invalid_output</td><td class="mono">INVALID_OUTPUT</td><td class="n">✓</td></tr><tr><td class="mono">R4_unsupported_finish</td><td class="mono">INVALID_OUTPUT</td><td class="n">✓</td></tr><tr><td class="mono">R5_transient_errors</td><td class="mono">TOOL_ERROR</td><td class="n">✓</td></tr><tr><td class="mono">R6_no_progress</td><td class="mono">NO_PROGRESS</td><td class="n">✓</td></tr><tr><td class="mono">R7_tool_timeout</td><td class="mono">TIMEOUT</td><td class="n">✓</td></tr>
+    </table></div>
+    <div class="card" style="flex:.85; padding:22px 24px">
+      <p class="note"><b>Dentro del benchmark:</b></p>
+      <p class="note" style="margin-top:10px">T12 · transitorio que se recupera: <span class="mono">attempts = 2</span>.</p>
+      <p class="note" style="margin-top:10px">T10 · fuente caída: W0 se abstiene.</p>
+      <p class="note" style="margin-top:10px">T11 · precios corruptos: <span class="mono">output_contract</span>, nunca llega a ser una señal.</p>
+      <p class="note" style="margin-top:16px"><b>7/7</b> pruebas y <b>20</b> pruebas unitarias pasan.</p>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>8 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">09 · Experimento 2 · diseño</div>
+  <h1>Cuatro memorias, mismo agente, mismo presupuesto de contexto</h1>
+  <div class="card" style="margin-top:38px; padding:14px 22px"><table style="font-size:19px">
+    <tr><th></th><th>qué guarda</th><th>cómo recupera</th><th>persiste</th><th>invalida</th></tr>
+    <tr><td><b>M0</b></td><td>nada (solo estado de la tarea)</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td><b>M1 working</b></td><td>resultados de la sesión</td><td>los 3 más recientes</td><td>no</td><td>—</td></tr>
+    <tr><td><b>M2 episódica</b></td><td>episodio: acciones, resultado, errores</td><td>relevancia + recencia + importancia</td><td>JSONL</td><td>no</td></tr>
+    <tr><td><b>M3 semántica</b></td><td>hecho con procedencia y versión</td><td>e5 + FAISS</td><td>JSONL</td><td><b>superseded</b></td></tr>
+  </table></div>
+  <div class="row" style="margin-top:22px; gap:18px">
+    <div class="card" style="flex:1; padding:16px 22px"><p class="note">Escribe el <b>controlador</b>, solo con campos validados: sin prompts ni texto libre del modelo.</p></div>
+    <div class="card" style="flex:1; padding:16px 22px"><p class="note">S2: la fecha avanza al <b>30-ago-2024</b> y la alerta <i>medium</i> del 5-ago queda <b>obsoleta</b>.</p></div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>9 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">10 · Experimento 2 · agente Qwen</div>
+  <h1>La memoria recupera bien, pero el modelo nunca la cita</h1>
+  <div class="row" style="margin-top:38px; align-items:stretch">
+    <div class="card" style="flex:1.1; padding:14px 22px"><table style="font-size:20px">
+      <tr><th></th><th class="n">task_success</th><th class="n">memory_recall</th><th class="n">recuerdo correcto mostrado</th><th class="n">tokens memoria</th></tr><tr><td><b>M0</b></td><td class="n">0,22</td><td class="n">0,00</td><td class="n">0/4</td><td class="n">0</td></tr><tr><td><b>M1</b></td><td class="n">0,11</td><td class="n">0,00</td><td class="n">1/4</td><td class="n">23</td></tr><tr><td><b>M2</b></td><td class="n">0,11</td><td class="n">0,00</td><td class="n">4/4</td><td class="n">205</td></tr><tr><td><b>M3</b></td><td class="n">0,11</td><td class="n">0,00</td><td class="n">2/4</td><td class="n">137</td></tr>
+    </table></div>
+    <div class="card" style="flex:.8; padding:22px 24px">
+      <p class="note">M0 «gana» por <b>un acierto por casualidad</b>: usó 2023-03-13, la fecha del <b>ejemplo del prompt</b>.</p>
+      <p class="note" style="margin-top:14px">En S3-3 repite esa fecha para una pregunta sobre el COVID y falla.</p>
+      <p class="note" style="margin-top:14px">Un acierto sin citar el recuerdo <b>no cuenta</b> como recall.</p>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>10 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">11 · Experimento 2 · trazas</div>
+  <h1>Ayuda a un paso, no mejora el resultado y a veces confunde</h1>
+  <div class="row" style="margin-top:40px; align-items:stretch; gap:16px">
+    <div class="card" style="flex:1; padding:20px 22px"><span class="tag low">ayuda · S2-3 · M2</span>
+      <p class="note" style="margin-top:14px">Primero el episodio vigente <span class="mono">E005</span> → calcula <b>2024-08-30 · low</b>. Sin memoria no tiene la fecha.</p>
+      <p class="note" style="margin-top:10px">Luego repite y no termina.</p></div>
+    <div class="card" style="flex:1; padding:20px 22px"><span class="tag med">no mejora · S1-2 · M1/M2</span>
+      <p class="note" style="margin-top:14px">Pone <span class="mono">E001</span> en <span class="mono">evidence_ids</span> en vez de <span class="mono">memory_ids</span>.</p>
+      <p class="note" style="margin-top:10px">Rechazado 2 veces → <span class="mono">INVALID_OUTPUT</span>.</p></div>
+    <div class="card" style="flex:1; padding:20px 22px"><span class="tag high">equivocada · S3-3 · M2</span>
+      <p class="note" style="margin-top:14px">«Alerta del COVID»: queda primero <span class="mono">E008</span> (aranceles, más reciente).</p>
+      <p class="note" style="margin-top:10px">Calcula <b>2025-04-08</b>: interferencia.</p></div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>11 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">12 · Experimento 2 · diagnóstico sin LLM</div>
+  <h1>Aislando la memoria, solo la semántica con invalidación no se equivoca</h1>
+  <div style="margin-top:22px"><div class="card" style="padding:14px 18px; "><img class="fig" src="fig/exp2_metricas_lector.png" style="max-height:360px; width:auto; max-width:100%; display:block; margin:0 auto"></div></div>
+  <div class="row" style="margin-top:18px; gap:16px">
+    <div class="card" style="flex:1; padding:14px 20px"><p class="note"><b>M2 en S2-3:</b> la alerta <i>medium</i> del 5-ago (2,40) queda por delante de la <i>low</i> del 30-ago (2,25) → <b>stale 0,50</b>.</p></div>
+    <div class="card" style="flex:1; padding:14px 20px"><p class="note">Lector determinista añadido <b>después</b> de ver a Qwen; no reemplaza al experimento oficial.</p></div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>12 / 13</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">13 · Conclusiones y decisión técnica</div>
+  <h1>Workflow con ramas y memoria semántica; el agente pequeño, no</h1>
+  <div class="row" style="margin-top:38px; align-items:stretch; gap:16px">
+    <div class="card" style="flex:1; padding:20px 22px">
+      <p class="note"><b>¿Basta un workflow?</b> Sí: 12/15 con 0 tokens.</p>
+      <p class="note" style="margin-top:10px"><b>¿Aporta el LLM?</b> Solo reformuló una búsqueda (T04).</p>
+      <p class="note" style="margin-top:10px"><b>¿Qué memoria?</b> Semántica con versión e invalidación.</p>
+      <p class="note" style="margin-top:10px"><b>¿Cuándo empeora?</b> Autonomía: ~21× tiempo. Episódica: recuerdos obsoletos.</p>
+    </div>
+    <div class="card" style="flex:1; padding:20px 22px">
+      <span class="tag">limitaciones</span>
+      <p class="note" style="margin-top:12px">Un modelo de 0.5B · 15 tareas y 9 interacciones · anotación propia · parar ante la primera repetición es estricto · diagnóstico posterior declarado.</p>
+      <p class="note" style="margin-top:12px">La seguridad la sostiene el <b>controlador</b>, no el modelo.</p>
+    </div>
+  </div>
+  <div class="foot"><span>CC0F4 · PC3 · Quispe Ballesteros</span><span>13 / 13</span></div>
+</section>
+</body>
+</html>
