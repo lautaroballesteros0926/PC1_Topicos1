@@ -1,0 +1,56 @@
+{
+ "declared_at_utc": "2026-11-12T17:12:35+00:00",
+ "limits": {
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "max_invalid_outputs": 2,
+  "max_tool_errors": 2,
+  "no_progress_patience": 2,
+  "timeout_per_tool_s": 20.0,
+  "total_deadline_s": 300.0,
+  "max_input_tokens": 2048,
+  "max_output_tokens": 200,
+  "max_passages_per_search": 6,
+  "excerpt_chars": 220,
+  "memory_items": 3,
+  "memory_token_budget": 450
+ },
+ "stop_reasons": {
+  "SUCCESS": "finish aceptado con decision alert/no_alert: ids de evidencia observados y severidad igual a una senal observada o a un recuerdo citado",
+  "ABSTAIN": "finish aceptado con decision abstain (el sistema declara que no puede sustentar una conclusion)",
+  "MAX_STEPS": "se alcanzo max_steps o max_tool_calls sin un finish aceptado",
+  "TIMEOUT": "se excedio total_deadline_s o una herramienta excedio su tiempo (timeout_per_tool_s o el deadline interno)",
+  "TOOL_ERROR": "max_tool_errors errores de herramienta consecutivos sin un finish",
+  "INVALID_OUTPUT": "max_invalid_outputs decisiones invalidas (JSON no parseable, accion fuera de la allowlist, argumentos o finish que no pasan el contrato)",
+  "NO_PROGRESS": "no_progress_patience acciones ejecutadas seguidas que no anaden passages, senales ni recuerdos nuevos",
+  "REPEATED_ACTION": "la politica propone exactamente una accion (nombre + argumentos) ya ejecutada en la tarea"
+ },
+ "retrieval": "C_hybrid_rrf_reranker",
+ "llm": {
+  "id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "decoding": {
+   "do_sample": false,
+   "max_new_tokens": 200,
+   "repetition_penalty": 1.05
+  }
+ },
+ "policies": {
+  "W0": "FixedPlanWorkflow (sin LLM)",
+  "W1": "QwenAgentPolicy"
+ },
+ "data_hashes": {
+  "pc3/data/tasks.jsonl": "bd23545d0e7a",
+  "pc3/data/expected_results.jsonl": "13937d02b57b",
+  "pc3/data/memory_scenarios.jsonl": "6aa20f74b6a1",
+  "pc3/data/dev_tasks.jsonl": "1ab73940b562",
+  "pc3/prompts/agent_system.txt": "630382ede1ed",
+  "pc3/prompts/agent_user.txt": "36c72224fc01",
+  "parcial/data/corpus_parcial.jsonl": "f60c86a5582f",
+  "parcial/data/qrels_parcial.json": "4c3e0b3a7370",
+  "parcial/data/prices/GLD.csv": "d8116b45eef2",
+  "parcial/data/prices/IWM.csv": "271a1440ec7a",
+  "parcial/data/prices/KO.csv": "6e560dec2a2e",
+  "parcial/data/prices/SPY.csv": "b8b6beaa9b11"
+ }
+}
