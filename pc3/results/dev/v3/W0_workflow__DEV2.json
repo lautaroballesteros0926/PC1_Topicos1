@@ -1,0 +1,147 @@
+{
+ "task_id": "DEV2",
+ "policy": "W0_workflow",
+ "stop_reason": "SUCCESS",
+ "stop_detail": "",
+ "answer": {
+  "decision": "alert",
+  "ticker": "KO",
+  "as_of": "2020-03-16",
+  "severity": "high",
+  "evidence_ids": [
+   "D05-P01",
+   "D05-P02",
+   "D05-P03"
+  ],
+  "memory_ids": [],
+  "rationale": "rule: KO 2020-03-16 severity high (score 6)"
+ },
+ "steps": 3,
+ "tool_calls": 2,
+ "tool_errors": 0,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 1505.2,
+ "seen_passages": [
+  "D05-P01",
+  "D05-P02",
+  "D05-P03",
+  "D06-P06",
+  "D06-P07",
+  "D06-P08"
+ ],
+ "signals": [
+  {
+   "ticker": "KO",
+   "as_of": "2020-03-16",
+   "severity": "high",
+   "score": 6,
+   "ret5_pct": -11.96,
+   "vol20_pct": 60.97,
+   "dd20_pct": -24.07
+  }
+ ],
+ "memory_shown": [],
+ "injected_fault": null,
+ "trace": [
+  {
+   "task_id": "DEV2",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "Should a market-risk alert be issued for KO on 2020-03-16, during the COVID-19 crash? Support it with evidence.",
+    "top_k": 3
+   },
+   "reason": "plan step 1: retrieve evidence for the question",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 1472.0,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 1472.0,
+   "observation": {
+    "passage_ids": [
+     "D05-P01",
+     "D05-P02",
+     "D05-P03",
+     "D06-P06",
+     "D06-P07",
+     "D06-P08"
+    ]
+   }
+  },
+  {
+   "task_id": "DEV2",
+   "step": 2,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "KO",
+    "as_of": "2020-03-16"
+   },
+   "reason": "plan step 2: compute the requested signal",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 32.9,
+   "raw_output": null,
+   "stop_reason": null,
+   "tool_latency_ms": 32.9,
+   "observation": {
+    "ticker": "KO",
+    "as_of": "2020-03-16",
+    "severity": "high",
+    "score": 6,
+    "ret5_pct": -11.96,
+    "vol20_pct": 60.97,
+    "dd20_pct": -24.07,
+    "attempts": 1
+   }
+  },
+  {
+   "task_id": "DEV2",
+   "step": 3,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "alert",
+    "ticker": "KO",
+    "as_of": "2020-03-16",
+    "severity": "high",
+    "evidence_ids": [
+     "D05-P01",
+     "D05-P02",
+     "D05-P03"
+    ],
+    "rationale": "rule: KO 2020-03-16 severity high (score 6)"
+   },
+   "reason": "rule: severity >= medium -> alert, low -> no_alert",
+   "decision_status": "accepted",
+   "observation_status": "final",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "SUCCESS"
+  }
+ ]
+}

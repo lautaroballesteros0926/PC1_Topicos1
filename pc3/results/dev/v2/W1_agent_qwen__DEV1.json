@@ -1,0 +1,129 @@
+{
+ "task_id": "DEV1",
+ "policy": "W1_agent_qwen",
+ "stop_reason": "TOOL_ERROR",
+ "stop_detail": "validation:input_contract",
+ "answer": null,
+ "steps": 3,
+ "tool_calls": 3,
+ "tool_errors": 2,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 1928,
+ "output_tokens": 169,
+ "max_context_tokens": 734,
+ "latency_ms": 39834.8,
+ "seen_passages": [],
+ "signals": [
+  {
+   "ticker": "SPY",
+   "as_of": "2022-07-29",
+   "severity": "low",
+   "score": 1,
+   "ret5_pct": 4.28,
+   "vol20_pct": 19.17,
+   "dd20_pct": 0.0
+  }
+ ],
+ "memory_shown": [],
+ "injected_fault": null,
+ "trace": [
+  {
+   "task_id": "DEV1",
+   "step": 1,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2022-07-29"
+   },
+   "reason": "The input is a valid date, so we can proceed with the signal computation.",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 540,
+    "output": 55
+   },
+   "context_tokens": 540,
+   "memory_tokens": 0,
+   "latency_ms": 14703.6,
+   "raw_output": "{\"action\": \"compute_signal\", \"arguments\": {\"ticker\": \"SPY\", \"as_of\": \"2022-07-29\"}, \"reason\": \"The input is a valid date, so we can proceed with the signal computation.\"}",
+   "stop_reason": null,
+   "tool_latency_ms": 24.4,
+   "observation": {
+    "ticker": "SPY",
+    "as_of": "2022-07-29",
+    "severity": "low",
+    "score": 1,
+    "ret5_pct": 4.28,
+    "vol20_pct": 19.17,
+    "dd20_pct": 0.0,
+    "attempts": 1
+   }
+  },
+  {
+   "task_id": "DEV1",
+   "step": 2,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2022-07-29",
+    "severity": "medium"
+   },
+   "reason": "The severity is medium, and a low score indicates a sell-off event.",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 654,
+    "output": 60
+   },
+   "context_tokens": 654,
+   "memory_tokens": 0,
+   "latency_ms": 13061.0,
+   "raw_output": "{\"action\": \"compute_signal\", \"arguments\": {\"ticker\": \"SPY\", \"as_of\": \"2022-07-29\", \"severity\": \"medium\"}, \"reason\": \"The severity is medium, and a low score indicates a sell-off event.\"}",
+   "stop_reason": null,
+   "tool_latency_ms": 0.6,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "validation",
+    "code": "input_contract",
+    "retryable": false,
+    "attempts": 0
+   }
+  },
+  {
+   "task_id": "DEV1",
+   "step": 3,
+   "selected_tool": "compute_signal",
+   "arguments": {
+    "ticker": "SPY",
+    "as_of": "2022-07-29",
+    "severity": "high"
+   },
+   "reason": "High severity indicates a significant market risk event.",
+   "decision_status": "accepted",
+   "observation_status": "error",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 734,
+    "output": 54
+   },
+   "context_tokens": 734,
+   "memory_tokens": 0,
+   "latency_ms": 12070.1,
+   "raw_output": "{\"action\": \"compute_signal\", \"arguments\": {\"ticker\": \"SPY\", \"as_of\": \"2022-07-29\", \"severity\": \"high\"}, \"reason\": \"High severity indicates a significant market risk event.\"}",
+   "stop_reason": "TOOL_ERROR",
+   "tool_latency_ms": 0.1,
+   "observation": {
+    "status": "error",
+    "tool": "compute_signal",
+    "kind": "validation",
+    "code": "input_contract",
+    "retryable": false,
+    "attempts": 0
+   }
+  }
+ ]
+}
