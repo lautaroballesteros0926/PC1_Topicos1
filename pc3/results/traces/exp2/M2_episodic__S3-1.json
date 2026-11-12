@@ -1,0 +1,128 @@
+{
+ "task_id": "S3-1",
+ "policy": "W1_agent_qwen__M2_episodic",
+ "stop_reason": "REPEATED_ACTION",
+ "stop_detail": "search_evidence",
+ "answer": null,
+ "steps": 2,
+ "tool_calls": 1,
+ "tool_errors": 0,
+ "invalid_outputs": 0,
+ "repeated_actions": 1,
+ "prompt_tokens": 2376,
+ "output_tokens": 100,
+ "max_context_tokens": 1406,
+ "latency_ms": 30341.1,
+ "seen_passages": [
+  "D01-P03",
+  "D01-P04",
+  "D11-P03",
+  "D11-P04",
+  "D01-P02"
+ ],
+ "signals": [],
+ "memory_shown": [
+  {
+   "memory_id": "E001",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "A",
+    "interaction_id": "S1-1",
+    "turn": 1,
+    "tool": "risk.compute_signal"
+   },
+   "score": 1.795
+  },
+  {
+   "memory_id": "E003",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "B",
+    "interaction_id": "S1-3",
+    "turn": 3,
+    "tool": "risk.compute_signal"
+   },
+   "score": 1.59
+  },
+  {
+   "memory_id": "E004",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "C",
+    "interaction_id": "S2-1",
+    "turn": 4,
+    "tool": null
+   },
+   "score": 1.536
+  }
+ ],
+ "injected_fault": null,
+ "condition": "M2_episodic",
+ "session": "F",
+ "sequence": "S3",
+ "trace": [
+  {
+   "task_id": "S3-1",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "2020-03-16",
+    "top_k": 3
+   },
+   "reason": "find evidence of the event",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 970,
+    "output": 44
+   },
+   "context_tokens": 970,
+   "memory_tokens": 264,
+   "latency_ms": 13613.6,
+   "raw_output": "{\"action\": \"search_evidence\", \"arguments\": {\"query\": \"2020-03-16\", \"top_k\": 3}, \"reason\": \"find evidence of the event\"}",
+   "stop_reason": null,
+   "tool_latency_ms": 1445.9,
+   "observation": {
+    "passage_ids": [
+     "D01-P03",
+     "D01-P04",
+     "D11-P03",
+     "D11-P04",
+     "D01-P02"
+    ]
+   }
+  },
+  {
+   "task_id": "S3-1",
+   "step": 2,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "2020-03-16",
+    "top_k": 3
+   },
+   "reason": "search evidence for the event on 2020-03-16",
+   "decision_status": "repeated",
+   "observation_status": null,
+   "state_updated": false,
+   "tokens": {
+    "prompt": 1406,
+    "output": 56
+   },
+   "context_tokens": 1406,
+   "memory_tokens": 264,
+   "latency_ms": 16727.3,
+   "raw_output": "{\"action\": \"search_evidence\", \"arguments\": {\"query\": \"2020-03-16\", \"top_k\": 3}, \"reason\": \"search evidence for the event on 2020-03-16\"}",
+   "stop_reason": "REPEATED_ACTION"
+  }
+ ],
+ "memory_written": [
+  "E007"
+ ]
+}

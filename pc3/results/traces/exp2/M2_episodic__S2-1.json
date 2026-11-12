@@ -1,0 +1,128 @@
+{
+ "task_id": "S2-1",
+ "policy": "W1_agent_qwen__M2_episodic",
+ "stop_reason": "REPEATED_ACTION",
+ "stop_detail": "search_evidence",
+ "answer": null,
+ "steps": 2,
+ "tool_calls": 1,
+ "tool_errors": 0,
+ "invalid_outputs": 0,
+ "repeated_actions": 1,
+ "prompt_tokens": 2352,
+ "output_tokens": 90,
+ "max_context_tokens": 1380,
+ "latency_ms": 28116.1,
+ "seen_passages": [
+  "D20-P05",
+  "D20-P01",
+  "D20-P02",
+  "D20-P08",
+  "D20-P09"
+ ],
+ "signals": [],
+ "memory_shown": [
+  {
+   "memory_id": "E001",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "A",
+    "interaction_id": "S1-1",
+    "turn": 1,
+    "tool": "risk.compute_signal"
+   },
+   "score": 2.0
+  },
+  {
+   "memory_id": "E003",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "B",
+    "interaction_id": "S1-3",
+    "turn": 3,
+    "tool": "risk.compute_signal"
+   },
+   "score": 2.0
+  },
+  {
+   "memory_id": "E002",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "A",
+    "interaction_id": "S1-2",
+    "turn": 2,
+    "tool": "risk.compute_signal"
+   },
+   "score": 1.474
+  }
+ ],
+ "injected_fault": null,
+ "condition": "M2_episodic",
+ "session": "C",
+ "sequence": "S2",
+ "trace": [
+  {
+   "task_id": "S2-1",
+   "step": 1,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "carry trade unwind",
+    "top_k": 3
+   },
+   "reason": "find evidence of the event",
+   "decision_status": "accepted",
+   "observation_status": "ok",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 972,
+    "output": 37
+   },
+   "context_tokens": 972,
+   "memory_tokens": 271,
+   "latency_ms": 12446.8,
+   "raw_output": "{\"action\": \"search_evidence\", \"arguments\": {\"query\": \"carry trade unwind\", \"top_k\": 3}, \"reason\": \"find evidence of the event\"}",
+   "stop_reason": null,
+   "tool_latency_ms": 1635.6,
+   "observation": {
+    "passage_ids": [
+     "D20-P05",
+     "D20-P01",
+     "D20-P02",
+     "D20-P08",
+     "D20-P09"
+    ]
+   }
+  },
+  {
+   "task_id": "S2-1",
+   "step": 2,
+   "selected_tool": "search_evidence",
+   "arguments": {
+    "query": "carry trade unwind",
+    "top_k": 3
+   },
+   "reason": "search evidence for the event of carry trade unwind on 2024-08-05",
+   "decision_status": "repeated",
+   "observation_status": null,
+   "state_updated": false,
+   "tokens": {
+    "prompt": 1380,
+    "output": 53
+   },
+   "context_tokens": 1380,
+   "memory_tokens": 271,
+   "latency_ms": 15669.1,
+   "raw_output": "{\"action\": \"search_evidence\", \"arguments\": {\"query\": \"carry trade unwind\", \"top_k\": 3}, \"reason\": \"search evidence for the event of carry trade unwind on 2024-08-05\"}",
+   "stop_reason": "REPEATED_ACTION"
+  }
+ ],
+ "memory_written": [
+  "E004"
+ ]
+}
