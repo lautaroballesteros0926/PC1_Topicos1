@@ -1,0 +1,115 @@
+{
+ "task_id": "S1-3",
+ "policy": "W0_memory_reader__M2_episodic",
+ "stop_reason": "INVALID_OUTPUT",
+ "stop_detail": "finish_alert_without_evidence",
+ "answer": null,
+ "steps": 2,
+ "tool_calls": 0,
+ "tool_errors": 0,
+ "invalid_outputs": 2,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 0.1,
+ "seen_passages": [],
+ "signals": [],
+ "memory_shown": [
+  {
+   "memory_id": "E002",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "A",
+    "interaction_id": "S1-2",
+    "turn": 2,
+    "tool": null
+   },
+   "score": 3.0
+  },
+  {
+   "memory_id": "E001",
+   "type": "episodic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "A",
+    "interaction_id": "S1-1",
+    "turn": 1,
+    "tool": "risk.compute_signal"
+   },
+   "score": 1.0
+  }
+ ],
+ "injected_fault": null,
+ "condition": "M2_episodic",
+ "session": "B",
+ "sequence": "S1",
+ "trace": [
+  {
+   "task_id": "S1-3",
+   "step": 1,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "alert",
+    "ticker": "SPY",
+    "as_of": "2023-03-13",
+    "severity": "medium",
+    "evidence_ids": [],
+    "memory_ids": [
+     "E002"
+    ],
+    "rationale": "rule: top-ranked matching memory"
+   },
+   "reason": "rule: answer from memory",
+   "decision_status": "rejected",
+   "observation_status": "rejected",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": null,
+   "error": "finish_alert_without_evidence"
+  },
+  {
+   "task_id": "S1-3",
+   "step": 2,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "alert",
+    "ticker": "SPY",
+    "as_of": "2023-03-13",
+    "severity": "medium",
+    "evidence_ids": [],
+    "memory_ids": [
+     "E002"
+    ],
+    "rationale": "rule: top-ranked matching memory"
+   },
+   "reason": "rule: answer from memory",
+   "decision_status": "rejected",
+   "observation_status": "rejected",
+   "state_updated": false,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "INVALID_OUTPUT",
+   "error": "finish_alert_without_evidence"
+  }
+ ],
+ "memory_written": [
+  "E003"
+ ]
+}

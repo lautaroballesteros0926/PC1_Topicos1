@@ -1,0 +1,85 @@
+{
+ "task_id": "S1-3",
+ "policy": "W0_memory_reader__M3_semantic",
+ "stop_reason": "SUCCESS",
+ "stop_detail": "",
+ "answer": {
+  "decision": "alert",
+  "ticker": "SPY",
+  "as_of": "2023-03-13",
+  "severity": "medium",
+  "evidence_ids": [],
+  "memory_ids": [
+   "F001"
+  ],
+  "rationale": "rule: top-ranked matching memory"
+ },
+ "steps": 1,
+ "tool_calls": 0,
+ "tool_errors": 0,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 0.1,
+ "seen_passages": [],
+ "signals": [],
+ "memory_shown": [
+  {
+   "memory_id": "F001",
+   "type": "semantic",
+   "status": "active",
+   "version": 1,
+   "provenance": {
+    "session": "A",
+    "interaction_id": "S1-1",
+    "turn": 1,
+    "tool": "risk.compute_signal",
+    "data_version": "prices:SPY.csv@b8b6beaa9b11",
+    "passage_ids": [
+     "D04-P01",
+     "D04-P02",
+     "D04-P05"
+    ]
+   },
+   "score": 0.893
+  }
+ ],
+ "injected_fault": null,
+ "condition": "M3_semantic",
+ "session": "B",
+ "sequence": "S1",
+ "trace": [
+  {
+   "task_id": "S1-3",
+   "step": 1,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "alert",
+    "ticker": "SPY",
+    "as_of": "2023-03-13",
+    "severity": "medium",
+    "evidence_ids": [],
+    "memory_ids": [
+     "F001"
+    ],
+    "rationale": "rule: top-ranked matching memory"
+   },
+   "reason": "rule: answer from memory",
+   "decision_status": "accepted",
+   "observation_status": "final",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "SUCCESS"
+  }
+ ],
+ "memory_written": []
+}

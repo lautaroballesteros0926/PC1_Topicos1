@@ -1,0 +1,59 @@
+{
+ "task_id": "S2-3",
+ "policy": "W0_memory_reader__M1_working",
+ "stop_reason": "ABSTAIN",
+ "stop_detail": "",
+ "answer": {
+  "decision": "abstain",
+  "ticker": null,
+  "as_of": null,
+  "severity": null,
+  "evidence_ids": [],
+  "memory_ids": [],
+  "rationale": "rule: no matching memory"
+ },
+ "steps": 1,
+ "tool_calls": 0,
+ "tool_errors": 0,
+ "invalid_outputs": 0,
+ "repeated_actions": 0,
+ "prompt_tokens": 0,
+ "output_tokens": 0,
+ "max_context_tokens": 0,
+ "latency_ms": 0.1,
+ "seen_passages": [],
+ "signals": [],
+ "memory_shown": [],
+ "injected_fault": null,
+ "condition": "M1_working",
+ "session": "E",
+ "sequence": "S2",
+ "trace": [
+  {
+   "task_id": "S2-3",
+   "step": 1,
+   "selected_tool": "finish",
+   "arguments": {
+    "decision": "abstain",
+    "evidence_ids": [],
+    "rationale": "rule: no matching memory"
+   },
+   "reason": "rule: answer from memory",
+   "decision_status": "accepted",
+   "observation_status": "final",
+   "state_updated": true,
+   "tokens": {
+    "prompt": 0,
+    "output": 0
+   },
+   "context_tokens": 0,
+   "memory_tokens": 0,
+   "latency_ms": 0.0,
+   "raw_output": null,
+   "stop_reason": "ABSTAIN"
+  }
+ ],
+ "memory_written": [
+  "W-S2-3"
+ ]
+}
