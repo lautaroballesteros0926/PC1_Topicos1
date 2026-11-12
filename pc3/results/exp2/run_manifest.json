@@ -1,0 +1,12 @@
+{
+ "finished_at_utc": "2026-11-12T22:47:52+00:00",
+ "declared_at_utc": "2026-11-12T17:12:35+00:00",
+ "conditions": [
+  "M0_none",
+  "M1_working",
+  "M2_episodic",
+  "M3_semantic"
+ ],
+ "interactions": 9,
+ "wall_time_s": 1395.2
+}
