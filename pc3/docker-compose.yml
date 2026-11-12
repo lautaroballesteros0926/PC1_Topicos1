@@ -1,0 +1,23 @@
+# Jupyter Lab para la PC3 CC0F4 (uso local: sin token, no exponer a la red).
+#   docker compose up          -> http://localhost:8891/lab
+#   docker compose down        -> detiene el contenedor (el volumen de modelos se conserva)
+# Se monta el repositorio completo porque la PC3 importa modulos de ../parcial/src (no los copia).
+# Puerto 8891 para convivir con PC1 (8888), PC2 (8889) y el parcial (8890).
+services:
+  pc3:
+    build: ../parcial          # misma imagen y dependencias que el examen parcial (ver ../parcial/Dockerfile)
+    image: cc0f4-parcial
+    ports:
+      - "8891:8888"
+    volumes:
+      - ../:/workspace/repo
+      - pc1_hf:/home/user/.cache/huggingface
+    working_dir: /workspace/repo/pc3
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+      --ServerApp.root_dir=/workspace/repo/pc3
+      --IdentityProvider.token=''
+
+volumes:
+  pc1_hf:
+    name: pc1_hf   # cache de modelos compartida con PC1, PC2 y el parcial (Qwen, e5-small y el Cross-Encoder)
