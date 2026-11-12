@@ -1,0 +1,11 @@
+TASK: {question}
+INPUT: {inputs}
+STEP: {step} of {max_steps}
+{memory_block}OBSERVATIONS:
+{observations}
+STATE (kept by the controller):
+- actions already executed (do not repeat): {done}
+- signals obtained: {signals}
+- passage ids seen: {seen}
+
+Reply with the JSON object of the next action.
