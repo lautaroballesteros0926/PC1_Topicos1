@@ -1,0 +1,11 @@
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# material personal de estudio y de la exposicion: no se sube
+guia_personal/
+
+# registros de consola de las corridas
+results/*_stdout.txt
+results/notebook_exec_log.txt
