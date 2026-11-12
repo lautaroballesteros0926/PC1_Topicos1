@@ -1,6 +1,7 @@
 # CC0F4 · PC3 — De sistemas RAG evaluables a workflows, agentes controlados y memoria verificable
 
 **Pedro Lautaro Quispe Ballesteros** · CC0F4 Tópicos de Ciencia de la Computación I (2026-2) · Semanas 9 y 10 (con reutilización de las semanas 4, 6 y 7) · modalidad individual.
+Commit evaluado: `71fc880` (`71fc88041868f680e24ba382adef857abc458904`, repositorio `lautaroballesteros0926/PC1_Topicos1`, rama `main`).
 
 Tema de investigación (el mismo de la PC1, la PC2 y el parcial): *Sistema multiagente con RAG híbrido para la detección temprana de riesgo de mercado con alertas sustentadas en evidencia*.
 Todo el análisis está en [`notebook/PC3_workflows_agentes_memoria.ipynb`](notebook/PC3_workflows_agentes_memoria.ipynb), que ya trae las salidas guardadas.
