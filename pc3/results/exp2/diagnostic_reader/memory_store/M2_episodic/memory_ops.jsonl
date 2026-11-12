@@ -1,0 +1,9 @@
+{"op": "write", "memory_id": "E001", "type": "episodic", "session": "A", "interaction_id": "S1-1"}
+{"op": "write", "memory_id": "E002", "type": "episodic", "session": "A", "interaction_id": "S1-2"}
+{"op": "write", "memory_id": "E003", "type": "episodic", "session": "B", "interaction_id": "S1-3"}
+{"op": "write", "memory_id": "E004", "type": "episodic", "session": "C", "interaction_id": "S2-1"}
+{"op": "write", "memory_id": "E005", "type": "episodic", "session": "D", "interaction_id": "S2-2"}
+{"op": "write", "memory_id": "E006", "type": "episodic", "session": "E", "interaction_id": "S2-3"}
+{"op": "write", "memory_id": "E007", "type": "episodic", "session": "F", "interaction_id": "S3-1"}
+{"op": "write", "memory_id": "E008", "type": "episodic", "session": "F", "interaction_id": "S3-2"}
+{"op": "write", "memory_id": "E009", "type": "episodic", "session": "G", "interaction_id": "S3-3"}

@@ -1,0 +1,6 @@
+{"op": "write", "memory_id": "F001", "type": "semantic", "session": "A", "interaction_id": "S1-1"}
+{"op": "write", "memory_id": "F002", "type": "semantic", "session": "C", "interaction_id": "S2-1"}
+{"op": "supersede", "memory_id": "F002", "by": "F003"}
+{"op": "write", "memory_id": "F003", "type": "semantic", "session": "D", "interaction_id": "S2-2"}
+{"op": "write", "memory_id": "F004", "type": "semantic", "session": "F", "interaction_id": "S3-1"}
+{"op": "write", "memory_id": "F005", "type": "semantic", "session": "F", "interaction_id": "S3-2"}

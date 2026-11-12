@@ -1,0 +1,5 @@
+condition,interactions,task_success,memory_recall_accuracy,n_needs_memory,gold_retrieved_at3,gold_retrieved_top1,cross_session_retention,n_cross_session,stale_memory_error_rate,n_stale_risk,wrong_memory_use_rate,n_cited_memory,context_tokens_mean,memory_tokens_mean,latency_ms_mean,steps_mean,tool_calls_mean
+M0_none,9,0.5555555555555556,0.0,4,0.0,0.0,0.0,3,0.0,2,,0,0.0,0.0,963.8222222222222,2.111111111111111,1.1111111111111112
+M1_working,9,0.6666666666666666,0.25,4,0.25,0.25,0.0,3,0.0,2,0.0,1,0.0,0.0,951.0,2.111111111111111,1.1111111111111112
+M2_episodic,9,0.7777777777777778,0.5,4,1.0,0.5,0.3333333333333333,3,0.5,2,0.3333333333333333,3,0.0,0.0,958.6555555555556,2.2222222222222223,1.1111111111111112
+M3_semantic,9,1.0,1.0,4,1.0,1.0,1.0,3,0.0,2,0.0,4,0.0,0.0,952.0111111111112,2.111111111111111,1.1111111111111112
