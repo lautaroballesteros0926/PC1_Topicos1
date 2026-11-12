@@ -1,0 +1,8 @@
+probe,expected_stop,stop_reason,stop_detail,ok,answer_emitted,steps,tool_calls,tool_errors,trace_steps,latency_ms
+R1_repeated_action,REPEATED_ACTION,REPEATED_ACTION,search_evidence,True,False,2,1,0,2,1721.3
+R2_budget_exhausted,MAX_STEPS,MAX_STEPS,max_tool_calls,True,False,6,5,0,6,8178.9
+R3_invalid_output,INVALID_OUTPUT,INVALID_OUTPUT,unparseable_output,True,False,2,0,0,2,0.1
+R4_unsupported_finish,INVALID_OUTPUT,INVALID_OUTPUT,finish_severity_not_supported,True,False,2,0,0,2,0.1
+R5_transient_errors,TOOL_ERROR,TOOL_ERROR,transient:source_unavailable_retries_exhausted,True,False,2,2,2,2,304.4
+R6_no_progress,NO_PROGRESS,NO_PROGRESS,search_evidence,True,False,3,3,0,3,6357.9
+R7_tool_timeout,TIMEOUT,TIMEOUT,timeout:attempt_timeout_retries_exhausted,True,False,2,2,2,2,3311.7

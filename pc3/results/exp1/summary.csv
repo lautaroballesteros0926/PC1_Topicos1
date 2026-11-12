@@ -1,0 +1,3 @@
+policy,tasks,task_success,termination_correct,steps_mean,tool_calls_mean,tool_errors_total,invalid_outputs_total,repeated_actions_total,latency_ms_mean,latency_ms_median,prompt_tokens_total,output_tokens_total,tokens_mean_per_task,max_context_tokens
+W0_workflow,15,0.8,0.9333333333333333,3.066666666666667,2.066666666666667,5,0,0,1811.28,1765.9,0,0,0.0,0
+W1_agent_qwen,15,0.06666666666666667,0.06666666666666667,2.8666666666666667,1.8666666666666667,4,0,14,38274.78,36722.5,43218,2077,3019.6666666666665,1545
