@@ -1,0 +1,35 @@
+# Examen parcial CC0F4 - entorno minimo: recuperacion (e5 + FAISS + BM25 + Cross-Encoder),
+# RAG con Qwen local, herramienta con contratos y anexo DeepSeek.
+# Mismos rangos que el requirements.txt global del curso donde coinciden.
+# PyTorch se instala aparte (ver Dockerfile).
+
+# Notebook
+jupyterlab>=4.4,<5
+ipykernel>=6.29,<7
+nbformat>=5.10,<6
+nbconvert>=7.16,<8
+
+# Datos y metricas
+numpy>=2.0,<3
+pandas>=2.3,<3
+scikit-learn>=1.7,<2
+matplotlib>=3.9,<4
+
+# LLM local y validacion
+transformers>=5.15,<6
+accelerate>=1.0,<2
+jsonschema>=4.25,<5
+
+# Recuperacion: densa, lexica y reranking
+sentence-transformers>=5.7,<6
+faiss-cpu>=1.15,<2
+rank-bm25>=0.2.2,<1
+
+# Herramienta con contratos (Semana 6)
+pydantic>=2.11,<3
+tenacity>=9,<10
+pytest>=8,<9
+
+# Anexo DeepSeek (API compatible con OpenAI)
+httpx>=0.27,<1
+python-dotenv>=1.0,<2
